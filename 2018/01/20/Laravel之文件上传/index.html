@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Laravel,文件上传,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.前言为了使前端界面比较好看同时也为了异步传输文件，通常会使用一款jQuery插件，博主比较了最近几款比较热门的文件上传插件，最终选择了Web Uploader。 WebUploader是由Baidu WebFE(FEX)团队开发的一个简单的以HTML5为主，FLASH为辅的现代文件上传组件。官方网站传送门">
+<meta name="keywords" content="Laravel,文件上传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel之文件上传">
+<meta property="og:url" content="https://liuwynn.github.io/2018/01/20/Laravel之文件上传/index.html">
+<meta property="og:site_name" content="Zerone">
+<meta property="og:description" content="1.前言为了使前端界面比较好看同时也为了异步传输文件，通常会使用一款jQuery插件，博主比较了最近几款比较热门的文件上传插件，最终选择了Web Uploader。 WebUploader是由Baidu WebFE(FEX)团队开发的一个简单的以HTML5为主，FLASH为辅的现代文件上传组件。官方网站传送门">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-22T16:24:14.338Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Laravel之文件上传">
+<meta name="twitter:description" content="1.前言为了使前端界面比较好看同时也为了异步传输文件，通常会使用一款jQuery插件，博主比较了最近几款比较热门的文件上传插件，最终选择了Web Uploader。 WebUploader是由Baidu WebFE(FEX)团队开发的一个简单的以HTML5为主，FLASH为辅的现代文件上传组件。官方网站传送门">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuwynn.github.io/2018/01/20/Laravel之文件上传/">
+
+
+
+
+
+  <title>Laravel之文件上传 | Zerone</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2c0f7ab76f839fb1872880534a1ea328";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zerone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">零与壹的世界</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/01/20/Laravel之文件上传/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Laravel之文件上传</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T00:50:32+08:00">
+                2018-01-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-01-23T00:24:14+08:00">
+                2018-01-23
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/20/Laravel之文件上传/" class="leancloud_visitors" data-flag-title="Laravel之文件上传">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h3><p>为了使前端界面比较好看同时也为了异步传输文件，通常会使用一款<strong>jQuery</strong>插件，博主比较了最近几款比较热门的文件上传插件，最终选择了<strong>Web Uploader</strong>。</p>
+<p><strong>WebUploader</strong>是由Baidu WebFE(FEX)团队开发的一个简单的以HTML5为主，FLASH为辅的现代文件上传组件。<a href="http://fex.baidu.com/webuploader/" target="_blank" rel="noopener">官方网站传送门</a></p>
+<hr>
+<a id="more"></a>
+<h3 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2.准备工作"></a>2.准备工作</h3><p><strong>HTML</strong>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"uploader-demo"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"filePicker"</span>&gt;</span>选择图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>自己封装的<strong>webuploader</strong>的函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startWebUploader</span>(<span class="params">serverUrl, elementID, options, fileSize</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化Web Uploader</span></span><br><span class="line">    <span class="keyword">var</span> fileUploader = WebUploader.create(&#123;</span><br><span class="line">        <span class="comment">// 选完文件后，是否自动上传。</span></span><br><span class="line">        auto: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// swf文件路径</span></span><br><span class="line">        swf: <span class="string">"&#123;&#123; URL::asset('assets/home/webuploader/Uploader.swf') &#125;&#125;"</span>,</span><br><span class="line">        <span class="comment">// 文件接收服务端。</span></span><br><span class="line">        server: serverUrl,</span><br><span class="line">        <span class="comment">// 内部根据当前运行是创建，可能是input元素，也可能是flash.</span></span><br><span class="line">        pick: &#123;</span><br><span class="line">            <span class="string">'id'</span>: elementID,</span><br><span class="line">            <span class="string">'multiple '</span>: <span class="literal">false</span>,    <span class="comment">//是否可多个文件上传</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！</span></span><br><span class="line">        resize: <span class="literal">false</span>,</span><br><span class="line">        duplicate :<span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 文件上传方式</span></span><br><span class="line">        method: <span class="string">'POST'</span>,</span><br><span class="line">        <span class="comment">// 向后台传递的数据</span></span><br><span class="line">        formData: &#123;</span><br><span class="line">            <span class="string">'_token'</span> : <span class="string">"&#123;&#123;csrf_token()&#125;&#125;"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        accept: options,</span><br><span class="line">        <span class="comment">// 文件数量限制</span></span><br><span class="line">        <span class="comment">//fileNumLimit: 1,</span></span><br><span class="line">        <span class="comment">// 文件大小限制 40M</span></span><br><span class="line">        fileSizeLimit: fileSize * <span class="number">1024</span> * <span class="number">1024</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当有文件被添加进队列的时候</span></span><br><span class="line">    fileUploader.on( <span class="string">'fileQueued'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> file </span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> $list = $(<span class="string">"#fileProgress"</span>);</span><br><span class="line">        $list.html( <span class="string">'&lt;div id="file_id" class="item"&gt;'</span> +</span><br><span class="line">            <span class="string">'&lt;h4 class="info"&gt;'</span> + file.name + <span class="string">'&lt;/h4&gt;'</span> +</span><br><span class="line">            <span class="string">'&lt;p class="state"&gt;等待上传...&lt;/p&gt;'</span> +</span><br><span class="line">            <span class="string">'&lt;/div&gt;'</span> );</span><br><span class="line">      </span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 文件上传过程中创建进度条实时显示。</span></span><br><span class="line">    fileUploader.on( <span class="string">'uploadProgress'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> file, percentage </span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> $li = $( <span class="string">'#file_id'</span> ),</span><br><span class="line">            $percent = $li.find(<span class="string">'.progress .progress-bar'</span>);</span><br><span class="line">        <span class="comment">// 避免重复创建</span></span><br><span class="line">        <span class="keyword">if</span> ( !$percent.length ) &#123;</span><br><span class="line">            $percent = $(<span class="string">'&lt;div class="progress progress-striped active"&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;div class="progress-bar" role="progressbar" style="width: 0%"&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;/div&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;/div&gt;'</span>).appendTo( $li ).find(<span class="string">'.progress-bar'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        $li.find(<span class="string">'p.state'</span>).text(<span class="string">'上传中'</span>);</span><br><span class="line">        $percent.css( <span class="string">'width'</span>, percentage * <span class="number">100</span> + <span class="string">'%'</span> );</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 文件上传成功</span></span><br><span class="line">    fileUploader.on( <span class="string">'uploadSuccess'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> file, data</span>) </span>&#123;</span><br><span class="line">        $( <span class="string">'#file_id'</span> ).find(<span class="string">'p.state'</span>).text(<span class="string">'已上传'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    fileUploader.on( <span class="string">'uploadError'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> file, reason </span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(reason == <span class="string">'Q_EXCEED_SIZE_LIMIT'</span>)</span><br><span class="line">            $( <span class="string">'#file_id'</span> ).find(<span class="string">'p.state'</span>).text(<span class="string">'上传文件大小超过限制！'</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(reason == <span class="string">'Q_TYPE_DENIED '</span>)</span><br><span class="line">            $( <span class="string">'#file_id'</span> ).find(<span class="string">'p.state'</span>).text(<span class="string">'上传文件后缀不合法！'</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            $( <span class="string">'#file_id'</span> ).find(<span class="string">'p.state'</span>).text(<span class="string">'上传错误！'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    fileUploader.on( <span class="string">'uploadComplete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> file </span>) </span>&#123;</span><br><span class="line">        $( <span class="string">'#file_id'</span> ).find(<span class="string">'.progress'</span>).fadeOut();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数参数说明：</p>
+<ul>
+<li><p><strong>serverUrl</strong> : 服务器处理URL</p>
+</li>
+<li><p><strong>elementID</strong> : 要渲染的元素id，在这个例子里，<strong>elementID</strong>就是<strong>filePicker</strong></p>
+</li>
+<li><p><strong>options</strong> : 是对接收文件的限制，接收的参数格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imgOptions = &#123;  <span class="comment">// 只允许选择图片文件</span></span><br><span class="line">  title: <span class="string">'Images'</span>,</span><br><span class="line">  extensions: <span class="string">'png,jpg,jpeg,bmp'</span>,</span><br><span class="line">  mimeTypes: <span class="string">'image/*'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>fileSize</strong> : 上传文件大小限制，单位为 <strong>MB</strong>，这里直接填写数字即可，比如1即表示文件大小限制为1<strong>MB</strong>  </p>
+</li>
+</ul>
+<p><strong>Web Uploader</strong>功能很多很多，如果您要实现的功能比较复杂，建议您查看<a href="http://fex.baidu.com/webuploader/doc/index.html" target="_blank" rel="noopener">官网文档</a>。WebUploader只包含文件上传的底层实现，不包括UI部分。所以交互方面要自己写，可以看到这个封装函数我写得很长。</p>
+<h3 id="2-Laravel怎么处理文件"><a href="#2-Laravel怎么处理文件" class="headerlink" title="2.Laravel怎么处理文件"></a>2.Laravel怎么处理文件</h3><ul>
+<li>通过 <code>Artisan</code> 命令来创建一个文件控制器，命令如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan make:controller FileController</span><br></pre></td></tr></table></figure>
+<p>回车之后你就可以看到在<code>App/Http/Controllers</code>目录下多了个<code>FileController.php</code>文件</p>
+<ul>
+<li>配置路由，在<strong>routes.php</strong>文件下添加路由如下：</li>
+</ul>
+<p><code>Route::post(&#39;uploadImg&#39;, &#39;FileController@uploadImg&#39;);</code></p>
+<ul>
+<li>在<code>FileController.php</code>文件中添加方法<code>uploadImg()</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public function uploadImg(Request $request) &#123;</span><br><span class="line">    $file = $request-&gt;file(&apos;file&apos;);</span><br><span class="line">    // 图片上传是否成功</span><br><span class="line">    if ($file-&gt;isValid()) &#123;</span><br><span class="line">        // 扩展名</span><br><span class="line">        $ext = $file-&gt;getClientOriginalExtension();</span><br><span class="line">        // 生成唯一的文件名</span><br><span class="line">        $filename = date(&apos;YmdHis&apos;) . &apos;-&apos; . uniqid() . &apos;.&apos; . $ext;</span><br><span class="line">		// 将文件存储到 public/images </span><br><span class="line">        $file-&gt;move(public_path(&apos;images/&apos;), $filename);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果你打算将文件存储到 <code>storage/images</code> ，还有一种写法:</li>
+</ul>
+<p>注意：如果不是存储在<code>storage</code>中不能用这种方法！！</p>
+<p>​         1.先要配置 <code>config/filesystems.php</code>，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在storage新建一个images文件夹</span></span><br><span class="line"><span class="string">'images'</span> =&gt; [</span><br><span class="line">  <span class="string">'driver'</span> =&gt; <span class="string">'local'</span>,</span><br><span class="line">  <span class="string">'root'</span> =&gt; storage_path(<span class="string">'images'</span>),</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<p>  2. <code>FileController.php</code>文件中的<code>uploadImg()</code>方法可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public function uploadimg(Request $request)</span><br><span class="line">   &#123;</span><br><span class="line">       $file = $request-&gt;file(&apos;file&apos;);</span><br><span class="line">       // 图片是否上传成功</span><br><span class="line">       if ($file-&gt;isValid()) &#123;</span><br><span class="line">           // 扩展名</span><br><span class="line">           $ext = $file-&gt;getClientOriginalExtension();</span><br><span class="line">           // 生成唯一的文件名</span><br><span class="line">           $filename = date(&apos;YmdHis&apos;) . &apos;-&apos; . uniqid() . &apos;.&apos; . $ext;</span><br><span class="line">           // 临时文件的绝对路径</span><br><span class="line">           $realPath = $file-&gt;getRealPath();</span><br><span class="line">           // 使用我们新建的storage/images本地存储空间（目录）</span><br><span class="line">           Storage::disk(&apos;images&apos;)-&gt;put($filename, file_get_contents($realPath));</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>至此，文件上传就搞定啦，赶快试试吧！o(<em>￣▽￣</em>)ブ</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/reward/wechat_subscriber.jpg" alt="Wynn wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎您扫一扫上面的微信公众号！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>打赏链接还是要有的，万一真的有人打赏呢。</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/reward/wechat_reward_qrcode.png" alt="Wynn WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/reward/alipay_qrcode.jpg" alt="Wynn Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Wynn
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://liuwynn.github.io/2018/01/20/Laravel之文件上传/" title="Laravel之文件上传">https://liuwynn.github.io/2018/01/20/Laravel之文件上传/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Laravel/" rel="tag"># Laravel</a>
+          
+            <a href="/tags/文件上传/" rel="tag"># 文件上传</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/20/Laravel设置timezone时区/" rel="next" title="Laravel设置timezone时区">
+                <i class="fa fa-chevron-left"></i> Laravel设置timezone时区
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/20/Nginx配置Laravel5环境/" rel="prev" title="Nginx配置Laravel5环境">
+                Nginx配置Laravel5环境 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar/avatar1.jpg" alt="Wynn">
+            
+              <p class="site-author-name" itemprop="name">Wynn</p>
+              <p class="site-description motion-element" itemprop="description">我的指间有改变世界的力量~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liuwynn" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2601659975@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053170513872/home?from=page_100505&mod=TAB#place" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/man-bu-yun-duan-65/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.isign.top" title="博悦" target="_blank">博悦</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前言"><span class="nav-text">1.前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-准备工作"><span class="nav-text">2.准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Laravel怎么处理文件"><span class="nav-text">2.Laravel怎么处理文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wynn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Jn6I9DQIh69Mqx7SsTBBsAlC-gzGzoHsz", "sYdTo7iCqJ5jpnGkzPoQAXUY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
