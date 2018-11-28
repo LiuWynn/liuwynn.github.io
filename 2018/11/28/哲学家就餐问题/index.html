@@ -123,19 +123,19 @@
 
 
 
-<meta name="description" content="前言哲学家就餐问题是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。 哲学家就餐问">
+<meta name="description" content="前言哲学家就餐问题是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。  哲学家就餐">
 <meta name="keywords" content="操作系统,P、V操作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="哲学家就餐问题">
 <meta property="og:url" content="https://liuwynn.github.io/2018/11/28/哲学家就餐问题/index.html">
 <meta property="og:site_name" content="Zerone">
-<meta property="og:description" content="前言哲学家就餐问题是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。 哲学家就餐问">
+<meta property="og:description" content="前言哲学家就餐问题是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。  哲学家就餐">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://liuwynn.github.io\images\20181125\哲学家就餐问题.jpg">
-<meta property="og:updated_time" content="2018-11-28T06:54:02.205Z">
+<meta property="og:updated_time" content="2018-11-28T06:57:41.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="哲学家就餐问题">
-<meta name="twitter:description" content="前言哲学家就餐问题是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。 哲学家就餐问">
+<meta name="twitter:description" content="前言哲学家就餐问题是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。  哲学家就餐">
 <meta name="twitter:image" content="https://liuwynn.github.io\images\20181125\哲学家就餐问题.jpg">
 
 
@@ -354,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-28T14:54:02+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-28T14:57:41+08:00">
                 2018-11-28
               </time>
             
@@ -431,7 +431,8 @@
 
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>哲学家就餐问题</strong>是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。</p>
-<h4 id="哲学家就餐问题"><a href="#哲学家就餐问题" class="headerlink" title="哲学家就餐问题"></a>哲学家就餐问题</h4><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p>​    有五个哲学家围坐在一圆桌旁，桌中央有一盘通心面，每人面前有一只空盘子，每两人之间放一把叉子。每个哲学家思考、饥饿、然后吃通心面。为了吃面，每个哲学家必须获得两把叉子，且每人只能直接从自己左边或右边去取叉子</p>
+<hr>
+<h3 id="哲学家就餐问题"><a href="#哲学家就餐问题" class="headerlink" title="哲学家就餐问题"></a>哲学家就餐问题</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p>​    有五个哲学家围坐在一圆桌旁，桌中央有一盘通心面，每人面前有一只空盘子，每两人之间放一把叉子。每个哲学家思考、饥饿、然后吃通心面。为了吃面，每个哲学家必须获得两把叉子，且每人只能直接从自己左边或右边去取叉子</p>
 <p><strong>图示：</strong> <img src="https://liuwynn.github.io\images\20181125\哲学家就餐问题.jpg" alt="哲学家就餐问题图示"></p>
 <a id="more"></a>
 <h4 id="2-问题说明"><a href="#2-问题说明" class="headerlink" title="2. 问题说明"></a>2. 问题说明</h4><ul>
@@ -557,6 +558,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/11/28/生产者-消费者问题/" rel="prev" title="生产者-消费者问题">
+                生产者-消费者问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -634,7 +639,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -722,7 +727,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#哲学家就餐问题"><span class="nav-text">哲学家就餐问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题描述"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-问题说明"><span class="nav-text">2. 问题说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-P、V操作-解法1"><span class="nav-text">3. P、V操作-解法1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-P、V操作-解法2"><span class="nav-text">4. P、V操作-解法2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-P、V操作-解法3"><span class="nav-text">5. P、V操作-解法3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-P、V操作-解法4"><span class="nav-text">6. P、V操作-解法4</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哲学家就餐问题"><span class="nav-text">哲学家就餐问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题描述"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-问题说明"><span class="nav-text">2. 问题说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-P、V操作-解法1"><span class="nav-text">3. P、V操作-解法1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-P、V操作-解法2"><span class="nav-text">4. P、V操作-解法2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-P、V操作-解法3"><span class="nav-text">5. P、V操作-解法3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-P、V操作-解法4"><span class="nav-text">6. P、V操作-解法4</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -756,7 +761,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7.8k</span>
+    <span title="Site words total count">8.5k</span>
   
 </div>
 
