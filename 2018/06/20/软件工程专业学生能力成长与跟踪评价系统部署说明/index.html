@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Laravel,PHP,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言本项目是以Apache作为服务器，基于PHP最流行最优雅的框架Laravel进行开发的，GitHub项目地址：点我点我！ 所需工具：  WampServer3.0及以上 Navicat  注：部署的话，有上面两个工具就足够了，如果要基于本项目再次开发的话，还要安装以下工具：  JDK1.8（PhpStorm运行时依赖JDK） PhpStorm2017.3.4">
+<meta name="keywords" content="Laravel,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程专业学生能力成长与跟踪评价系统部署说明">
+<meta property="og:url" content="https://liuwynn.github.io/2018/06/20/软件工程专业学生能力成长与跟踪评价系统部署说明/index.html">
+<meta property="og:site_name" content="Zerone">
+<meta property="og:description" content="前言本项目是以Apache作为服务器，基于PHP最流行最优雅的框架Laravel进行开发的，GitHub项目地址：点我点我！ 所需工具：  WampServer3.0及以上 Navicat  注：部署的话，有上面两个工具就足够了，如果要基于本项目再次开发的话，还要安装以下工具：  JDK1.8（PhpStorm运行时依赖JDK） PhpStorm2017.3.4">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\wampserver_download.PNG">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\wamp_setup1.PNG">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\wamp_success.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\wamp_fail.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\navicat_start.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\navicat_conn_test_success.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\navicat_create_database.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\navicat_create_database2.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\navicat_run_sql.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\navicat_run_sql2.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\navicat_run_sql3.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\web_login.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\web_login_error.png">
+<meta property="og:image" content="https:\\liuwynn.github.io\images\20180620\mysql_config.png">
+<meta property="og:updated_time" content="2018-06-20T17:34:23.856Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件工程专业学生能力成长与跟踪评价系统部署说明">
+<meta name="twitter:description" content="前言本项目是以Apache作为服务器，基于PHP最流行最优雅的框架Laravel进行开发的，GitHub项目地址：点我点我！ 所需工具：  WampServer3.0及以上 Navicat  注：部署的话，有上面两个工具就足够了，如果要基于本项目再次开发的话，还要安装以下工具：  JDK1.8（PhpStorm运行时依赖JDK） PhpStorm2017.3.4">
+<meta name="twitter:image" content="https:\\liuwynn.github.io\images\20180620\wampserver_download.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuwynn.github.io/2018/06/20/软件工程专业学生能力成长与跟踪评价系统部署说明/">
+
+
+
+
+
+  <title>软件工程专业学生能力成长与跟踪评价系统部署说明 | Zerone</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2c0f7ab76f839fb1872880534a1ea328";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zerone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">零与壹的世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/06/20/软件工程专业学生能力成长与跟踪评价系统部署说明/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">软件工程专业学生能力成长与跟踪评价系统部署说明</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T23:09:52+08:00">
+                2018-06-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-21T01:34:23+08:00">
+                2018-06-21
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/06/20/软件工程专业学生能力成长与跟踪评价系统部署说明/" class="leancloud_visitors" data-flag-title="软件工程专业学生能力成长与跟踪评价系统部署说明">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本项目是以Apache作为服务器，基于PHP最流行最优雅的框架Laravel进行开发的，GitHub项目地址：<a href="https://github.com/LiuWynn/TrackAssessment" target="_blank" rel="noopener">点我点我！</a></p>
+<p><strong>所需工具：</strong></p>
+<ul>
+<li>WampServer3.0及以上</li>
+<li>Navicat</li>
+</ul>
+<p><strong>注：</strong>部署的话，有上面两个工具就足够了，如果要基于本项目再次开发的话，还要安装以下工具：</p>
+<ul>
+<li>JDK1.8（PhpStorm运行时依赖JDK）</li>
+<li>PhpStorm2017.3.4</li>
+</ul>
+<hr>
+<a id="more"></a>
+<h3 id="一-WampServer的安装"><a href="#一-WampServer的安装" class="headerlink" title="一.WampServer的安装"></a>一.WampServer的安装</h3><p>WampServer是一款由法国人开发的Apache Web服务器、PHP解释器以及MySQL数据库的整合软件包。免去了开发人员将时间花费在繁琐的配置环境过程，从而腾出更多精力去做开发。</p>
+<p>WAMP就是Windows、Apache、MySQL、PHP的缩写。</p>
+<h4 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h4><p>WampServer官网打开速度较慢，请耐心稍等片片刻，奉上<a href="http://www.wampserver.com/en/download-wampserver-64bits/" target="_blank" rel="noopener">传送门</a>，打开之后如图1-1所示。</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\wampserver_download.PNG" alt="WampServer官网"></p>
+<center>图1-1</center>
+
+<p>根据自己电脑的实际选择32位或64位的版本下载即可。</p>
+<h4 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h4><p>安装就比较简单了，和平常的windows软件一样，一路下一步，可以自己选择安装位置等等，然后安装，安装过程如图1-2所示。</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\wamp_setup1.PNG" alt="WampServer安装"></p>
+<center>图1-2</center>
+
+<p>安装好以后打开WampServer，如果在电脑右下角图标显示绿色，则说明软件正常启动，如图1-3所示。</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\wamp_success.png" alt="WampServer成功运行"></p>
+<center>图1-3</center>
+
+<p>红色矩形框圈起来的就是WampServer成功运行之后的样子，如果你运行之后是这样的，那么恭喜你！</p>
+<p>可能还有同学因为电脑环境问题，运行之后是橙色的，如图1-4所示。</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\wamp_fail.png" alt="WampServer运行失败"></p>
+<center>图1-4</center>
+
+<p>如果你运行之后是这个样子，不要慌，出现这种情况可能有多种原因，比较普遍就是防火墙和WampServer服务没有安装成功，可自行百度解决此类问题。</p>
+<p>到此WampServer环境安装完成了。</p>
+<h3 id="二-Navicat的安装和配置"><a href="#二-Navicat的安装和配置" class="headerlink" title="二.Navicat的安装和配置"></a>二.Navicat的安装和配置</h3><p>Navicat是一套可视化的MySQL数据库管理软件。</p>
+<h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h4><p>大家如果经济富裕可以去Navicat官网去下载，<a href="http://www.navicat.com.cn/download/navicat-for-mysql" target="_blank" rel="noopener">传送门</a></p>
+<p>这里也提供了一个破解的Navicat下载，<a href="https://pan.baidu.com/s/1qVSFZGk3XN0sf_14Af-lZQ" target="_blank" rel="noopener">百度网盘</a> 密码: 785i</p>
+<p>下载解压之后，会有两个文件，先安装<strong>navicat_x64_trial.exe</strong>，安装成功先不要打开，接着运行<strong>PatchNavicat.exe</strong>，寻找并选中navicat安装之后的exe文件，稍等一会，会有弹框提示破解成功。</p>
+<h4 id="2-导入项目数据库"><a href="#2-导入项目数据库" class="headerlink" title="2.导入项目数据库"></a>2.导入项目数据库</h4><h5 id="1）新建MySQL连接"><a href="#1）新建MySQL连接" class="headerlink" title="1）新建MySQL连接"></a>1）新建MySQL连接</h5><p><strong>注：连接MySQL前请确保WampServer正常运行</strong></p>
+<p>打开Navicat，界面如图2-1所示。</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\navicat_start.png" alt="Navicat开始界面"></p>
+<center>图2-1</center>
+
+<p>点击<strong>连接</strong>，选择<strong>MySQL</strong>，输入连接名、用户名和密码等，然后点击<strong>连接测试</strong>，测试连接MySQL是否成功，如果成功了，则如图2-2所示。</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\navicat_conn_test_success.png" alt="Navicat测试连接成功"></p>
+<center>图2-2</center>
+
+<h5 id="2）新建数据库"><a href="#2）新建数据库" class="headerlink" title="2）新建数据库"></a>2）新建数据库</h5><p>在运行.sql文件前需要新建数据库。</p>
+<p>新建数据库如图2-3，图2-4所示.</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\navicat_create_database.png" alt="Navicat新建数据库01"></p>
+<center>图2-3</center>
+
+<p><img src="https:\\liuwynn.github.io\images\20180620\navicat_create_database2.png" alt="Navicat新建数据库02"></p>
+<center>图2-4</center>
+
+<p>点击确定，则<strong>trackassessment</strong>数据库新建成功。</p>
+<h5 id="3）运行SQL文件"><a href="#3）运行SQL文件" class="headerlink" title="3）运行SQL文件"></a>3）运行SQL文件</h5><p><strong>注：sql在项目根目录下，名称为trackassessment.sql</strong></p>
+<p>运行SQL文件如图2-5，图2-6所示。</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\navicat_run_sql.png" alt="Navicat运行sql01"></p>
+<center>图2-5</center>
+
+<p><img src="https:\\liuwynn.github.io\images\20180620\navicat_run_sql2.png" alt="Navicat运行sql02"></p>
+<center>图2-6</center>
+
+<p>选择sql文件路径，点击<strong>开始</strong>，稍等片刻。</p>
+<p>SQL运行成功后，左侧导航栏如图2-7所示。</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\navicat_run_sql3.png" alt="Navicat运行sql03"></p>
+<center>图2-7</center>
+
+<p>至此，数据库部分准备完毕！</p>
+<h3 id="三-运行项目"><a href="#三-运行项目" class="headerlink" title="三.运行项目"></a>三.运行项目</h3><h4 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1.环境准备"></a>1.环境准备</h4><p>在运行项目之前，请先确保WampServer正常运行和MySQL已成功导入sql文件。</p>
+<h4 id="2-项目部署"><a href="#2-项目部署" class="headerlink" title="2.项目部署"></a>2.项目部署</h4><p>将项目文件放到wamp的<strong>www</strong>目录下，比如我的WampServer的安装位置是<strong>D:\Softwares\wamp64</strong>，所以我的项目就放在<strong>D:\Softwares\wamp64\www</strong>目录下。www目录在wampserver的根目录下。</p>
+<h4 id="3-访问项目"><a href="#3-访问项目" class="headerlink" title="3.访问项目"></a>3.访问项目</h4><p>WampServer正常运行，打开浏览器（推荐Chrome），在地址栏输入<code>http://localhost/TrackAssessment/public</code>，进行登录页面，如图3-1所示。</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\web_login.png" alt="系统登录页"></p>
+<center>图3-1</center>
+
+<p><strong>系统预设管理员工号：10000，密码：111111</strong></p>
+<p>如果登录时出现错误，如图3-2所示。</p>
+<p><img src="https:\\liuwynn.github.io\images\20180620\web_login_error.png" alt="系统登录失败"></p>
+<p>一般这种问题是由MySQL的用户名和密码与Laravel数据库配置文件中的用户名和密码不一致造成的，所以需要修改Laravel的数据库配置文件。</p>
+<h5 id="1）-env文件"><a href="#1）-env文件" class="headerlink" title="1）.env文件"></a>1）.env文件</h5><p>在项目根目录下找到<strong>.env</strong>文件</p>
+<h5 id="2）修改配置文件"><a href="#2）修改配置文件" class="headerlink" title="2）修改配置文件"></a>2）修改配置文件</h5><p><img src="https:\\liuwynn.github.io\images\20180620\mysql_config.png" alt="数据库配置文件"></p>
+<p>将<code>DB_USERNAME</code>和<code>DB_PASSWORD</code>修改成MySQL的用户名和密码。</p>
+<p>至此，我们已经可以成功的运行项目了！</p>
+<h3 id="四-扩展"><a href="#四-扩展" class="headerlink" title="四.扩展"></a>四.扩展</h3><p>如果您想要在现有的项目上进行修改，可以安装PhpStorm，<a href="https://jingyan.baidu.com/article/380abd0a372e441d91192c74.html" target="_blank" rel="noopener">查看安装教程</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/reward/wechat_subscriber.jpg" alt="Wynn wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎您扫一扫上面的微信公众号！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>打赏链接还是要有的，万一真的有人打赏呢。</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/reward/wechat_reward_qrcode.png" alt="Wynn 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/reward/alipay_qrcode.jpg" alt="Wynn 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wynn
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://liuwynn.github.io/2018/06/20/软件工程专业学生能力成长与跟踪评价系统部署说明/" title="软件工程专业学生能力成长与跟踪评价系统部署说明">https://liuwynn.github.io/2018/06/20/软件工程专业学生能力成长与跟踪评价系统部署说明/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Laravel/" rel="tag"># Laravel</a>
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/14/MIUI更换本地字体教程/" rel="next" title="MIUI更换本地字体教程">
+                <i class="fa fa-chevron-left"></i> MIUI更换本地字体教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/25/数据结构相关问题/" rel="prev" title="数据结构相关问题">
+                数据结构相关问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar/avatar1.jpg" alt="Wynn">
+            
+              <p class="site-author-name" itemprop="name">Wynn</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liuwynn" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2601659975@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053170513872/home?from=page_100505&mod=TAB#place" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/man-bu-yun-duan-65/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.isign.top" title="博悦" target="_blank">博悦</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一-WampServer的安装"><span class="nav-text">一.WampServer的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载"><span class="nav-text">1.下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-安装"><span class="nav-text">2.安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-Navicat的安装和配置"><span class="nav-text">二.Navicat的安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装"><span class="nav-text">1.安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-导入项目数据库"><span class="nav-text">2.导入项目数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1）新建MySQL连接"><span class="nav-text">1）新建MySQL连接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）新建数据库"><span class="nav-text">2）新建数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3）运行SQL文件"><span class="nav-text">3）运行SQL文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-运行项目"><span class="nav-text">三.运行项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-环境准备"><span class="nav-text">1.环境准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-项目部署"><span class="nav-text">2.项目部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-访问项目"><span class="nav-text">3.访问项目</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1）-env文件"><span class="nav-text">1）.env文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）修改配置文件"><span class="nav-text">2）修改配置文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-扩展"><span class="nav-text">四.扩展</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wynn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">8.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Jn6I9DQIh69Mqx7SsTBBsAlC-gzGzoHsz", "sYdTo7iCqJ5jpnGkzPoQAXUY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
