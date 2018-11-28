@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Laravel,Nginx,">
+  <meta name="keywords" content="操作系统,P、V操作,">
 
 
 
@@ -123,21 +123,18 @@
 
 
 
-<meta name="description" content="0.前言之前一直用的Apache作服务器，个人喜欢尝试新的东西，这次服务器搭建环境就选择了LNMP，但初次使用Nginx坑真的很多，现在特将这些坑罗列出来并附带相应的解决方法。 提前申明：笔者的Nginx的配置文件路径为/etc/nginx/conf.d/default.conf，但由于安装的方式不同配置文件的位置和名称也会有所不同。如果你在此路径下没有找到配置文件，建议百度或谷歌。">
-<meta name="keywords" content="Laravel,Nginx">
+<meta name="description" content="前言​    读者-写者问题是操作系统中P、V操作部分经典的同步问题 读者、写者问题1. 问题描述​    读者与写者问题(reader-writer problem) (Courtois, 1971)也是一个经典的并发程序设计问题。有两组并发进程：读者和写者，共享一个文件F，要求：  允许多个读者可同时对文件执行读操作 只允许一个写者往文件中写信息 任一写者在完成写操作之前不允许其他读者或写者工">
+<meta name="keywords" content="操作系统,P、V操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx配置Laravel5环境">
-<meta property="og:url" content="https://liuwynn.github.io/2018/01/20/Nginx配置Laravel5环境/index.html">
+<meta property="og:title" content="读者-写者问题">
+<meta property="og:url" content="https://liuwynn.github.io/2018/11/28/读者-写者问题/index.html">
 <meta property="og:site_name" content="Zerone">
-<meta property="og:description" content="0.前言之前一直用的Apache作服务器，个人喜欢尝试新的东西，这次服务器搭建环境就选择了LNMP，但初次使用Nginx坑真的很多，现在特将这些坑罗列出来并附带相应的解决方法。 提前申明：笔者的Nginx的配置文件路径为/etc/nginx/conf.d/default.conf，但由于安装的方式不同配置文件的位置和名称也会有所不同。如果你在此路径下没有找到配置文件，建议百度或谷歌。">
+<meta property="og:description" content="前言​    读者-写者问题是操作系统中P、V操作部分经典的同步问题 读者、写者问题1. 问题描述​    读者与写者问题(reader-writer problem) (Courtois, 1971)也是一个经典的并发程序设计问题。有两组并发进程：读者和写者，共享一个文件F，要求：  允许多个读者可同时对文件执行读操作 只允许一个写者往文件中写信息 任一写者在完成写操作之前不允许其他读者或写者工">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://i.imgur.com/fq81z27.png">
-<meta property="og:image" content="http://i.imgur.com/Lt52UEF.png">
-<meta property="og:updated_time" content="2018-01-22T16:30:50.310Z">
+<meta property="og:updated_time" content="2018-11-28T07:25:51.070Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nginx配置Laravel5环境">
-<meta name="twitter:description" content="0.前言之前一直用的Apache作服务器，个人喜欢尝试新的东西，这次服务器搭建环境就选择了LNMP，但初次使用Nginx坑真的很多，现在特将这些坑罗列出来并附带相应的解决方法。 提前申明：笔者的Nginx的配置文件路径为/etc/nginx/conf.d/default.conf，但由于安装的方式不同配置文件的位置和名称也会有所不同。如果你在此路径下没有找到配置文件，建议百度或谷歌。">
-<meta name="twitter:image" content="http://i.imgur.com/fq81z27.png">
+<meta name="twitter:title" content="读者-写者问题">
+<meta name="twitter:description" content="前言​    读者-写者问题是操作系统中P、V操作部分经典的同步问题 读者、写者问题1. 问题描述​    读者与写者问题(reader-writer problem) (Courtois, 1971)也是一个经典的并发程序设计问题。有两组并发进程：读者和写者，共享一个文件F，要求：  允许多个读者可同时对文件执行读操作 只允许一个写者往文件中写信息 任一写者在完成写操作之前不允许其他读者或写者工">
 
 
 
@@ -167,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://liuwynn.github.io/2018/01/20/Nginx配置Laravel5环境/">
+  <link rel="canonical" href="https://liuwynn.github.io/2018/11/28/读者-写者问题/">
 
 
 
 
 
-  <title>Nginx配置Laravel5环境 | Zerone</title>
+  <title>读者-写者问题 | Zerone</title>
   
 
 
@@ -310,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/01/20/Nginx配置Laravel5环境/">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/11/28/读者-写者问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wynn">
@@ -327,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Nginx配置Laravel5环境</h2>
+          <h2 class="post-title" itemprop="name headline">读者-写者问题</h2>
         
 
         <div class="post-meta">
@@ -339,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T00:51:34+08:00">
-                2018-01-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T15:25:51+08:00">
+                2018-11-28
               </time>
             
 
@@ -355,8 +352,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-23T00:30:50+08:00">
-                2018-01-23
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-28T15:25:51+08:00">
+                2018-11-28
               </time>
             
           </span>
@@ -369,7 +366,7 @@
 
           
           
-             <span id="/2018/01/20/Nginx配置Laravel5环境/" class="leancloud_visitors" data-flag-title="Nginx配置Laravel5环境">
+             <span id="/2018/11/28/读者-写者问题/" class="leancloud_visitors" data-flag-title="读者-写者问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -394,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  721
+                  632
                 </span>
               
 
@@ -431,31 +428,19 @@
       
 
       
-        <h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>之前一直用的Apache作服务器，个人喜欢尝试新的东西，这次服务器搭建环境就选择了<strong>LNMP</strong>，但初次使用<strong>Nginx</strong>坑真的很多，现在特将这些坑罗列出来并附带相应的解决方法。</p>
-<p>提前申明：笔者的<strong>Nginx</strong>的配置文件路径为<code>/etc/nginx/conf.d/default.conf</code>，但由于安装的方式不同配置文件的位置和名称也会有所不同。如果你在此路径下没有找到配置文件，建议百度或谷歌。</p>
-<hr>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>​    <strong>读者-写者问题</strong>是操作系统中P、V操作部分经典的同步问题</p>
+<h3 id="读者、写者问题"><a href="#读者、写者问题" class="headerlink" title="读者、写者问题"></a>读者、写者问题</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p>​    读者与写者问题(reader-writer problem) (Courtois, 1971)也是一个经典的并发程序设计问题。有两组并发进程：读者和写者，共享一个文件F，要求：</p>
+<ol>
+<li>允许多个读者可同时对文件执行读操作</li>
+<li>只允许一个写者往文件中写信息</li>
+<li>任一写者在完成写操作之前不允许其他读者或写者工作</li>
+<li>写者执行写操作前，应让已有的写者和读者全部退出</li>
+</ol>
 <a id="more"></a>
-<h3 id="1-Nginx配置文件之root参数的配置"><a href="#1-Nginx配置文件之root参数的配置" class="headerlink" title="1.Nginx配置文件之root参数的配置"></a>1.Nginx配置文件之root参数的配置</h3><p>本人喜欢将root目录设置为项目目录上一层，只要在浏览器上访问的时候加上不同的项目名称，就可以在同一个服务器下测试很多项目了。</p>
-<p>比如我的项目叫blog，blog所在的目录层次如下：<code>/myprojects/www/blog</code>，那么我一般会将root参数设置为<code>/myprojects/www</code>，这样浏览器url只要填<code>域名+blog</code>就可以访问了。</p>
-<p>但我想的太天真了，如果只配置到<code>/myprojects/www</code>,那么在浏览器上访问时就会出现这个错误</p>
-<p><img src="http://i.imgur.com/fq81z27.png" alt="图1"></p>
-<p>这个问题我还没有很完美的解决方案，所以只能将root设置为<code>/myprojects/www/blog/public</code></p>
-<h3 id="2-Nginx配置文件中关于php的配置"><a href="#2-Nginx配置文件中关于php的配置" class="headerlink" title="2.Nginx配置文件中关于php的配置"></a>2.Nginx配置文件中关于php的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">    fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">    fastcgi_index  index.php;</span><br><span class="line">    fastcgi_param  SCRIPT_FILENAME  	                       	 $document_root$fastcgi_script_name;</span><br><span class="line">    fastcgi_split_path_info ^(.+\.php)(/.+)$;</span><br><span class="line">    fastcgi_intercept_errors on;</span><br><span class="line">	# include        fastcgi_params;</span><br><span class="line">    include /etc/nginx/fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一般来说，将上面的代码粘贴过去就可以用，但这里要特别注意以下<strong>include</strong>参数，你需要找到<strong>fastcgi_params</strong>的具体路径，很多资料上给的是注释掉的那个。</p>
-<h3 id="3-Nginx配置文件之location参数的配置"><a href="#3-Nginx配置文件之location参数的配置" class="headerlink" title="3.Nginx配置文件之location参数的配置"></a>3.Nginx配置文件之location参数的配置</h3><p>想要完成Laravel环境的配置，关键就在于location参数的设置，<a href="https://laravel.com/docs/5.0/installation#pretty-urls" title="官方文档传送门" target="_blank" rel="noopener">官方文档传送门</a></p>
-<p>总的来说，就是将location参数设置为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    try_files $uri $uri/ /index.php?$query_string;</span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-关于微信开发获取不到参数的问题"><a href="#4-关于微信开发获取不到参数的问题" class="headerlink" title="4.关于微信开发获取不到参数的问题"></a>4.关于微信开发获取不到参数的问题</h3><p>其实呢，搭建LNMP环境+Laravel5是为了开发微信公众号，在填写服务器配置时总是报“token验证失败”,如图<img src="http://i.imgur.com/Lt52UEF.png" alt="token验证失败"><br>真的是让人无比郁闷。</p>
-<p>token验证的方式是微信服务器发送请求到指定的url,url中有四个参数,分别是echostr、signature、timestamp、nonce。</p>
-<p>timestamp、nonce和你填写的token通过特定的算法得到一个序列，这个序列如果和signature相同则认为token验证成功。</p>
-<p>然而我却获取不到signature的值，没错，echostr、timestamp、nonce的值都可以GET到，就是GET不到signature，无比崩溃。</p>
-<p>查了很多资料，最后将错误锁定在Nginx配置文件的配置有问题，导致丢失了URL请求的第一个参数。</p>
-<p>我的错误之处为：将</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">try_files $uri $uri/ /index.php?$query_string;</span><br></pre></td></tr></table></figure>
-<p>写成了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">try_files \$uri \$uri/ /index.php?$query_string;</span><br></pre></td></tr></table></figure>
-<p>引以为鉴，共勉！</p>
-
+<h4 id="2-问题分析"><a href="#2-问题分析" class="headerlink" title="2. 问题分析"></a>2. 问题分析</h4><p>​    读者和写者是互斥的，写者和写者也是互斥的，而读者和读者不存在互斥问题。两个进程，即读者和写者。写者比较简单，它和任何进程互斥，用互斥信号量的P、V操作即可解决。读者问题比较复杂，它必须实现与写者进程互斥的同时还要与其他读者进程同步，因此，仅仅简单的一对P、V操作是无法解决的。那么在这里用到了一个计算器，用它来判断当前是否有读者读文件。同时这里不同读者对计数器的访问也应该是互斥的。</p>
+<h4 id="3-读者优先的P、V操作"><a href="#3-读者优先的P、V操作" class="headerlink" title="3. 读者优先的P、V操作"></a>3. 读者优先的P、V操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">semaphore rmutex = <span class="number">1</span>; <span class="comment">// 读进程互斥信号量</span></span><br><span class="line">semaphore wmutex = <span class="number">1</span>; <span class="comment">// 写进程互斥信号量</span></span><br><span class="line"><span class="keyword">int</span> readcount = <span class="number">0</span>;    <span class="comment">// 读进程计数</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">reader_i</span><span class="params">()</span> </span>&#123;  <span class="comment">// 读进程</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(rmutex);</span><br><span class="line">        readcount++;</span><br><span class="line">        <span class="keyword">if</span>(readcount == <span class="number">1</span>)</span><br><span class="line">        	P(wmutex);</span><br><span class="line">        V(rmutex);</span><br><span class="line">        &#123;读文件&#125;;</span><br><span class="line">        P(rmutex);</span><br><span class="line">        readcount--;</span><br><span class="line">        <span class="keyword">if</span>(readcount == <span class="number">0</span>)</span><br><span class="line">        	V(wmutex);</span><br><span class="line">        V(rmutex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">writer_i</span><span class="params">()</span> </span>&#123;  <span class="comment">// 写进程</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(wmutex);</span><br><span class="line">        &#123;写文件&#125;;</span><br><span class="line">        V(wmutex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<p><strong>说明：此P、V操作是读进程优先，当一个读进程占用了临界资源后，后续的读进程便能陆续的进入临界区，而写进程只能被迫等待。增加互斥信号量S可解决读进程优先问题！</strong></p>
+<h4 id="4-公平竞争的读写P、V操作"><a href="#4-公平竞争的读写P、V操作" class="headerlink" title="4. 公平竞争的读写P、V操作"></a>4. 公平竞争的读写P、V操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">semaphore rmutex = <span class="number">1</span>; <span class="comment">// 读进程互斥信号量</span></span><br><span class="line">semaphore wmutex = <span class="number">1</span>; <span class="comment">// 写进程互斥信号量</span></span><br><span class="line"><span class="keyword">int</span> readcount = <span class="number">0</span>;    <span class="comment">// 读进程计数</span></span><br><span class="line">semaphore S = <span class="number">1</span>;      <span class="comment">// 保证readcount++能完整执行的互斥信号量</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">reader_i</span><span class="params">()</span> </span>&#123;  <span class="comment">// 读进程</span></span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(S);</span><br><span class="line">        P(rmutex);</span><br><span class="line">        readcount++;</span><br><span class="line">       	<span class="keyword">if</span>(readcount == <span class="number">1</span>)</span><br><span class="line">       		P(wmutex);</span><br><span class="line">       	V(rmutex);</span><br><span class="line">       	V(S);</span><br><span class="line">       	&#123;读文件&#125;;</span><br><span class="line">       	P(rmutex);</span><br><span class="line">       	readcount--;</span><br><span class="line">       	<span class="keyword">if</span>(readcount == <span class="number">0</span>)</span><br><span class="line">       		V(wmutex);</span><br><span class="line">       	V(rmutex);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">writer_i</span><span class="params">()</span> </span>&#123;  <span class="comment">// 写进程</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(S);</span><br><span class="line">        P(wmutex);</span><br><span class="line">        &#123;写文件&#125;;</span><br><span class="line">        V(wmutex);</span><br><span class="line">        V(S);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -512,7 +497,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://liuwynn.github.io/2018/01/20/Nginx配置Laravel5环境/" title="Nginx配置Laravel5环境">https://liuwynn.github.io/2018/01/20/Nginx配置Laravel5环境/</a>
+    <a href="https://liuwynn.github.io/2018/11/28/读者-写者问题/" title="读者-写者问题">https://liuwynn.github.io/2018/11/28/读者-写者问题/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -527,9 +512,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Laravel/" rel="tag"># Laravel</a>
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
           
-            <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+            <a href="/tags/P、V操作/" rel="tag"># P、V操作</a>
           
         </div>
       
@@ -542,8 +527,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/20/Laravel之文件上传/" rel="next" title="Laravel之文件上传">
-                <i class="fa fa-chevron-left"></i> Laravel之文件上传
+              <a href="/2018/11/28/生产者-消费者问题/" rel="next" title="生产者-消费者问题">
+                <i class="fa fa-chevron-left"></i> 生产者-消费者问题
               </a>
             
           </div>
@@ -551,10 +536,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/20/PhpStorm格式化快捷鍵/" rel="prev" title="PhpStorm格式化快捷鍵">
-                PhpStorm格式化快捷鍵 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -721,7 +702,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-前言"><span class="nav-text">0.前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Nginx配置文件之root参数的配置"><span class="nav-text">1.Nginx配置文件之root参数的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Nginx配置文件中关于php的配置"><span class="nav-text">2.Nginx配置文件中关于php的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Nginx配置文件之location参数的配置"><span class="nav-text">3.Nginx配置文件之location参数的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-关于微信开发获取不到参数的问题"><span class="nav-text">4.关于微信开发获取不到参数的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读者、写者问题"><span class="nav-text">读者、写者问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题描述"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-问题分析"><span class="nav-text">2. 问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-读者优先的P、V操作"><span class="nav-text">3. 读者优先的P、V操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-公平竞争的读写P、V操作"><span class="nav-text">4. 公平竞争的读写P、V操作</span></a></li></ol></li></ol></div>
             
 
           </div>
