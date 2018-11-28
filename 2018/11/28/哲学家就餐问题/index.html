@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Laravel,Nginx,">
+  <meta name="keywords" content="操作系统,P、V操作,">
 
 
 
@@ -123,21 +123,20 @@
 
 
 
-<meta name="description" content="0.前言之前一直用的Apache作服务器，个人喜欢尝试新的东西，这次服务器搭建环境就选择了LNMP，但初次使用Nginx坑真的很多，现在特将这些坑罗列出来并附带相应的解决方法。 提前申明：笔者的Nginx的配置文件路径为/etc/nginx/conf.d/default.conf，但由于安装的方式不同配置文件的位置和名称也会有所不同。如果你在此路径下没有找到配置文件，建议百度或谷歌。">
-<meta name="keywords" content="Laravel,Nginx">
+<meta name="description" content="前言哲学家就餐问题是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。 哲学家就餐问">
+<meta name="keywords" content="操作系统,P、V操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx配置Laravel5环境">
-<meta property="og:url" content="https://liuwynn.github.io/2018/01/20/Nginx配置Laravel5环境/index.html">
+<meta property="og:title" content="哲学家就餐问题">
+<meta property="og:url" content="https://liuwynn.github.io/2018/11/28/哲学家就餐问题/index.html">
 <meta property="og:site_name" content="Zerone">
-<meta property="og:description" content="0.前言之前一直用的Apache作服务器，个人喜欢尝试新的东西，这次服务器搭建环境就选择了LNMP，但初次使用Nginx坑真的很多，现在特将这些坑罗列出来并附带相应的解决方法。 提前申明：笔者的Nginx的配置文件路径为/etc/nginx/conf.d/default.conf，但由于安装的方式不同配置文件的位置和名称也会有所不同。如果你在此路径下没有找到配置文件，建议百度或谷歌。">
+<meta property="og:description" content="前言哲学家就餐问题是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。 哲学家就餐问">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://i.imgur.com/fq81z27.png">
-<meta property="og:image" content="http://i.imgur.com/Lt52UEF.png">
-<meta property="og:updated_time" content="2018-01-22T16:30:50.310Z">
+<meta property="og:image" content="https://liuwynn.github.io\images\20181125\哲学家就餐问题.jpg">
+<meta property="og:updated_time" content="2018-11-28T06:54:02.205Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nginx配置Laravel5环境">
-<meta name="twitter:description" content="0.前言之前一直用的Apache作服务器，个人喜欢尝试新的东西，这次服务器搭建环境就选择了LNMP，但初次使用Nginx坑真的很多，现在特将这些坑罗列出来并附带相应的解决方法。 提前申明：笔者的Nginx的配置文件路径为/etc/nginx/conf.d/default.conf，但由于安装的方式不同配置文件的位置和名称也会有所不同。如果你在此路径下没有找到配置文件，建议百度或谷歌。">
-<meta name="twitter:image" content="http://i.imgur.com/fq81z27.png">
+<meta name="twitter:title" content="哲学家就餐问题">
+<meta name="twitter:description" content="前言哲学家就餐问题是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。 哲学家就餐问">
+<meta name="twitter:image" content="https://liuwynn.github.io\images\20181125\哲学家就餐问题.jpg">
 
 
 
@@ -167,13 +166,13 @@
 
 
 
-  <link rel="canonical" href="https://liuwynn.github.io/2018/01/20/Nginx配置Laravel5环境/">
+  <link rel="canonical" href="https://liuwynn.github.io/2018/11/28/哲学家就餐问题/">
 
 
 
 
 
-  <title>Nginx配置Laravel5环境 | Zerone</title>
+  <title>哲学家就餐问题 | Zerone</title>
   
 
 
@@ -310,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/01/20/Nginx配置Laravel5环境/">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/11/28/哲学家就餐问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wynn">
@@ -327,7 +326,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Nginx配置Laravel5环境</h2>
+          <h2 class="post-title" itemprop="name headline">哲学家就餐问题</h2>
         
 
         <div class="post-meta">
@@ -339,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T00:51:34+08:00">
-                2018-01-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T14:54:02+08:00">
+                2018-11-28
               </time>
             
 
@@ -355,8 +354,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-23T00:30:50+08:00">
-                2018-01-23
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-28T14:54:02+08:00">
+                2018-11-28
               </time>
             
           </span>
@@ -369,7 +368,7 @@
 
           
           
-             <span id="/2018/01/20/Nginx配置Laravel5环境/" class="leancloud_visitors" data-flag-title="Nginx配置Laravel5环境">
+             <span id="/2018/11/28/哲学家就餐问题/" class="leancloud_visitors" data-flag-title="哲学家就餐问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -394,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  721
+                  800
                 </span>
               
 
@@ -410,7 +409,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -431,30 +430,36 @@
       
 
       
-        <h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>之前一直用的Apache作服务器，个人喜欢尝试新的东西，这次服务器搭建环境就选择了<strong>LNMP</strong>，但初次使用<strong>Nginx</strong>坑真的很多，现在特将这些坑罗列出来并附带相应的解决方法。</p>
-<p>提前申明：笔者的<strong>Nginx</strong>的配置文件路径为<code>/etc/nginx/conf.d/default.conf</code>，但由于安装的方式不同配置文件的位置和名称也会有所不同。如果你在此路径下没有找到配置文件，建议百度或谷歌。</p>
-<hr>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>哲学家就餐问题</strong>是操作系统中P、V操作部分的经典问题。哲学家就餐问题是在计算机科学中的一个经典问题，用来演示在并行计算中多线程同步(Synchronization)时产生的问题。在1971年，著名的计算机科学家艾兹格·迪科斯彻提出了一个同步问题，即假设有五台计算机都试图访问五份共享的磁带驱动器。稍后，这个问题被托尼·霍尔重新表述为哲学家就餐问题。这个问题可以用来解释死锁和资源耗尽。</p>
+<h4 id="哲学家就餐问题"><a href="#哲学家就餐问题" class="headerlink" title="哲学家就餐问题"></a>哲学家就餐问题</h4><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p>​    有五个哲学家围坐在一圆桌旁，桌中央有一盘通心面，每人面前有一只空盘子，每两人之间放一把叉子。每个哲学家思考、饥饿、然后吃通心面。为了吃面，每个哲学家必须获得两把叉子，且每人只能直接从自己左边或右边去取叉子</p>
+<p><strong>图示：</strong> <img src="https://liuwynn.github.io\images\20181125\哲学家就餐问题.jpg" alt="哲学家就餐问题图示"></p>
 <a id="more"></a>
-<h3 id="1-Nginx配置文件之root参数的配置"><a href="#1-Nginx配置文件之root参数的配置" class="headerlink" title="1.Nginx配置文件之root参数的配置"></a>1.Nginx配置文件之root参数的配置</h3><p>本人喜欢将root目录设置为项目目录上一层，只要在浏览器上访问的时候加上不同的项目名称，就可以在同一个服务器下测试很多项目了。</p>
-<p>比如我的项目叫blog，blog所在的目录层次如下：<code>/myprojects/www/blog</code>，那么我一般会将root参数设置为<code>/myprojects/www</code>，这样浏览器url只要填<code>域名+blog</code>就可以访问了。</p>
-<p>但我想的太天真了，如果只配置到<code>/myprojects/www</code>,那么在浏览器上访问时就会出现这个错误</p>
-<p><img src="http://i.imgur.com/fq81z27.png" alt="图1"></p>
-<p>这个问题我还没有很完美的解决方案，所以只能将root设置为<code>/myprojects/www/blog/public</code></p>
-<h3 id="2-Nginx配置文件中关于php的配置"><a href="#2-Nginx配置文件中关于php的配置" class="headerlink" title="2.Nginx配置文件中关于php的配置"></a>2.Nginx配置文件中关于php的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">    fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">    fastcgi_index  index.php;</span><br><span class="line">    fastcgi_param  SCRIPT_FILENAME  	                       	 $document_root$fastcgi_script_name;</span><br><span class="line">    fastcgi_split_path_info ^(.+\.php)(/.+)$;</span><br><span class="line">    fastcgi_intercept_errors on;</span><br><span class="line">	# include        fastcgi_params;</span><br><span class="line">    include /etc/nginx/fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一般来说，将上面的代码粘贴过去就可以用，但这里要特别注意以下<strong>include</strong>参数，你需要找到<strong>fastcgi_params</strong>的具体路径，很多资料上给的是注释掉的那个。</p>
-<h3 id="3-Nginx配置文件之location参数的配置"><a href="#3-Nginx配置文件之location参数的配置" class="headerlink" title="3.Nginx配置文件之location参数的配置"></a>3.Nginx配置文件之location参数的配置</h3><p>想要完成Laravel环境的配置，关键就在于location参数的设置，<a href="https://laravel.com/docs/5.0/installation#pretty-urls" title="官方文档传送门" target="_blank" rel="noopener">官方文档传送门</a></p>
-<p>总的来说，就是将location参数设置为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    try_files $uri $uri/ /index.php?$query_string;</span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-关于微信开发获取不到参数的问题"><a href="#4-关于微信开发获取不到参数的问题" class="headerlink" title="4.关于微信开发获取不到参数的问题"></a>4.关于微信开发获取不到参数的问题</h3><p>其实呢，搭建LNMP环境+Laravel5是为了开发微信公众号，在填写服务器配置时总是报“token验证失败”,如图<img src="http://i.imgur.com/Lt52UEF.png" alt="token验证失败"><br>真的是让人无比郁闷。</p>
-<p>token验证的方式是微信服务器发送请求到指定的url,url中有四个参数,分别是echostr、signature、timestamp、nonce。</p>
-<p>timestamp、nonce和你填写的token通过特定的算法得到一个序列，这个序列如果和signature相同则认为token验证成功。</p>
-<p>然而我却获取不到signature的值，没错，echostr、timestamp、nonce的值都可以GET到，就是GET不到signature，无比崩溃。</p>
-<p>查了很多资料，最后将错误锁定在Nginx配置文件的配置有问题，导致丢失了URL请求的第一个参数。</p>
-<p>我的错误之处为：将</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">try_files $uri $uri/ /index.php?$query_string;</span><br></pre></td></tr></table></figure>
-<p>写成了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">try_files \$uri \$uri/ /index.php?$query_string;</span><br></pre></td></tr></table></figure>
-<p>引以为鉴，共勉！</p>
+<h4 id="2-问题说明"><a href="#2-问题说明" class="headerlink" title="2. 问题说明"></a>2. 问题说明</h4><ul>
+<li>0号哲学家对应的是：1号和0号叉子；</li>
+<li>1号哲学家对应的是：2号和1号叉子；</li>
+<li>2号哲学家对应的是：3号和2号叉子；</li>
+<li>3号哲学家对应的是：4号和3号叉子；</li>
+<li>4号哲学家对应的是：0号和4号叉子；</li>
+</ul>
+<h4 id="3-P、V操作-解法1"><a href="#3-P、V操作-解法1" class="headerlink" title="3. P、V操作-解法1"></a>3. P、V操作-解法1</h4><ul>
+<li>对于<code>i=0,1,2,3</code>，先取右手叉子，再取左手叉子</li>
+<li>但对于<code>i=4</code>，先取左手叉子，再取右手叉子</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">semaphore fork[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">philosoper_i</span><span class="params">()</span> </span>&#123;  <span class="comment">// i=0,1,2,3</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        think();</span><br><span class="line">        P(fork[i]);        <span class="comment">// 先取右手</span></span><br><span class="line">        P(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);  <span class="comment">// 再取左手</span></span><br><span class="line">        eat();</span><br><span class="line">        V(fork[i]);</span><br><span class="line">        V(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">philosoper_4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        think();</span><br><span class="line">        P(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">// 先取左手</span></span><br><span class="line">        P(fork[i]);     <span class="comment">// 再取右手</span></span><br><span class="line">        eat();</span><br><span class="line">        V(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">        V(fork[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<h4 id="4-P、V操作-解法2"><a href="#4-P、V操作-解法2" class="headerlink" title="4. P、V操作-解法2"></a>4. P、V操作-解法2</h4><ul>
+<li>最多允许4个哲学家同时取叉子</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">semaphore fork[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line">semaphore room = <span class="number">4</span>;  <span class="comment">// 增加一位侍者</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">philosoper_i</span><span class="params">()</span> </span>&#123;   <span class="comment">// i=0,1,2,3,4</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        think();</span><br><span class="line">        P(room);   <span class="comment">// 控制最多允许4位哲学家取叉子</span></span><br><span class="line">        P(fork[i]);        <span class="comment">// 先取右手</span></span><br><span class="line">        P(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);  <span class="comment">// 再取左手</span></span><br><span class="line">        eat();</span><br><span class="line">        V(fork[i]);</span><br><span class="line">        V(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">        V(room);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<h4 id="5-P、V操作-解法3"><a href="#5-P、V操作-解法3" class="headerlink" title="5. P、V操作-解法3"></a>5. P、V操作-解法3</h4><ul>
+<li>奇数号哲学家先取左手叉子</li>
+<li>偶数号哲学家先取右手叉子</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">semaphore fork[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">philosoper_i</span><span class="params">()</span> </span>&#123;   <span class="comment">// i=0,1,2,3,4</span></span><br><span class="line">	think();</span><br><span class="line">    <span class="keyword">if</span>((i % <span class="number">2</span>) == <span class="number">0</span>) &#123;   <span class="comment">// 偶数哲学家先右手，后左手</span></span><br><span class="line">        P(fork[i]);</span><br><span class="line">        P(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">        eat();</span><br><span class="line">        V(fork[i]);</span><br><span class="line">        V(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;             <span class="comment">// 奇数哲学家先左手 ，后右手</span></span><br><span class="line">        P(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">        P(fork[i]);</span><br><span class="line">        eat();</span><br><span class="line">        V(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">        V(fork[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<h4 id="6-P、V操作-解法4"><a href="#6-P、V操作-解法4" class="headerlink" title="6. P、V操作-解法4"></a>6. P、V操作-解法4</h4><ul>
+<li>每个哲学家取到手边的两把叉子才能吃</li>
+<li>否则，一把叉子都取不到</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">semaphore fork[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line">semaphore mutex = <span class="number">1</span>;  <span class="comment">// 设置叉子的互斥信号量</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">philosoper_i</span><span class="params">()</span> </span>&#123;   <span class="comment">// i=0,1,2,3,4</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        think();</span><br><span class="line">        P(mutex);   <span class="comment">// 取叉子前获得信号量</span></span><br><span class="line">        P(fork[i]);</span><br><span class="line">        P(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">        eat();</span><br><span class="line">        V(fork[i]);</span><br><span class="line">        V(fork[(i+<span class="number">1</span>)%<span class="number">5</span>]);</span><br><span class="line">        V(mutex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -512,7 +517,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://liuwynn.github.io/2018/01/20/Nginx配置Laravel5环境/" title="Nginx配置Laravel5环境">https://liuwynn.github.io/2018/01/20/Nginx配置Laravel5环境/</a>
+    <a href="https://liuwynn.github.io/2018/11/28/哲学家就餐问题/" title="哲学家就餐问题">https://liuwynn.github.io/2018/11/28/哲学家就餐问题/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -527,9 +532,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Laravel/" rel="tag"># Laravel</a>
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
           
-            <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+            <a href="/tags/P、V操作/" rel="tag"># P、V操作</a>
           
         </div>
       
@@ -542,8 +547,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/20/Laravel之文件上传/" rel="next" title="Laravel之文件上传">
-                <i class="fa fa-chevron-left"></i> Laravel之文件上传
+              <a href="/2018/11/25/数据结构相关问题/" rel="next" title="数据结构相关问题">
+                <i class="fa fa-chevron-left"></i> 数据结构相关问题
               </a>
             
           </div>
@@ -551,10 +556,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/20/PhpStorm格式化快捷鍵/" rel="prev" title="PhpStorm格式化快捷鍵">
-                PhpStorm格式化快捷鍵 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -721,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-前言"><span class="nav-text">0.前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Nginx配置文件之root参数的配置"><span class="nav-text">1.Nginx配置文件之root参数的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Nginx配置文件中关于php的配置"><span class="nav-text">2.Nginx配置文件中关于php的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Nginx配置文件之location参数的配置"><span class="nav-text">3.Nginx配置文件之location参数的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-关于微信开发获取不到参数的问题"><span class="nav-text">4.关于微信开发获取不到参数的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#哲学家就餐问题"><span class="nav-text">哲学家就餐问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题描述"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-问题说明"><span class="nav-text">2. 问题说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-P、V操作-解法1"><span class="nav-text">3. P、V操作-解法1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-P、V操作-解法2"><span class="nav-text">4. P、V操作-解法2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-P、V操作-解法3"><span class="nav-text">5. P、V操作-解法3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-P、V操作-解法4"><span class="nav-text">6. P、V操作-解法4</span></a></li></ol></li></ol></div>
             
 
           </div>
