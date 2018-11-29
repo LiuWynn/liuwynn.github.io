@@ -306,6 +306,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/11/30/独木桥问题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/30/独木桥问题/" itemprop="url">独木桥问题</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T01:11:46+08:00">
+                2018-11-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T01:11:47+08:00">
+                2018-11-30
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/30/独木桥问题/" class="leancloud_visitors" data-flag-title="独木桥问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>独木桥问题</strong>是操作系统中P、V操作部分的经典问题，有很多变种问题也是考试的重点，需要准确牢记！</p>
+<hr>
+<h3 id="独木桥问题1"><a href="#独木桥问题1" class="headerlink" title="独木桥问题1"></a>独木桥问题1</h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>东西向汽车过独木桥，为了保证安全，只要桥上无车，则允许一方的汽车过桥，待一方的车全部过完后， 另一方的车才允许过桥。请用信号量和 P、V操作写出过独木桥问题的同步算法。</p>
+<h4 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h4><p>首先对于东西两侧的车辆而言，<strong>桥</strong>是一个<strong>互斥</strong>资源，而对东西两侧各自而言，每辆车上桥是<strong>同步关系</strong>，东西两侧的车辆在抢到这互斥资源后只有<strong>最后一辆车</strong>通过了独木桥才释放，所以需要记录上桥车子的数量，这个问题和<strong>读者优先的读写问题</strong>很相似。</p>
+<h4 id="PV、操作"><a href="#PV、操作" class="headerlink" title="PV、操作"></a>PV、操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">semaphore wait = <span class="number">1</span>；  <span class="comment">// 互斥信号量，表示独木桥的数量</span></span><br><span class="line"><span class="keyword">int</span> count1 = <span class="number">0</span>;       <span class="comment">// 东侧车辆在独木桥上的数量</span></span><br><span class="line">semaphore mutex1 = <span class="number">1</span>; <span class="comment">// 东侧车辆的互斥信号量，保证count1操作的完整执行</span></span><br><span class="line"><span class="keyword">int</span> count2 = <span class="number">0</span>;       <span class="comment">// 西侧车辆在独木桥上的数量</span></span><br><span class="line">semaphore mutex2 = <span class="number">1</span>; <span class="comment">// 西侧车辆的互斥信号量，保证count2操作的完整执行</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line">process P东() &#123;</span><br><span class="line">	P(mutex1);</span><br><span class="line">	count1++;</span><br><span class="line">	<span class="keyword">if</span>(count1 == <span class="number">1</span>)  <span class="comment">// 东侧第一个准备上桥的车去抢夺独木桥</span></span><br><span class="line">		P(wait);</span><br><span class="line">	V(mutex1);</span><br><span class="line">	&#123;过独木桥&#125;;</span><br><span class="line">	P(mutex1);</span><br><span class="line">	count1--;</span><br><span class="line">	<span class="keyword">if</span>(count1 == <span class="number">0</span>)  <span class="comment">// 东侧最后一个已经下桥的车去释放独木桥</span></span><br><span class="line">		V(wait);</span><br><span class="line">	V(mutex1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process P西() &#123;</span><br><span class="line">	P(mutex2);</span><br><span class="line">	count2++;</span><br><span class="line">	<span class="keyword">if</span>(count2 == <span class="number">1</span>)  <span class="comment">// 西侧第一个准备上桥的车去抢夺独木桥</span></span><br><span class="line">		P(wait);</span><br><span class="line">	V(mutex2);</span><br><span class="line">	&#123;过独木桥&#125;;</span><br><span class="line">	P(mutex2);</span><br><span class="line">	count2--;</span><br><span class="line">	<span class="keyword">if</span>(count2 == <span class="number">0</span>)  <span class="comment">// 西侧最后一个已经下桥的车去释放独木桥</span></span><br><span class="line">		V(wait);</span><br><span class="line">	V(mutex2);</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<h3 id="独木桥问题2"><a href="#独木桥问题2" class="headerlink" title="独木桥问题2"></a>独木桥问题2</h3><h4 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h4><p>在<strong>独木桥问题1</strong>中，限制桥面上最多可以有k辆汽车通过。试用信号量和P、V操作写出过独木桥问题的同步算法</p>
+<h4 id="问题分析-1"><a href="#问题分析-1" class="headerlink" title="问题分析"></a>问题分析</h4><p>在<strong>独木桥问题1</strong>的基础上，增加对桥面上车辆的控制，东西侧抢夺到独木桥的一方，要竞争上桥的名额，所以要<strong>增加一个互斥信号量</strong></p>
+<h4 id="P、V操作"><a href="#P、V操作" class="headerlink" title="P、V操作"></a>P、V操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">semaphore wait = <span class="number">1</span>；  <span class="comment">// 互斥信号量，表示独木桥的数量</span></span><br><span class="line"><span class="keyword">int</span> count1 = <span class="number">0</span>;       <span class="comment">// 东侧车辆在独木桥上的数量</span></span><br><span class="line">semaphore mutex1 = <span class="number">1</span>; <span class="comment">// 东侧车辆的互斥信号量，保证count1操作的完整执行</span></span><br><span class="line"><span class="keyword">int</span> count2 = <span class="number">0</span>;       <span class="comment">// 西侧车辆在独木桥上的数量</span></span><br><span class="line">semaphore mutex2 = <span class="number">1</span>; <span class="comment">// 西侧车辆的互斥信号量，保证count2操作的完整执行</span></span><br><span class="line">semaphore bridge = k; <span class="comment">// 限制获得独木桥使用权的一方在独木桥上的数量</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line">process P东() &#123;</span><br><span class="line">	P(mutex1);</span><br><span class="line">	count1++;</span><br><span class="line">	<span class="keyword">if</span>(count1 == <span class="number">1</span>)  <span class="comment">// 东侧第一个准备上桥的车去抢夺独木桥</span></span><br><span class="line">		P(wait);</span><br><span class="line">	V(mutex1);</span><br><span class="line">	</span><br><span class="line">	P(bridge);</span><br><span class="line">	&#123;过独木桥&#125;;</span><br><span class="line">	V(bridge);</span><br><span class="line">	</span><br><span class="line">	P(mutex1);</span><br><span class="line">	count1--;</span><br><span class="line">	<span class="keyword">if</span>(count1 == <span class="number">0</span>)  <span class="comment">// 东侧最后一个已经下桥的车去释放独木桥</span></span><br><span class="line">		V(wait);</span><br><span class="line">	V(mutex1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process P西() &#123;</span><br><span class="line">	P(mutex2);</span><br><span class="line">	count2++;</span><br><span class="line">	<span class="keyword">if</span>(count2 == <span class="number">1</span>)  <span class="comment">// 西侧第一个准备上桥的车去抢夺独木桥</span></span><br><span class="line">		P(wait);</span><br><span class="line">	V(mutex2);</span><br><span class="line">	</span><br><span class="line">	P(bridge);</span><br><span class="line">	&#123;过独木桥&#125;;</span><br><span class="line">	V(bridge);</span><br><span class="line">	</span><br><span class="line">	P(mutex2);</span><br><span class="line">	count2--;</span><br><span class="line">	<span class="keyword">if</span>(count2 == <span class="number">0</span>)  <span class="comment">// 西侧最后一个已经下桥的车去释放独木桥</span></span><br><span class="line">		V(wait);</span><br><span class="line">	V(mutex2);</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<h3 id="独木桥问题3（最难理解）"><a href="#独木桥问题3（最难理解）" class="headerlink" title="独木桥问题3（最难理解）"></a>独木桥问题3（最难理解）</h3><h4 id="问题描述-2"><a href="#问题描述-2" class="headerlink" title="问题描述"></a>问题描述</h4><p>在<strong>独木桥问题1</strong>中，以<strong>三辆汽车为一组</strong>，要求保证东方和西方以组为单位<strong>交替通过</strong>汽车。试用信号量和P， V操作写出汽车过独木桥问题的同步算法</p>
+<h4 id="问题分析-2"><a href="#问题分析-2" class="headerlink" title="问题分析"></a>问题分析</h4><p>要求东西方车辆交替通过，优点生产者消费者的同步问题的感觉，所以需要两个同步信号量维持东西方车辆交替进行，一方的三辆车通过后就去唤醒另一方通过，依次循环，直至全部通过。</p>
+<h4 id="P、V操作-1"><a href="#P、V操作-1" class="headerlink" title="P、V操作"></a>P、V操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">semaphore wait = <span class="number">1</span>；  <span class="comment">// 互斥信号量，表示独木桥的数量</span></span><br><span class="line"><span class="keyword">int</span> count1 = <span class="number">0</span>;       <span class="comment">// 东侧车辆在独木桥上的数量</span></span><br><span class="line">semaphore mutex1 = <span class="number">1</span>; <span class="comment">// 东侧车辆的互斥信号量，保证count1操作的完整执行</span></span><br><span class="line"><span class="keyword">int</span> count2 = <span class="number">0</span>;       <span class="comment">// 西侧车辆在独木桥上的数量</span></span><br><span class="line">semaphore mutex2 = <span class="number">1</span>; <span class="comment">// 西侧车辆的互斥信号量，保证count2操作的完整执行</span></span><br><span class="line">semaphore S1 = <span class="number">3</span>;     <span class="comment">// 东侧可以上桥的车子数量</span></span><br><span class="line">semaphore S2 = <span class="number">0</span>;     <span class="comment">// 西侧可以上桥的车子数量</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line">process P东() &#123;</span><br><span class="line">	P(S1);           <span class="comment">// 东侧先申请使用独木桥</span></span><br><span class="line">	P(mutex1);</span><br><span class="line">	count1++;</span><br><span class="line">	<span class="keyword">if</span>(count1 == <span class="number">1</span>)  <span class="comment">// 东侧第一个准备上桥的车去抢夺独木桥</span></span><br><span class="line">		P(wait);</span><br><span class="line">	V(mutex1);</span><br><span class="line">	&#123;过独木桥&#125;;</span><br><span class="line">	V(S2);</span><br><span class="line">	P(mutex1);</span><br><span class="line">	count1--;</span><br><span class="line">	<span class="keyword">if</span>(count1 == <span class="number">0</span>)  <span class="comment">// 东侧最后一个已经下桥的车去释放独木桥</span></span><br><span class="line">		V(wait);</span><br><span class="line">	V(mutex1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process P西() &#123;</span><br><span class="line">	P(S2);           <span class="comment">// S2初始值为0，所以刚开始只能等待</span></span><br><span class="line">	P(mutex2);</span><br><span class="line">	count2++;</span><br><span class="line">	<span class="keyword">if</span>(count2 == <span class="number">1</span>)  <span class="comment">// 西侧第一个准备上桥的车去抢夺独木桥</span></span><br><span class="line">		P(wait);</span><br><span class="line">	V(mutex2);</span><br><span class="line">	&#123;过独木桥&#125;;</span><br><span class="line">	V(S1);</span><br><span class="line">	P(mutex2);</span><br><span class="line">	count2--;</span><br><span class="line">	<span class="keyword">if</span>(count2 == <span class="number">0</span>)  <span class="comment">// 西侧最后一个已经下桥的车去释放独木桥</span></span><br><span class="line">		V(wait);</span><br><span class="line">	V(mutex2);</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<h4 id="P、V操作错误分析"><a href="#P、V操作错误分析" class="headerlink" title="P、V操作错误分析"></a>P、V操作错误分析</h4><p>仔细地观察上述P、V操作，会发现它描述的情况和题目的要求不完全一致。因为情况较多，在这就举一个反例。</p>
+<p><strong>反例：</strong>因为我们给<code>S1</code>设置初值为3，所以东侧在争夺独木桥方面是具有优势的。刚开始，肯定是东侧的一辆<strong>车A</strong>先上桥，<strong>A过了独木桥以后</strong>会使<code>S2+1</code>，这个时候西侧的<strong>车B</strong>就有希望继续执行，由于这个时候独木桥的使用权在东侧，所以车B执行到<code>P(wait)</code>，然后等待。假设这个时候东侧只有车A上桥，车A继续执行到<code>count1--</code>，问题就出在这里，因为此时只有车A上桥，所以<code>count</code>的值为1，执行完<code>count--</code>以后，<code>count==0</code>正好满足释放独木桥的条件，西侧的车B等待这一刻很久了，它如果瞅准时机，申请到了独木桥的使用权，此时就会呈现东西侧以<strong>一辆车为一组</strong>交替执行，不满足题目要求。</p>
+<p>由分析我们可以看出，上述P、V操作其实包含着很多种可能，有可能是<strong>一辆车为一组</strong>，也有可能是<strong>两辆车为一组</strong>，也有可能是<strong>三辆车为一组</strong>，设置会出现东西侧车辆以<strong>不同的数量为一组</strong>交替通过独木桥。</p>
+<p><strong>我们要求解的答案是上述可能性的子集！</strong></p>
+<h4 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h4><p><strong>分析：</strong>仔细研究上述错误的P、V操作会发现，原因出在释放资源的判断上，上述写法，无法保证一组有三辆车子下桥，所以我们引入新的变量来表示下桥的车子数量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">semaphore wait = <span class="number">1</span>;    <span class="comment">// 互斥信号量，表示独木桥的数量</span></span><br><span class="line"><span class="keyword">int</span> countu1 = <span class="number">0</span>;        <span class="comment">// 东侧在桥上的车子数量</span></span><br><span class="line"><span class="keyword">int</span> countd1 = <span class="number">0</span>;       <span class="comment">// 东侧下桥的车子数量</span></span><br><span class="line">semaphore mutex1 = <span class="number">1</span>;  <span class="comment">// 东侧车辆的互斥信号量，保证count1和countu1操作的完整执行</span></span><br><span class="line"><span class="keyword">int</span> countu2 = <span class="number">0</span>;        <span class="comment">// 西侧在桥上的车子数量</span></span><br><span class="line"><span class="keyword">int</span> countd2 = <span class="number">0</span>;       <span class="comment">// 西侧下桥的车子数量</span></span><br><span class="line">semaphore mutex2 = <span class="number">1</span>;  <span class="comment">// 西侧车辆的互斥信号量，保证count2和countu2操作的完整执行</span></span><br><span class="line">semaphore S1 = <span class="number">3</span>;      <span class="comment">// 东侧可以上桥的车子数量</span></span><br><span class="line">semaphore S2 = <span class="number">0</span>;      <span class="comment">// 西侧可以上桥的车子数量</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line">process P东() &#123;</span><br><span class="line">    P(S1);             <span class="comment">// S1初始值为3，所以可以先申请使用独木桥</span></span><br><span class="line">    P(mutex1);         <span class="comment">// 为保证countu1++完整执行而进入临界区</span></span><br><span class="line">    countu1++;         <span class="comment">// 东侧上桥车子数量+1</span></span><br><span class="line">    <span class="keyword">if</span>(countu1 == <span class="number">1</span>)   <span class="comment">// 如果是第一个上桥的车子，则去占用独木桥</span></span><br><span class="line">    	P(wait);</span><br><span class="line">    V(mutex1);         <span class="comment">// countu1++操作完成，故退出临界区</span></span><br><span class="line">    &#123;过独木桥&#125;;</span><br><span class="line">    V(S2);             <span class="comment">// 唤醒西侧车子</span></span><br><span class="line">    </span><br><span class="line">    P(mutex1);         <span class="comment">// 为保证countu1--和countd1++完整执行而进入临界区</span></span><br><span class="line">    countu1--;         <span class="comment">// 东侧车子开始下桥</span></span><br><span class="line">    countd1++;         <span class="comment">// 记录东侧下桥的车子数量</span></span><br><span class="line">    <span class="keyword">if</span>((countu1 == <span class="number">0</span>) &amp;&amp; countd1 == <span class="number">3</span>) &#123;</span><br><span class="line">    	countd1 = <span class="number">0</span>;</span><br><span class="line">     	V(wait);   </span><br><span class="line">    &#125;</span><br><span class="line">    V(mutex1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process P西() &#123;</span><br><span class="line">    P(S2);             <span class="comment">// S2初始值为0，所以刚开始西侧只能等待</span></span><br><span class="line">    P(mutex2);         <span class="comment">// 为保证countu2++的完整执行而进入临界区</span></span><br><span class="line">    countu2++;         <span class="comment">// 西侧上桥车子数量+1</span></span><br><span class="line">    <span class="keyword">if</span>(countu2 == <span class="number">1</span>)   <span class="comment">// 如果是第一个上桥的车子，则去占用独木桥</span></span><br><span class="line">    	P(wait);</span><br><span class="line">    V(mutex2);         <span class="comment">// countu2++操作完成，故退出临界区</span></span><br><span class="line">    &#123;过独木桥&#125;;</span><br><span class="line">    V(S1);             <span class="comment">// 唤醒东侧车子</span></span><br><span class="line">    </span><br><span class="line">    P(mutex2);         <span class="comment">// 为保证countu2--和countd2++完整执行而进入临界区</span></span><br><span class="line">    countu2--;         <span class="comment">// 西侧车子开始下桥</span></span><br><span class="line">    countd2++;         <span class="comment">// 记录西侧下桥的车子数量</span></span><br><span class="line">    <span class="keyword">if</span>((countu2 == <span class="number">0</span>) &amp;&amp; (countd2 == <span class="number">3</span>)) &#123;</span><br><span class="line">    	countd2 = <span class="number">0</span>;</span><br><span class="line">    	V(wait);</span><br><span class="line">    &#125;</span><br><span class="line">    V(mutex2);</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<h3 id="独木桥问题4"><a href="#独木桥问题4" class="headerlink" title="独木桥问题4"></a>独木桥问题4</h3><h4 id="问题描述-3"><a href="#问题描述-3" class="headerlink" title="问题描述"></a>问题描述</h4><p>在<strong>独木桥问题1</strong>中，要求各方向的汽车串行过桥，但<strong>当另一方提出过桥时，应能阻止对方未上桥的后继车辆</strong>，待桥面上的汽车过完桥后，另一方的汽车开始过桥。试用信号量和P，V 操作写出过独木桥问题的同步算法</p>
+<h4 id="问题分析-3"><a href="#问题分析-3" class="headerlink" title="问题分析"></a>问题分析</h4><p>根据问题描述，在独木桥问题1中，东西侧车辆也是互斥通过独木桥的，问题4只是在此基础上<strong>增加了一方对另一方排他性的控制</strong>这样的要求，应该使用互斥信号量来完成。</p>
+<h4 id="P、V操作-2"><a href="#P、V操作-2" class="headerlink" title="P、V操作"></a>P、V操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>d=====(￣▽￣*)b 棒！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/11/29/软件工程名词解释/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -353,7 +547,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-29T13:07:25+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-29T13:11:52+08:00">
                 2018-11-29
               </time>
             
@@ -430,46 +624,21 @@
 
       
         
-          
-            <ol>
-<li><p><strong>软件工程</strong><br>将系统化的、规范的、可量化的方法来开发、运行和维护软件，即将工程应用到软件。<br>在上述方法的研究。</p>
-</li>
-<li><p><strong>需求</strong>：需求是用户的一种期望，软件系统通过满足用户的期望来解决用户的问题。</p>
-</li>
-<li><p>IEEE对<strong>需求的定义</strong>为[IEEE610.12-1990]：<br>1）用户为了解决问题或达到某些目标所需要的条件或能力；<br>2）系统或系统部件为了满足合同、标准、规范或其它正式文档所规定的要求而需要具备的条件或能力；<br>3）对1或2中的一个条件或一种能力的一种文档化表述。  </p>
-</li>
-<li><p><strong>软件设计</strong><br><strong>狭义</strong>的软件设计：为使一软件系统满足规定的需求而定义系统或部件的体系结构、部件、接口和其他特征的过程；<br><strong>广义</strong>的软件设计：程序代码是对真正软件的规划，编译器负责根据规划建造真正产品，为产生程序代码所进行的一切工作都是设计活动，好的设计保证质量</p>
-</li>
-<li><p><strong>可用性</strong><br>易学性：新手容易学习，能快速使用系统<br>效率：熟练用户使用系统完成任务的速度<br>易记性：老用户能有效记忆或者快速重新学会使用<br>低出错率：用户使用系统时，会犯多少错、错误多严重以及是否能从错误中容易恢复<br>主观满意度：用户有良好体验</p>
-</li>
-<li><p><strong>解释耦合与内聚</strong><br><strong>耦合</strong>：指软件系统结构中各模块间相互联系紧密程度的一种度量。模块之间联系越紧密，其耦合性就越强，模块的独立性则越差。</p>
-<p><strong>内聚</strong>：指模块的功能强度的度量，即一个模块内部各个元素彼此结合的紧密程度的度量。模块内元素联系越紧密，内聚性越高。</p>
-</li>
-<li><p><strong>信息隐藏</strong>的含义：信息隐藏其实就是利用了抽象的方法。抽象出每个类的关键细节，也就是模块的指责。换句话说，抽象出来的就是接口，隐藏的就是实现，它们共同体现了模块的职责。信息隐藏的核心设计思路是每个模块都隐藏一个重要的决策</p>
-</li>
-<li><p><strong>重构</strong>：修改软件系统的严谨方法，它在不改变代码外部表现的情况下改进其内部结构</p>
-</li>
-<li><p><strong>测试驱动开发</strong>：测试驱动开发又被称为测试优先（Test First）的开发，随着极限编程方法的普遍应用而得到普及。<br>测试驱动开发要求程序员在编写一段代码之前，优先完成该段代码的测试代码。测试代码通常由测试工具自动装载执行，也可以由程序员手工执行。完成测试代码之后，程序员再编写程序代码，并在编程中重复执行测试代码，以验证程序代码的正确性。</p>
-</li>
-<li><p><strong>结对编程</strong>：由极限编程推广的方法，思路很简单：两个程序员挨着坐在一起，共同合作进行软件构造活动</p>
-</li>
-<li><p><strong>用户文档</strong>：是指为用户编写参考指南或者操作教程，常见的有用户使用手册、联机帮助文档</p>
-</li>
-<li><p><strong>系统文档</strong>（系统管理员文档）：与用户文档注重系统使用细节不同，系统管理员文档更注重系统维护方面的内容。需要详细介绍软硬件的配置方式、网络连接方式、安全验证与访问授权方法、备份与容灾方法、部件替换方法等</p>
-</li>
-<li><p><strong>逆向工程</strong>：分析目标系统，标识系统的部件及其交互关系，并且使用其它形式或者更高层的抽象创建系统表现的过程[Chikofsky1990]</p>
-</li>
-<li><p><strong>逆向工程的基本原理</strong>：抽取软件系统的需求与设计而隐藏实现细节，然后在需求与设计的层次上描述软件系统，以建立对系统更加准确和清晰的理解</p>
-</li>
-<li><p><strong>再工程</strong>：检查和改造一个目标系统，用新的模式式及其实现复原该目标系统</p>
-</li>
-<li><p><strong>再工程的目的</strong>：是对遗留软件系统进行分析和重新开发，以便进一步利用新技术来改善系统或促进现存系统的再利用</p>
-</li>
-<li><p><strong>软件维护与演化的常见技术</strong>:<br>遗留软件处理<br>逆向工程<br>再工程</p>
-</li>
+          <ol>
+<li><strong>软件工程</strong><br>  将系统化的、规范的、可量化的方法来开发、运行和维护软件，即将工程应用到软件。<pre><code>在上述方法的研究。
+</code></pre></li>
+<li><strong>需求</strong>：需求是用户的一种期望，软件系统通过满足用户的期望来解决用户的问题。</li>
+<li>IEEE对<strong>需求的定义</strong>为[IEEE610.12-1990]：<br>  1）用户为了解决问题或达到某些目标所需要的条件或能力；<pre><code>2）系统或系统部件为了满足合同、标准、规范或其它正式文档所规定的要求而需要具备的条件或能力；
+3）对1或2中的一个条件或一种能力的一种文档化表述。  
+</code></pre></li>
 </ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/29/软件工程名词解释/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1056,191 +1225,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/11/28/睡眠的理发师问题/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wynn">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/28/睡眠的理发师问题/" itemprop="url">睡眠的理发师问题</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T15:31:38+08:00">
-                2018-11-28
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-28T15:31:38+08:00">
-                2018-11-28
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/11/28/睡眠的理发师问题/" class="leancloud_visitors" data-flag-title="睡眠的理发师问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  477
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>​    <strong>睡眠的理发师问题</strong>是操作系统中P、V操作部分的经典问题</p>
-<hr>
-<h3 id="睡眠的理发师问题"><a href="#睡眠的理发师问题" class="headerlink" title="睡眠的理发师问题"></a>睡眠的理发师问题</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p>理发店理有一位理发师、一把理发椅和n把供等候理发的顾客坐的椅子，要求：</p>
-<ol>
-<li>如果没有顾客，理发师便在理发椅上睡觉</li>
-<li>一个顾客到来时，它必须叫醒理发师</li>
-<li>如果理发师正在理发时又有顾客来到，则如果有空椅子可坐，就坐下来等待，否则就离开</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/28/睡眠的理发师问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1293,7 +1277,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1399,7 +1383,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">20.7k</span>
+    <span title="Site words total count">23k</span>
   
 </div>
 
