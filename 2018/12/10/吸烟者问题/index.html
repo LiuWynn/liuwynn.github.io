@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="前言​    读者-写者问题是操作系统中P、V操作部分经典的同步问题 读者、写者问题1. 问题描述​    读者与写者问题(reader-writer problem) (Courtois, 1971)也是一个经典的并发程序设计问题。有两组并发进程：读者和写者，共享一个文件F，要求：  允许多个读者可同时对文件执行读操作 只允许一个写者往文件中写信息 任一写者在完成写操作之前不允许其他读者或写者工">
+<meta name="description" content="前言吸烟者问题是操作系统中P、V操作部分的经典同步问题，深刻理解吸烟者问题对我们学习操作系统有着很大的益处！(ง •_•)ง  吸烟者问题1. 问题描述三个吸烟者在一个房间内，还有一个香烟供应者。为了制造并抽掉香烟，每个吸烟者需要三样东西：烟草、纸和火柴，供应 者有丰富货物提供。三个吸烟者中，第一个有自己的烟草，第二个有自己的纸，第三个有自己的火柴。供应者随机地将两样东西放在桌子上，允许一个吸烟者">
 <meta name="keywords" content="操作系统,P、V操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读者-写者问题">
-<meta property="og:url" content="https://liuwynn.github.io/2018/11/28/读者-写者问题/index.html">
+<meta property="og:title" content="吸烟者问题">
+<meta property="og:url" content="https://liuwynn.github.io/2018/12/10/吸烟者问题/index.html">
 <meta property="og:site_name" content="Zerone">
-<meta property="og:description" content="前言​    读者-写者问题是操作系统中P、V操作部分经典的同步问题 读者、写者问题1. 问题描述​    读者与写者问题(reader-writer problem) (Courtois, 1971)也是一个经典的并发程序设计问题。有两组并发进程：读者和写者，共享一个文件F，要求：  允许多个读者可同时对文件执行读操作 只允许一个写者往文件中写信息 任一写者在完成写操作之前不允许其他读者或写者工">
+<meta property="og:description" content="前言吸烟者问题是操作系统中P、V操作部分的经典同步问题，深刻理解吸烟者问题对我们学习操作系统有着很大的益处！(ง •_•)ง  吸烟者问题1. 问题描述三个吸烟者在一个房间内，还有一个香烟供应者。为了制造并抽掉香烟，每个吸烟者需要三样东西：烟草、纸和火柴，供应 者有丰富货物提供。三个吸烟者中，第一个有自己的烟草，第二个有自己的纸，第三个有自己的火柴。供应者随机地将两样东西放在桌子上，允许一个吸烟者">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-28T07:25:51.070Z">
+<meta property="og:updated_time" content="2018-12-10T13:46:02.801Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读者-写者问题">
-<meta name="twitter:description" content="前言​    读者-写者问题是操作系统中P、V操作部分经典的同步问题 读者、写者问题1. 问题描述​    读者与写者问题(reader-writer problem) (Courtois, 1971)也是一个经典的并发程序设计问题。有两组并发进程：读者和写者，共享一个文件F，要求：  允许多个读者可同时对文件执行读操作 只允许一个写者往文件中写信息 任一写者在完成写操作之前不允许其他读者或写者工">
+<meta name="twitter:title" content="吸烟者问题">
+<meta name="twitter:description" content="前言吸烟者问题是操作系统中P、V操作部分的经典同步问题，深刻理解吸烟者问题对我们学习操作系统有着很大的益处！(ง •_•)ง  吸烟者问题1. 问题描述三个吸烟者在一个房间内，还有一个香烟供应者。为了制造并抽掉香烟，每个吸烟者需要三样东西：烟草、纸和火柴，供应 者有丰富货物提供。三个吸烟者中，第一个有自己的烟草，第二个有自己的纸，第三个有自己的火柴。供应者随机地将两样东西放在桌子上，允许一个吸烟者">
 
 
 
@@ -164,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://liuwynn.github.io/2018/11/28/读者-写者问题/">
+  <link rel="canonical" href="https://liuwynn.github.io/2018/12/10/吸烟者问题/">
 
 
 
 
 
-  <title>读者-写者问题 | Zerone</title>
+  <title>吸烟者问题 | Zerone</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/11/28/读者-写者问题/">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/12/10/吸烟者问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wynn">
@@ -324,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">读者-写者问题</h2>
+          <h2 class="post-title" itemprop="name headline">吸烟者问题</h2>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T15:25:51+08:00">
-                2018-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T21:46:02+08:00">
+                2018-12-10
               </time>
             
 
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-28T15:25:51+08:00">
-                2018-11-28
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-10T21:46:02+08:00">
+                2018-12-10
               </time>
             
           </span>
@@ -366,7 +366,7 @@
 
           
           
-             <span id="/2018/11/28/读者-写者问题/" class="leancloud_visitors" data-flag-title="读者-写者问题">
+             <span id="/2018/12/10/吸烟者问题/" class="leancloud_visitors" data-flag-title="吸烟者问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -391,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  632
+                  590
                 </span>
               
 
@@ -428,19 +428,14 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>​    <strong>读者-写者问题</strong>是操作系统中P、V操作部分经典的同步问题</p>
-<h3 id="读者、写者问题"><a href="#读者、写者问题" class="headerlink" title="读者、写者问题"></a>读者、写者问题</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p>​    读者与写者问题(reader-writer problem) (Courtois, 1971)也是一个经典的并发程序设计问题。有两组并发进程：读者和写者，共享一个文件F，要求：</p>
-<ol>
-<li>允许多个读者可同时对文件执行读操作</li>
-<li>只允许一个写者往文件中写信息</li>
-<li>任一写者在完成写操作之前不允许其他读者或写者工作</li>
-<li>写者执行写操作前，应让已有的写者和读者全部退出</li>
-</ol>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>吸烟者问题是操作系统中P、V操作部分的经典同步问题，深刻理解吸烟者问题对我们学习操作系统有着很大的益处！(ง •_•)ง</p>
+<hr>
+<h3 id="吸烟者问题"><a href="#吸烟者问题" class="headerlink" title="吸烟者问题"></a>吸烟者问题</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p>三个吸烟者在一个房间内，还有一个香烟供应者。为了制造并抽掉香烟，每个吸烟者需要三样东西：烟草、纸和火柴，供应 者有丰富货物提供。三个吸烟者中，第一个有自己的烟草，第二个有自己的纸，第三个有自己的火柴。供应者随机地将两样东西放在桌子上，允许一个吸烟者进行对<strong>健康不利</strong>的吸烟。当吸烟者完成吸烟后唤醒供应者，供应者再把两样东西放在桌子上，唤醒另一个吸烟者。试用信号量和P、 V操作求解该问题</p>
 <a id="more"></a>
-<h4 id="2-问题分析"><a href="#2-问题分析" class="headerlink" title="2. 问题分析"></a>2. 问题分析</h4><p>​    读者和写者是互斥的，写者和写者也是互斥的，而读者和读者不存在互斥问题。两个进程，即读者和写者。写者比较简单，它和任何进程互斥，用互斥信号量的P、V操作即可解决。读者问题比较复杂，它必须实现与写者进程互斥的同时还要与其他读者进程同步，因此，仅仅简单的一对P、V操作是无法解决的。那么在这里用到了一个计算器，用它来判断当前是否有读者读文件。同时这里不同读者对计数器的访问也应该是互斥的。</p>
-<h4 id="3-读者优先的P、V操作"><a href="#3-读者优先的P、V操作" class="headerlink" title="3. 读者优先的P、V操作"></a>3. 读者优先的P、V操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">semaphore rmutex = <span class="number">1</span>; <span class="comment">// 读进程互斥信号量</span></span><br><span class="line">semaphore wmutex = <span class="number">1</span>; <span class="comment">// 写进程互斥信号量</span></span><br><span class="line"><span class="keyword">int</span> readcount = <span class="number">0</span>;    <span class="comment">// 读进程计数</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">reader_i</span><span class="params">()</span> </span>&#123;  <span class="comment">// 读进程</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(rmutex);</span><br><span class="line">        readcount++;</span><br><span class="line">        <span class="keyword">if</span>(readcount == <span class="number">1</span>)</span><br><span class="line">        	P(wmutex);</span><br><span class="line">        V(rmutex);</span><br><span class="line">        &#123;读文件&#125;;</span><br><span class="line">        P(rmutex);</span><br><span class="line">        readcount--;</span><br><span class="line">        <span class="keyword">if</span>(readcount == <span class="number">0</span>)</span><br><span class="line">        	V(wmutex);</span><br><span class="line">        V(rmutex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">writer_i</span><span class="params">()</span> </span>&#123;  <span class="comment">// 写进程</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(wmutex);</span><br><span class="line">        &#123;写文件&#125;;</span><br><span class="line">        V(wmutex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
-<p><strong>说明：此P、V操作是读进程优先，当一个读进程占用了临界资源后，后续的读进程便能陆续的进入临界区，而写进程只能被迫等待。增加互斥信号量S可解决读进程优先问题！</strong></p>
-<h4 id="4-公平竞争的读写P、V操作"><a href="#4-公平竞争的读写P、V操作" class="headerlink" title="4. 公平竞争的读写P、V操作"></a>4. 公平竞争的读写P、V操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">semaphore rmutex = <span class="number">1</span>; <span class="comment">// 读进程互斥信号量</span></span><br><span class="line">semaphore wmutex = <span class="number">1</span>; <span class="comment">// 写进程互斥信号量</span></span><br><span class="line"><span class="keyword">int</span> readcount = <span class="number">0</span>;    <span class="comment">// 读进程计数</span></span><br><span class="line">semaphore S = <span class="number">1</span>;      <span class="comment">// 保证readcount++能完整执行的互斥信号量</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">reader_i</span><span class="params">()</span> </span>&#123;  <span class="comment">// 读进程</span></span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(S);</span><br><span class="line">        P(rmutex);</span><br><span class="line">        readcount++;</span><br><span class="line">       	<span class="keyword">if</span>(readcount == <span class="number">1</span>)</span><br><span class="line">       		P(wmutex);</span><br><span class="line">       	V(rmutex);</span><br><span class="line">       	V(S);</span><br><span class="line">       	&#123;读文件&#125;;</span><br><span class="line">       	P(rmutex);</span><br><span class="line">       	readcount--;</span><br><span class="line">       	<span class="keyword">if</span>(readcount == <span class="number">0</span>)</span><br><span class="line">       		V(wmutex);</span><br><span class="line">       	V(rmutex);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">writer_i</span><span class="params">()</span> </span>&#123;  <span class="comment">// 写进程</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(S);</span><br><span class="line">        P(wmutex);</span><br><span class="line">        &#123;写文件&#125;;</span><br><span class="line">        V(wmutex);</span><br><span class="line">        V(S);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<h4 id="2-问题分析"><a href="#2-问题分析" class="headerlink" title="2. 问题分析"></a>2. 问题分析</h4><p>供应者与三个抽烟者分别是<strong>同步关系</strong>。由于供应者无法同时满足两个或两个以上的抽烟者，三个抽烟者对抽烟这个动作是互斥的。</p>
+<h4 id="3-P、V操作"><a href="#3-P、V操作" class="headerlink" title="3. P、V操作"></a>3. P、V操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设0，1，2 分别代表烟草，纸和火柴</span></span><br><span class="line">semaphore S0 = <span class="number">1</span>;  <span class="comment">// 互斥信号量，表示供应者是否可以在桌子上放东西</span></span><br><span class="line">semaphore S1 = <span class="number">0</span>;  <span class="comment">// 表示第一个吸烟者所需要的资源</span></span><br><span class="line">semaphore S2 = <span class="number">0</span>;  <span class="comment">// 表示第二个吸烟者所需要的资源</span></span><br><span class="line">semaphore S3 = <span class="number">0</span>;  <span class="comment">// 表示第三个吸烟者所需要的资源</span></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;  <span class="comment">// 表示供应者放的两种资源</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line">process businessman &#123; <span class="comment">// 供应者</span></span><br><span class="line">    i = RAND() % <span class="number">3</span>;</span><br><span class="line">    j = RAND() % <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">while</span>(i == j) &#123;   <span class="comment">// 随机计算出需要放到桌子上的两样东西</span></span><br><span class="line">        i = RAND() % <span class="number">3</span>;</span><br><span class="line">    	j = RAND() % <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    P(S0);  <span class="comment">// 如果桌子上没有东西了，则独占桌子的使用权</span></span><br><span class="line">    Put_items[i]_on_table; <span class="comment">// 放东西</span></span><br><span class="line">    Put_items[j]_on_table; <span class="comment">// 继续放东西</span></span><br><span class="line">    <span class="keyword">if</span>((i=<span class="number">0</span> &amp;&amp; j=<span class="number">1</span>) || (i=<span class="number">1</span> &amp;&amp; j=<span class="number">0</span>))  <span class="comment">// 表示供应者提供的是烟草和纸</span></span><br><span class="line">    	V(S3);  <span class="comment">// 第三个吸烟者拥有火柴，烟草和纸是TA需要的，因此唤醒TA</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>((i=<span class="number">1</span> &amp;&amp; j=<span class="number">2</span>) || (i=<span class="number">2</span> &amp;&amp; j=<span class="number">1</span>))</span><br><span class="line">    	V(S1);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    	V(V2)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process consumer_k(k=<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(S[k]);  <span class="comment">// 申请自己需要的资源</span></span><br><span class="line">        take_one_item_from_table;</span><br><span class="line">        take_one_item_from_table;</span><br><span class="line">        V(S0);    <span class="comment">// 提醒供应者放东西</span></span><br><span class="line">        make_cigarette_and_smoking;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<p>d=====(￣▽￣*)b</p>
+
       
     </div>
     
@@ -497,7 +492,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://liuwynn.github.io/2018/11/28/读者-写者问题/" title="读者-写者问题">https://liuwynn.github.io/2018/11/28/读者-写者问题/</a>
+    <a href="https://liuwynn.github.io/2018/12/10/吸烟者问题/" title="吸烟者问题">https://liuwynn.github.io/2018/12/10/吸烟者问题/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -527,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/28/生产者-消费者问题/" rel="next" title="生产者-消费者问题">
-                <i class="fa fa-chevron-left"></i> 生产者-消费者问题
+              <a href="/2018/12/10/银行业务问题/" rel="next" title="银行业务问题">
+                <i class="fa fa-chevron-left"></i> 银行业务问题
               </a>
             
           </div>
@@ -536,10 +531,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/28/睡眠的理发师问题/" rel="prev" title="睡眠的理发师问题">
-                睡眠的理发师问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -706,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读者、写者问题"><span class="nav-text">读者、写者问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题描述"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-问题分析"><span class="nav-text">2. 问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-读者优先的P、V操作"><span class="nav-text">3. 读者优先的P、V操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-公平竞争的读写P、V操作"><span class="nav-text">4. 公平竞争的读写P、V操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#吸烟者问题"><span class="nav-text">吸烟者问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题描述"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-问题分析"><span class="nav-text">2. 问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-P、V操作"><span class="nav-text">3. P、V操作</span></a></li></ol></li></ol></div>
             
 
           </div>
