@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="PyCharm,Git,Github,">
+  <meta name="keywords" content="操作系统,P、V操作,">
 
 
 
@@ -123,28 +123,18 @@
 
 
 
-<meta name="description" content="1.先要确保PyCharm正确的配置了Git  如果你已经在PyCharm中配置好了Git，可以跳过此步骤，直接看下一步。   那么怎么在PyCharm中配置Git呢？  百度搜索Git安装包，安装过程不再多说，请记住Git的安装路径；   打开PyCharm，如图1-1所示：   图1-1">
-<meta name="keywords" content="PyCharm,Git,Github">
+<meta name="description" content="前言缓冲区管理问题是操作系统中P、V操作部分非常经典的问题！^_^  缓冲区问题1. 问题描述有n个进程将字符逐个读入到一个容量为80的缓冲区中(n&amp;gt;1)，当缓冲区满后，由输出进程Q负责一次性取走这80个字符。这种过程循环往复，请用信号量和P、V操作写出n个读入进程(P1， P2，…Pn)和输出进程Q能正确工作的的动作序列 2. 问题分析n个进程对缓冲区之间是互斥关系，而它们和进程Q之间又是">
+<meta name="keywords" content="操作系统,P、V操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PyCharm怎么克隆github上开源的项目">
-<meta property="og:url" content="https://liuwynn.github.io/2018/01/20/PyCharm怎么克隆github上开源的项目/index.html">
+<meta property="og:title" content="缓冲区管理问题">
+<meta property="og:url" content="https://liuwynn.github.io/2018/12/11/缓冲区管理问题/index.html">
 <meta property="og:site_name" content="Zerone">
-<meta property="og:description" content="1.先要确保PyCharm正确的配置了Git  如果你已经在PyCharm中配置好了Git，可以跳过此步骤，直接看下一步。   那么怎么在PyCharm中配置Git呢？  百度搜索Git安装包，安装过程不再多说，请记住Git的安装路径；   打开PyCharm，如图1-1所示：   图1-1">
+<meta property="og:description" content="前言缓冲区管理问题是操作系统中P、V操作部分非常经典的问题！^_^  缓冲区问题1. 问题描述有n个进程将字符逐个读入到一个容量为80的缓冲区中(n&amp;gt;1)，当缓冲区满后，由输出进程Q负责一次性取走这80个字符。这种过程循环往复，请用信号量和P、V操作写出n个读入进程(P1， P2，…Pn)和输出进程Q能正确工作的的动作序列 2. 问题分析n个进程对缓冲区之间是互斥关系，而它们和进程Q之间又是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://i.imgur.com/vaD0Fr8.png">
-<meta property="og:image" content="http://i.imgur.com/PS8znJC.png">
-<meta property="og:image" content="http://i.imgur.com/BYW7wyq.png">
-<meta property="og:image" content="http://i.imgur.com/JxXjkTZ.png">
-<meta property="og:image" content="http://i.imgur.com/vaD0Fr8.png">
-<meta property="og:image" content="http://i.imgur.com/v3308jH.png">
-<meta property="og:image" content="http://i.imgur.com/qimoGtI.jpg">
-<meta property="og:image" content="http://i.imgur.com/AUnOVwK.png">
-<meta property="og:image" content="http://i.imgur.com/MuCJ6Aw.png">
-<meta property="og:updated_time" content="2018-01-22T16:33:00.530Z">
+<meta property="og:updated_time" content="2018-12-11T13:34:32.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PyCharm怎么克隆github上开源的项目">
-<meta name="twitter:description" content="1.先要确保PyCharm正确的配置了Git  如果你已经在PyCharm中配置好了Git，可以跳过此步骤，直接看下一步。   那么怎么在PyCharm中配置Git呢？  百度搜索Git安装包，安装过程不再多说，请记住Git的安装路径；   打开PyCharm，如图1-1所示：   图1-1">
-<meta name="twitter:image" content="http://i.imgur.com/vaD0Fr8.png">
+<meta name="twitter:title" content="缓冲区管理问题">
+<meta name="twitter:description" content="前言缓冲区管理问题是操作系统中P、V操作部分非常经典的问题！^_^  缓冲区问题1. 问题描述有n个进程将字符逐个读入到一个容量为80的缓冲区中(n&amp;gt;1)，当缓冲区满后，由输出进程Q负责一次性取走这80个字符。这种过程循环往复，请用信号量和P、V操作写出n个读入进程(P1， P2，…Pn)和输出进程Q能正确工作的的动作序列 2. 问题分析n个进程对缓冲区之间是互斥关系，而它们和进程Q之间又是">
 
 
 
@@ -174,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://liuwynn.github.io/2018/01/20/PyCharm怎么克隆github上开源的项目/">
+  <link rel="canonical" href="https://liuwynn.github.io/2018/12/11/缓冲区管理问题/">
 
 
 
 
 
-  <title>PyCharm怎么克隆github上开源的项目 | Zerone</title>
+  <title>缓冲区管理问题 | Zerone</title>
   
 
 
@@ -317,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/01/20/PyCharm怎么克隆github上开源的项目/">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/12/11/缓冲区管理问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wynn">
@@ -334,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">PyCharm怎么克隆github上开源的项目</h2>
+          <h2 class="post-title" itemprop="name headline">缓冲区管理问题</h2>
         
 
         <div class="post-meta">
@@ -346,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T00:55:58+08:00">
-                2018-01-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T21:34:32+08:00">
+                2018-12-11
               </time>
             
 
@@ -362,8 +352,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-23T00:33:00+08:00">
-                2018-01-23
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-11T21:34:32+08:00">
+                2018-12-11
               </time>
             
           </span>
@@ -376,7 +366,7 @@
 
           
           
-             <span id="/2018/01/20/PyCharm怎么克隆github上开源的项目/" class="leancloud_visitors" data-flag-title="PyCharm怎么克隆github上开源的项目">
+             <span id="/2018/12/11/缓冲区管理问题/" class="leancloud_visitors" data-flag-title="缓冲区管理问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -401,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  401
+                  420
                 </span>
               
 
@@ -438,69 +428,12 @@
       
 
       
-        <h3 id="1-先要确保PyCharm正确的配置了Git"><a href="#1-先要确保PyCharm正确的配置了Git" class="headerlink" title="1.先要确保PyCharm正确的配置了Git"></a>1.先要确保PyCharm正确的配置了Git</h3><p>  <strong>如果你已经在PyCharm中配置好了Git，可以跳过此步骤，直接看下一步。</strong></p>
-<p>  那么怎么在PyCharm中配置Git呢？</p>
-<ul>
-<li>百度搜索Git安装包，安装过程不再多说，请记住Git的安装路径；</li>
-</ul>
-<ul>
-<li>打开PyCharm，如图1-1所示：</li>
-</ul>
-<p><img src="http://i.imgur.com/vaD0Fr8.png" alt=""></p>
-<center>图1-1</center>
-
-<a id="more"></a>
-<ul>
-<li>点击右下角的”Configure”，如图1-2所示：</li>
-</ul>
-<p><img src="http://i.imgur.com/PS8znJC.png" alt=""></p>
-<center>图1-2</center>
-
-<ul>
-<li>点击”Settings”， 出现如图1-3所示界面：</li>
-</ul>
-<p><img src="http://i.imgur.com/BYW7wyq.png" alt=""></p>
-<center>图1-3</center>
-
-<ul>
-<li>选中”Version Control”=&gt;”Git”，出现如图1-4所示界面：</li>
-</ul>
-<p><img src="http://i.imgur.com/JxXjkTZ.png" alt=""></p>
-<center>图1-4</center>
-
-<ul>
-<li>看到上图画框框的区域没有？选中之前安装的git.exe，Windows版本的git.exe一般在cmd文件夹下，选中之后点击”Test”按钮，出现弹框”Git executed successfully”则表示配置成功。</li>
-</ul>
-<p>  怎么样？很简单吧！</p>
-<h3 id="2-克隆github上的开源项目"><a href="#2-克隆github上的开源项目" class="headerlink" title="2.克隆github上的开源项目"></a>2.克隆github上的开源项目</h3><p>  经过上一步。我们已经配置好了Git，现在就可以去克隆那些开源项目了，这个也非常简单。</p>
-<ul>
-<li>我们回到PyCharm刚打开时的界面，如图2-1所示：</li>
-</ul>
-<p><img src="http://i.imgur.com/vaD0Fr8.png" alt=""></p>
-<center>图2-1</center>
-
-<ul>
-<li>点击”Check out from Version Control” =&gt; “Git”，如图2-2，2-3所示：</li>
-</ul>
-<p><img src="http://i.imgur.com/v3308jH.png" alt=""></p>
-<center>图2-2</center>
-
-<p><img src="http://i.imgur.com/qimoGtI.jpg" alt=""></p>
-<center>图2-3</center>
-
-<blockquote>
-<p>Git Repository URL指的就是你想克隆的github上项目的路径，如图所示：<img src="http://i.imgur.com/AUnOVwK.png" alt=""></p>
-</blockquote>
-<blockquote>
-<p>Directory Name 指的是克隆下来的文件存放在哪个目录下</p>
-</blockquote>
-<blockquote>
-<p>Parent Directory 指的是Directory Name的上级目录</p>
-</blockquote>
-<ul>
-<li>点击右侧的”Test”按钮，如果弹出如图所示提示<img src="http://i.imgur.com/MuCJ6Aw.png" alt="">，则说明三个参数设置没用问题，这是点击”Clone”按钮，就可以Clone开源项目啦。</li>
-</ul>
-<p>简单吧？自己赶快动手试试吧！！</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>缓冲区管理问题是操作系统中P、V操作部分非常经典的问题！^_^</p>
+<hr>
+<h3 id="缓冲区问题"><a href="#缓冲区问题" class="headerlink" title="缓冲区问题"></a>缓冲区问题</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p>有<code>n</code>个进程将字符逐个读入到一个容量为<code>80</code>的缓冲区中<code>(n&gt;1)</code>，当缓冲区满后，由输出进程<code>Q</code>负责一次性取走这<code>80</code>个字符。这种过程循环往复，请用信号量和P、V操作写出n个读入进程<code>(P1， P2，…Pn)</code>和输出进程<code>Q</code>能正确工作的的动作序列</p>
+<h4 id="2-问题分析"><a href="#2-问题分析" class="headerlink" title="2. 问题分析"></a>2. 问题分析</h4><p><code>n</code>个进程对缓冲区之间是<strong>互斥关系</strong>，而它们和进程<code>Q</code>之间又是<strong>同步关系</strong>，理解了这一点，根据前面几个P、V操作经典例题的分析，我们知道，同步关系需要2个同步信号量，互斥关系需要一个互斥信号量，大体思路就是如此。</p>
+<h4 id="3-P、V操作"><a href="#3-P、V操作" class="headerlink" title="3. P、V操作"></a>3. P、V操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">semaphore empty = <span class="number">80</span>; <span class="comment">// 空闲缓冲区的数量</span></span><br><span class="line">semaphore full = <span class="number">0</span>;   <span class="comment">// 缓冲区是否满</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>;  <span class="comment">// 互斥信号量，保证count,int等能完整执行</span></span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;        <span class="comment">// 表示已写入内容的缓冲区的大小</span></span><br><span class="line"><span class="keyword">char</span>[<span class="number">80</span>] Buffer;      <span class="comment">// 缓冲区</span></span><br><span class="line"><span class="keyword">int</span> in = <span class="number">0</span>;           <span class="comment">// 缓冲区读入游标-读入位置标志位</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">Pi</span><span class="params">(i=<span class="number">1</span>,<span class="number">2</span>,...,n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        &#123;读入一个字符到x&#125;;</span><br><span class="line">        P(empty);</span><br><span class="line">        P(mutex);</span><br><span class="line">        Buffer[in] = x;</span><br><span class="line">        in = (in + <span class="number">1</span>) % <span class="number">80</span>;</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">if</span>(count == <span class="number">80</span>) &#123;</span><br><span class="line">            count = <span class="number">0</span>;  <span class="comment">// 从0开始继续计数</span></span><br><span class="line">            V(mutex);</span><br><span class="line">            V(full);    <span class="comment">// 读入满80个字符后提醒Q进程取走</span></span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">        	V(mutex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process Q &#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(full);</span><br><span class="line">        P(mutex);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">80</span>; j++)</span><br><span class="line">        	read Buffer[j];</span><br><span class="line">        in = <span class="number">0</span>;</span><br><span class="line">        V(mutex);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">80</span>; j++)</span><br><span class="line">        	V(empty);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
+<p>d=====(￣▽￣*)b</p>
 
       
     </div>
@@ -558,7 +491,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://liuwynn.github.io/2018/01/20/PyCharm怎么克隆github上开源的项目/" title="PyCharm怎么克隆github上开源的项目">https://liuwynn.github.io/2018/01/20/PyCharm怎么克隆github上开源的项目/</a>
+    <a href="https://liuwynn.github.io/2018/12/11/缓冲区管理问题/" title="缓冲区管理问题">https://liuwynn.github.io/2018/12/11/缓冲区管理问题/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -573,11 +506,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PyCharm/" rel="tag"># PyCharm</a>
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
-          
-            <a href="/tags/Github/" rel="tag"># Github</a>
+            <a href="/tags/P、V操作/" rel="tag"># P、V操作</a>
           
         </div>
       
@@ -590,8 +521,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/20/PhpStorm格式化快捷鍵/" rel="next" title="PhpStorm格式化快捷鍵">
-                <i class="fa fa-chevron-left"></i> PhpStorm格式化快捷鍵
+              <a href="/2018/12/10/吸烟者问题/" rel="next" title="吸烟者问题">
+                <i class="fa fa-chevron-left"></i> 吸烟者问题
               </a>
             
           </div>
@@ -599,10 +530,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/20/wampserver怎么设置外网可访问/" rel="prev" title="wampserver怎么设置外网可访问">
-                wampserver怎么设置外网可访问 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -769,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-先要确保PyCharm正确的配置了Git"><span class="nav-text">1.先要确保PyCharm正确的配置了Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-克隆github上的开源项目"><span class="nav-text">2.克隆github上的开源项目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓冲区问题"><span class="nav-text">缓冲区问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题描述"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-问题分析"><span class="nav-text">2. 问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-P、V操作"><span class="nav-text">3. P、V操作</span></a></li></ol></li></ol></div>
             
 
           </div>
