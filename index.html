@@ -353,7 +353,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-11T21:34:32+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-11T21:37:31+08:00">
                 2018-12-11
               </time>
             
@@ -430,15 +430,16 @@
 
       
         
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>缓冲区管理问题是操作系统中P、V操作部分非常经典的问题！^_^</p>
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>缓冲区管理问题是操作系统中P、V操作部分非常经典的问题！^_^</p>
 <hr>
 <h3 id="缓冲区问题"><a href="#缓冲区问题" class="headerlink" title="缓冲区问题"></a>缓冲区问题</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p>有<code>n</code>个进程将字符逐个读入到一个容量为<code>80</code>的缓冲区中<code>(n&gt;1)</code>，当缓冲区满后，由输出进程<code>Q</code>负责一次性取走这<code>80</code>个字符。这种过程循环往复，请用信号量和P、V操作写出n个读入进程<code>(P1， P2，…Pn)</code>和输出进程<code>Q</code>能正确工作的的动作序列</p>
-<h4 id="2-问题分析"><a href="#2-问题分析" class="headerlink" title="2. 问题分析"></a>2. 问题分析</h4><p><code>n</code>个进程对缓冲区之间是<strong>互斥关系</strong>，而它们和进程<code>Q</code>之间又是<strong>同步关系</strong>，理解了这一点，根据前面几个P、V操作经典例题的分析，我们知道，同步关系需要2个同步信号量，互斥关系需要一个互斥信号量，大体思路就是如此。</p>
-<h4 id="3-P、V操作"><a href="#3-P、V操作" class="headerlink" title="3. P、V操作"></a>3. P、V操作</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">semaphore empty = <span class="number">80</span>; <span class="comment">// 空闲缓冲区的数量</span></span><br><span class="line">semaphore full = <span class="number">0</span>;   <span class="comment">// 缓冲区是否满</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>;  <span class="comment">// 互斥信号量，保证count,int等能完整执行</span></span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;        <span class="comment">// 表示已写入内容的缓冲区的大小</span></span><br><span class="line"><span class="keyword">char</span>[<span class="number">80</span>] Buffer;      <span class="comment">// 缓冲区</span></span><br><span class="line"><span class="keyword">int</span> in = <span class="number">0</span>;           <span class="comment">// 缓冲区读入游标-读入位置标志位</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">Pi</span><span class="params">(i=<span class="number">1</span>,<span class="number">2</span>,...,n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        &#123;读入一个字符到x&#125;;</span><br><span class="line">        P(empty);</span><br><span class="line">        P(mutex);</span><br><span class="line">        Buffer[in] = x;</span><br><span class="line">        in = (in + <span class="number">1</span>) % <span class="number">80</span>;</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">if</span>(count == <span class="number">80</span>) &#123;</span><br><span class="line">            count = <span class="number">0</span>;  <span class="comment">// 从0开始继续计数</span></span><br><span class="line">            V(mutex);</span><br><span class="line">            V(full);    <span class="comment">// 读入满80个字符后提醒Q进程取走</span></span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">        	V(mutex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process Q &#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(full);</span><br><span class="line">        P(mutex);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">80</span>; j++)</span><br><span class="line">        	read Buffer[j];</span><br><span class="line">        in = <span class="number">0</span>;</span><br><span class="line">        V(mutex);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">80</span>; j++)</span><br><span class="line">        	V(empty);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
-<p>d=====(￣▽￣*)b</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/11/缓冲区管理问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
