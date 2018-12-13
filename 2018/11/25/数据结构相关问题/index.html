@@ -132,7 +132,7 @@
 <meta property="og:description" content="前言南大历年考研数据结构题目总结！  题目 请设计一个递归算法，按由大到小的顺序输出二叉搜索树中所有不小于k的关键字，k为一给定值。假设二叉搜索树中结点的结构为：     left element right     左指针 数据 右指针    C语言版： 1234567891011121314struct BTNode &amp;#123;  int element;  struct BTNode* l">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://liuwynn.github.io/images/20181213/不带头结点的单链表示意图.PNG">
-<meta property="og:updated_time" content="2018-12-13T06:58:22.646Z">
+<meta property="og:updated_time" content="2018-12-13T10:36:54.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构相关问题">
 <meta name="twitter:description" content="前言南大历年考研数据结构题目总结！  题目 请设计一个递归算法，按由大到小的顺序输出二叉搜索树中所有不小于k的关键字，k为一给定值。假设二叉搜索树中结点的结构为：     left element right     左指针 数据 右指针    C语言版： 1234567891011121314struct BTNode &amp;#123;  int element;  struct BTNode* l">
@@ -354,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-13T14:58:22+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-13T18:36:54+08:00">
                 2018-12-13
               </time>
             
@@ -393,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  1.9k
                 </span>
               
 
@@ -409,7 +409,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  8
                 </span>
               
             </div>
@@ -569,9 +569,36 @@
 </ol>
 <p><img src="https://liuwynn.github.io/images/20181213/不带头结点的单链表示意图.PNG" alt="不带头结点的单链表示意图"></p>
 <p><strong>Java版：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    ListNode link</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">Average</span><span class="params">(ListNode f, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(f.link == <span class="keyword">null</span>)</span><br><span class="line">    	<span class="keyword">return</span> f.data;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    	<span class="keyword">return</span> (Average(f.link, n-<span class="number">1</span>) * (n-<span class="number">1</span>) + f.data) / n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    ListNode link;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">Average</span><span class="params">(ListNode f, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(f.link == <span class="keyword">null</span>)</span><br><span class="line">    	<span class="keyword">return</span> f.data;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    	<span class="keyword">return</span> (Average(f.link, n-<span class="number">1</span>) * (n-<span class="number">1</span>) + f.data) / n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-
+<ol start="9">
+<li>假设一颗带索引的二叉搜索树，root 指向其根节点，树中每个结点具有如下形式：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Lsize</th>
+<th style="text-align:center">left</th>
+<th style="text-align:center">data</th>
+<th style="text-align:center">right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">该结点左子树中的结点个数加一</td>
+<td style="text-align:center">左子树</td>
+<td style="text-align:center">int型</td>
+<td style="text-align:center">右子树</td>
+</tr>
+</tbody>
+</table>
+<p>试用 Java 语言写出一个递归的 findk 函数，即搜索这棵带索引的二叉搜索树中<strong>第K个小的关键码</strong>结点。<br><strong>分析：</strong>Lsize表示该结点左子树中的结点个数加1，即该表示该结点按从小到大排列的位置下标，二叉搜索树的特点：首先是一颗二叉排序树，并且结点的左子树都小于该点，右子树都大于该点的值。<br><strong>Java版：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> BinaryNode <span class="title">findk</span><span class="params">(<span class="keyword">int</span> k, BinaryNode root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(k == root.Lsize)   <span class="comment">// 如果查找的第K个数和当前遍历的点的Lsize相等，则要找的点就是当前遍历的点</span></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    <span class="keyword">if</span>(k &lt; root.Lsize)    <span class="comment">// 如果查找的第K个数比当前遍历的点的Lsize小，则说明要找的数在当前结点的左子树中</span></span><br><span class="line">        <span class="keyword">return</span> findk(k, root.left);  <span class="comment">// 遍历左子树</span></span><br><span class="line">    <span class="keyword">if</span>(root.right == <span class="keyword">null</span>)  <span class="comment">// 如果查找的第K个数比当前遍历的点的Lsize大，则去遍历右子树，如果右子树为空，则返回。这是设置了递归函数的返回条件</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">else</span>                  <span class="comment">// 如果右子树不为空，则遍历右子树，因为先前遍历了左子树的Lsize个数都没有找到，所以接着要遍历右子树的(k-Lsize)个数</span></span><br><span class="line">        <span class="keyword">return</span> findk(k - root.Lsize, root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<ol start="10">
+<li>已知 (k1, k2, k3, …, k<sub>n</sub>) 是一个最小堆，试写一个函数将 (k1, k2, k3, …, k<sub>n</sub>, k<sub>n+1</sub>) 调整为最小堆。设函数头为<code>private static void percUp(Comparable[] a, int start)</code>，其中 start 为插入堆的位置。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">下面是向上调整堆的算法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">percUp</span><span class="params">(Comparable[] a, <span class="keyword">int</span> start)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = start;  <span class="comment">// 记录插入堆的位置</span></span><br><span class="line">    <span class="keyword">int</span> i = j / <span class="number">2</span>;  <span class="comment">// 插入位置的双亲结点位置</span></span><br><span class="line">    Comparable temp = a[j];</span><br><span class="line">    <span class="keyword">while</span>(j &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i] &lt;= temp)  <span class="comment">// 如果双亲结点的值小于要插入的值，则不需要调整</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">        	a[j] = a[i];  <span class="comment">// 否则，双亲结点下调</span></span><br><span class="line">            j = i;</span><br><span class="line">            i = i / <span class="number">2</span>;    <span class="comment">// 继续向上比较</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[j] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -871,7 +898,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">25.4k</span>
+    <span title="Site words total count">25.9k</span>
   
 </div>
 
