@@ -306,6 +306,228 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/04/19/配置Python环境变量/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/19/配置Python环境变量/" itemprop="url">配置Python环境变量</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T22:18:43+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-19T23:17:51+08:00">
+                2019-04-19
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/19/配置Python环境变量/" class="leancloud_visitors" data-flag-title="配置Python环境变量">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  569
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>如果有人装完 <strong>python</strong> 安装程序后，在命令窗口输入 <strong>python</strong> 并回车后，看到一条错误消息，指出 <strong>python</strong> 是无法识别的命令，那么希望这篇文章能帮助到你。</p>
+<p>原因：安装时没有勾选 <code>Add Python to PATH</code></p>
+<p>下面是解决方法↓↓↓</p>
+<hr>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="勾选-Add-Python-to-PATH的作用是什么？"><a href="#勾选-Add-Python-to-PATH的作用是什么？" class="headerlink" title="勾选 Add Python to PATH的作用是什么？"></a>勾选 <code>Add Python to PATH</code>的作用是什么？</h4><p>为什么在安装Python程序时要勾选<code>Add Python to PATH</code>？因为勾选了这个选项后，安装程序会自动将Python安装路径添加到系统环境变量里。以后在命令窗口中输入python，系统就会调用 <strong>python.exe</strong>，不勾选的话，就会报错：</p>
+<blockquote>
+<p>‘python’ 不是内部或外部命令，也不是可运行的程序或批处理文件。</p>
+</blockquote>
+<p>所以还是勾上比较好，可简化文本编辑器的配置工作。</p>
+<h4 id="开始配置"><a href="#开始配置" class="headerlink" title="开始配置"></a>开始配置</h4><p>根据上面的说明可以知道，勾选<code>Add Python to PATH</code>选项会自动帮我们在系统环境变量里添加Python安装路径。现在你在命令窗口输入python之所以会报错，是因为系统环境变量里没有添加Python安装路径而已，所以我们接下来的操作就是手动把Python安装路径添加到系统环境变量里。</p>
+<ol>
+<li>右击<strong>我的电脑</strong>，选择<strong>属性</strong>，如图1-1</li>
+</ol>
+<p><img src="https://liuwynn.github.io/images/20190419/1-1.png" alt="我的电脑-&gt;属性"></p>
+<center>图1-1</center>
+
+<ol start="2">
+<li>选择<strong>高级系统设置</strong>，如图2-1</li>
+</ol>
+<p><img src="https://liuwynn.github.io/images/20190419/2-1.png" alt="高级系统设置"></p>
+<center>图2-1</center>
+
+<ol start="3">
+<li>选择<strong>环境变量</strong>，如图3-1</li>
+</ol>
+<p><img src="https://liuwynn.github.io/images/20190419/3-1.png" alt="选择环境变量"></p>
+<center>图3-1</center>
+
+<ol start="4">
+<li>选择【系统变量-&gt;Path】，然后点击<strong>编辑</strong>，如图4-1</li>
+</ol>
+<p><img src="https://liuwynn.github.io/images/20190419/4-1.png" alt="系统变量-&gt;Path-&gt;编辑"></p>
+<center>图4-1</center>
+
+<ol start="5">
+<li>将<strong>Python安装路径</strong>添加到<strong>系统环境变量</strong>，然后点击<strong>确定</strong>，如图5-1</li>
+</ol>
+<p><img src="https://liuwynn.github.io/images/20190419/5-1.png" alt="添加环境变量"></p>
+<center>图5-1</center>
+
+<ol start="6">
+<li>保存环境变量后，打开命令窗口，输入python并回车，看到图6-1表示环境变量配置成功啦&lt;(￣︶￣)&gt;</li>
+</ol>
+<p><img src="https://liuwynn.github.io/images/20190419/6-1.png" alt="Python命令"></p>
+<center>图6-1</center>
+
+<h3 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h3><p>编程学习就是不断踩坑、爬坑的过程，只有动手解决问题才能成长，如果你在学习过程中有任何疑问，可以关注文章↓↓↓的公众号及时与我联系，我们相互讨论，共同学习。</p>
+<p>最后，祝所有努力者都学有所成，加油！</p>
+<p><img src="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg" alt="公众号-猿小先森"></p>
+<center>欢迎大家点赞、关注、收藏，我是Kelvin，我们下期再见₍₍ ◝(　ﾟ∀ ﾟ )◟⁾⁾不送</center>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/04/18/在Windows系统中搭建python编程环境/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -353,8 +575,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-18T15:37:48+08:00">
-                2019-04-18
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-19T22:26:11+08:00">
+                2019-04-19
               </time>
             
           </span>
@@ -1017,185 +1239,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/12/10/银行业务问题/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wynn">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/10/银行业务问题/" itemprop="url">银行业务问题</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T20:28:30+08:00">
-                2018-12-10
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-10T20:34:02+08:00">
-                2018-12-10
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/12/10/银行业务问题/" class="leancloud_visitors" data-flag-title="银行业务问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  378
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>银行业务问题也是操作系统中P、V操作部分的经典问题。（＾∀＾●）ﾉｼ</p>
-<h3 id="银行业务问题"><a href="#银行业务问题" class="headerlink" title="银行业务问题"></a>银行业务问题</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p> 某大型银行办理人民币储蓄业务，由n个储蓄员负责。每个顾客进入银行后先至取号机取一个号，并且在等待区找到空沙发坐下等着叫号。 取号机给出的号码依次递增，并假定有足够多的空沙发容纳顾客。当一个储蓄员空闲下来，就叫下一个号。请用信号量和P，V操作正确编写储蓄员进程和顾客进程的程序</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/10/银行业务问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1248,7 +1291,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1354,7 +1397,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">27.7k</span>
+    <span title="Site words total count">28.2k</span>
   
 </div>
 
