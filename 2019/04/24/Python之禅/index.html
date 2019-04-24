@@ -139,7 +139,7 @@
 <meta property="og:image" content="https://liuwynn.github.io/images/20190424/baidufanyi.jpg">
 <meta property="og:image" content="https://liuwynn.github.io/images/20190424/fanyiyige.jpg">
 <meta property="og:image" content="https://liuwynn.github.io/images/20190424/wechat_subscriber.jpg">
-<meta property="og:updated_time" content="2019-04-24T07:20:38.112Z">
+<meta property="og:updated_time" content="2019-04-24T07:25:36.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python之禅">
 <meta name="twitter:description" content="前言编程语言 Perl 曾在互联网领域长期占据着统治地位，早期的大多数交互式网站使用的都是 Perl 脚本。那是，“解决问题的办法有多个”被 Perl 社区奉为座右铭。这种理念一度深受大家的喜爱，因为这种语言固有的灵活性使得大多数问题都有很多不同的解决之道。在开发项目期间，这种灵活性是可以接受的，但过于强调灵活性会导致大型项目难以维护。众所周知，项目维护得通过研究代码搞清楚当时开发项目的人是怎么想">
@@ -361,7 +361,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-24T15:20:38+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-24T15:25:36+08:00">
                 2019-04-24
               </time>
             
@@ -437,20 +437,20 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>编程语言 Perl 曾在互联网领域长期占据着统治地位，早期的大多数交互式网站使用的都是 Perl 脚本。那是，“解决问题的办法有多个”被 Perl 社区奉为座右铭。这种理念一度深受大家的喜爱，因为这种语言固有的灵活性使得大多数问题都有很多不同的解决之道。在开发项目期间，这种灵活性是可以接受的，但过于强调灵活性会导致大型项目难以维护。众所周知，项目维护得通过研究代码搞清楚当时开发项目的人是怎么想的，这样才能对代码进行维护，但 Perl 的灵活性使得问题有不同的解决之道，在维护阶段就十分的让人头疼。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>编程语言 Perl 曾在互联网领域长期占据着统治地位，早期的大多数交互式网站使用的都是 Perl 脚本。那是，“解决问题的办法有多个”被 Perl 社区奉为座右铭。这种理念一度深受大家的喜爱，因为这种语言固有的灵活性使得大多数问题都有很多不同的解决之道。在开发项目期间，这种灵活性是可以接受的，但<strong>过于强调灵活性会导致大型项目难以维护</strong>。众所周知，项目维护得通过研究代码搞清楚当时开发项目的人是怎么想的，这样才能对代码进行维护，但 Perl 的灵活性使得问题有不同的解决之道，在维护阶段就十分的让人头疼。</p>
 <p><img src="https://liuwynn.github.io/images/20190424/touteng.jpg" alt="头疼"></p>
 <p>你们可能会奇怪，明明说的是 Python，怎么秃然扯到 Perl 了呢？是不是标题取错了？</p>
 <p>嗯，是的，是标题取错了……</p>
 <p><img src="https://liuwynn.github.io/images/20190424/turan.jpg" alt="turan"></p>
-<p>才怪！</p>
-<p>说这么多，是想告诉你们，正是鉴于 Perl 语言遇到的问题，经验丰富的程序员在编写 Python 代码时就有了避繁就简的理念，最终在某一天由一个叫 Tim Peters 的人撰写了出来，即 “Python之禅”。它并非出自 Python 创始人之手，但已被官方认可为编程原则。下面就让我们一起来欣赏一哈 Python 编程原则。</p>
+<p><strong>才怪！</strong></p>
+<p>说这么多，是想告诉你们，正是鉴于 Perl 语言遇到的问题，经验丰富的程序员在编写 Python 代码时就有了<strong>避繁就简</strong>的理念，最终在某一天由一个叫 Tim Peters 的人撰写了出来，即 “<strong>Python之禅</strong>”。它并非出自 Python 创始人之手，但已被官方认可为编程原则。下面就让我们一起来欣赏一哈 Python 编程原则。</p>
 <p><img src="https://liuwynn.github.io/images/20190424/zhexue.jpg" alt="zhexue"></p>
 <hr>
 <a id="more"></a>
 <h3 id="Python之禅内容"><a href="#Python之禅内容" class="headerlink" title="Python之禅内容"></a>Python之禅内容</h3><p>要获悉这些有关编写优秀 Python 代码的指导原则，有多种方法，大致分为两类：</p>
 <ul>
-<li>在编辑器中查看。新建 .py 文件，文件名随便取，键入 import this，并运行代码，会有控制台输出 “Python之禅”的内容。</li>
-<li>在解释器或命令窗口中查看。直接输入 import this并回车，需要注意的是命令窗口中得先输入python并回车，待看到 &gt;&gt;&gt; 提示符时，才可输入 import this。回车后，下方会直接输出 “Python之禅”的内容。</li>
+<li>在编辑器中查看。新建 <code>.py</code> 文件，文件名随便取，键入 <code>import this</code>，并运行代码，会有控制台输出 “Python之禅”的内容。</li>
+<li>在解释器或命令窗口中查看。直接输入 <code>import this并回车</code>，需要注意的是命令窗口中得先输入python并回车，待看到 <code>&gt;&gt;&gt;</code> 提示符时，才可输入 <code>import this</code>。回车后，下方会直接输出 “Python之禅”的内容。</li>
 </ul>
 <p><img src="https://liuwynn.github.io/images/20190424/jiandan.jpg" alt="jiandan"></p>
 <h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><blockquote>
@@ -472,7 +472,7 @@
 <h5 id="17-If-the-implementation-is-hard-to-explain-it’s-a-bad-idea"><a href="#17-If-the-implementation-is-hard-to-explain-it’s-a-bad-idea" class="headerlink" title="17. If the implementation is hard to explain, it’s a bad idea."></a>17. If the implementation is hard to explain, it’s a bad idea.</h5><h5 id="18-If-the-implementation-is-easy-to-explain-it-may-be-a-good-idea"><a href="#18-If-the-implementation-is-easy-to-explain-it-may-be-a-good-idea" class="headerlink" title="18. If the implementation is easy to explain, it may be a good idea."></a>18. If the implementation is easy to explain, it may be a good idea.</h5><p>如果你无法向人解释清楚你的方案，那肯定不是一个好方案；反之亦然。</p>
 <h5 id="19-Namespaces-are-one-honking-great-idea-–-let’s-do-more-of-those"><a href="#19-Namespaces-are-one-honking-great-idea-–-let’s-do-more-of-those" class="headerlink" title="19. Namespaces are one honking great idea – let’s do more of those!"></a>19. Namespaces are one honking great idea – let’s do more of those!</h5><p>命名空间是一个绝妙的理念，我们应该多加利用。</p>
 <p><img src="https://liuwynn.github.io/images/20190424/baidufanyi.jpg" alt="baidufanyi"></p>
-<p>和网上文章的参考，参考链接附在文末。</p>
+<p>和网上文章的参考，<strong>参考链接附在文末</strong>。</p>
 <p>我已经尽力将翻译内容整理的像那么回事了，要是你还是觉得像是机翻的……</p>
 <p><img src="https://liuwynn.github.io/images/20190424/fanyiyige.jpg" alt="fanyiyige"></p>
 <p>可以看到，Python之禅讲的不仅是编程理念，更是人生处世之哲学。</p>
