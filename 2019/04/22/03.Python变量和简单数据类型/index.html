@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言在本文中，你将学习可在Python程序中使用的各种数据，还将学习如何将数据存储到变量中，以及如何在程序中使用这些变量。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python变量和简单数据类型">
+<meta property="og:url" content="https://liuwynn.github.io/2019/04/22/03.Python变量和简单数据类型/index.html">
+<meta property="og:site_name" content="Zerone">
+<meta property="og:description" content="前言在本文中，你将学习可在Python程序中使用的各种数据，还将学习如何将数据存储到变量中，以及如何在程序中使用这些变量。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/1-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/1-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/2-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/3-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/3-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/3-3.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/4-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/5-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/5-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/5-3.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/6-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/6-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/7-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190422/7-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg">
+<meta property="og:updated_time" content="2019-04-29T09:52:41.402Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python变量和简单数据类型">
+<meta name="twitter:description" content="前言在本文中，你将学习可在Python程序中使用的各种数据，还将学习如何将数据存储到变量中，以及如何在程序中使用这些变量。">
+<meta name="twitter:image" content="https://liuwynn.github.io/images/20190422/1-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuwynn.github.io/2019/04/22/03.Python变量和简单数据类型/">
+
+
+
+
+
+  <title>Python变量和简单数据类型 | Zerone</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2c0f7ab76f839fb1872880534a1ea328";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zerone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">零与壹的世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/04/22/03.Python变量和简单数据类型/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Python变量和简单数据类型</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T13:02:59+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-29T17:52:41+08:00">
+                2019-04-29
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/22/03.Python变量和简单数据类型/" class="leancloud_visitors" data-flag-title="Python变量和简单数据类型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在本文中，你将学习可在Python程序中使用的各种数据，还将学习如何将数据存储到变量中，以及如何在程序中使用这些变量。</p>
+<hr>
+<a id="more"></a>
+<h3 id="运行hello-world-py时发生的情况"><a href="#运行hello-world-py时发生的情况" class="headerlink" title="运行hello_world.py时发生的情况"></a>运行hello_world.py时发生的情况</h3><p>在一切开始之前，让我们看一下 <strong>hello_world.py</strong> 里写了什么：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello Python world!"</span>)</span><br></pre></td></tr></table></figure>
+<p>运行上述代码，你会看到输出如下图1-1：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/1-1.png" alt="图1-1"></p>
+<center>图1-1</center>
+
+<p>实际上，即便运行这么简单的程序，Python所做的工作也相当多。运行 <strong>hello_world.py</strong> 时，末尾的 <strong>.py</strong> 指出这是一个 Python 程序，因此编辑器将使用 Python 解释器来运行它。Python 解释器读取整个程序，确定其中每个单词的含义。例如，看到单词 <code>print</code> 时，解释器就会将括号中的内容打印到屏幕，而不会管括号中的内容是什么。</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>下面来尝试引入变量来改写刚才 <strong>hello_world.py</strong>中的代码，修改之后如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">message = <span class="string">"Hello Python world!"</span></span><br><span class="line">print(message)</span><br></pre></td></tr></table></figure>
+<p>运行这个程序，你会发现，结果和上面↑相同，如图2-1：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/1-1.png" alt="图2-1"></p>
+<center>图2-1</center>
+
+<p><strong>代码分析：</strong>处理第一行代码时，它将文本<code>&quot;Hello Python world!&quot;</code>与变量 <code>message</code> 关联起来；而处理第二行代码时，它将与变量 <code>message</code> 关联的值打印到屏幕。</p>
+<p>下面来进一步扩展这个程序，在 <strong>hello_world.py</strong> 中添加一个空行，再添加下面两行代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">message = <span class="string">"Hello Python world!"</span></span><br><span class="line">print(message)</span><br><span class="line"></span><br><span class="line">message = <span class="string">"Hello Python Crash Course world!"</span></span><br><span class="line">print(message)</span><br></pre></td></tr></table></figure>
+<p>运行这个程序，你将看到两行输出，如图2-2：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/2-2.png" alt="图2-2"></p>
+<center>图2-2</center>
+
+<p><strong>这说明</strong>：在程序中可随时修改变量的值，而 Python 将始终记录变量的最新值。</p>
+<h4 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h4><p>在 Python 中使用变量时，需要遵守一些规则和指南。</p>
+<ul>
+<li><p>变量名只能包含字母、数字和下划线。变量名可以以字母或下划线打头，但不能以数字打头，例如，可将变量命名为<code>message_1</code>、<code>_message1</code>，但不能将其命名为 <code>1_message</code>。</p>
+</li>
+<li><p>变量名不能包含空格，但可使用下划线来分隔其中的单词。例如，变量名 <code>greeting_message</code> 可行，但变量名 <code>greeting message</code> 会报错。</p>
+</li>
+<li><p>不要将 Python 关键字和函数名用作变量名，即不要使用 Python 保留用于特殊用途的单词，例如 <code>print</code>。</p>
+</li>
+<li>变量名应既简短又具有描述性。例如，name 比 n 好，student_name 比 s_n 好。</li>
+<li>慎用小写字母 <code>l</code> 和大写字母 <code>O</code>，因为它们容易被人错看成数字 <code>1 和 0</code>。</li>
+</ul>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p> 字符串就是一系列字符。在 Python 中，用引号括起来的就是字符串，其中引号可以是<strong>单引号</strong>，也可以是<strong>双引号</strong>，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;This is a string&quot;</span><br><span class="line">&apos;This is also a string&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="使用方法修改字符串的大小写"><a href="#使用方法修改字符串的大小写" class="headerlink" title="使用方法修改字符串的大小写"></a>使用方法修改字符串的大小写</h4><p>对于字符串，可执行的最简单的操作之一就是修改其中的单词大小写。请看下面代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"ada lovelace"</span></span><br><span class="line">print(name.title())</span><br></pre></td></tr></table></figure>
+<p>运行这个程序，你将看到如图3-1的输出：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/3-1.png" alt="图2-3"></p>
+<center>图3-1</center>
+
+<p>可以看到<strong>两个单词首字母都被转成了大写字母</strong>。</p>
+<p>我们把形如 <code>title()</code> 格式的代码称作<strong>函数</strong>，又叫<strong>方法</strong>。</p>
+<p>方法是 Python 对数据执行的操作。</p>
+<p>在 <code>name.title()</code> 中，<code>name</code> 后面的句点（<code>.</code>）让Python 对变量 <code>name</code> 执行方法 <code>title()</code> 指定的操作。</p>
+<p>每个方法后面都跟着一对括号，这是因为方法通常需要额外的信息来完成其工作。这种信息是在括号内提供的。函数 <code>title()</code> 不需要额外的信息，因此它后面的括号是空的。</p>
+<p>根据程序运行结果相信你可以猜出，<code>title()</code> 方法的作用是将每个单词的首字母都改为大写。</p>
+<p><strong>还有其他几个很有用的大小写处理方法</strong></p>
+<p>要将字符串改为全部大写或全部小写，可以这样做↓：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"Ada Lovelace"</span></span><br><span class="line">print(name.upper())</span><br><span class="line">print(name.lower())</span><br></pre></td></tr></table></figure>
+<p>运行这个程序，你将看到结果如图3-2：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/3-2.png" alt="图3-2"></p>
+<center>图3-2</center>
+
+<p><code>upper()</code> 方法的作用是将每个单词的每个字母都改为大写。</p>
+<p><code>lower()</code> 方法的作用与 <code>upper()</code> 相反，是将每个单词的每个字母都改为小写。</p>
+<h4 id="合并（拼接）字符串"><a href="#合并（拼接）字符串" class="headerlink" title="合并（拼接）字符串"></a>合并（拼接）字符串</h4><p>Python 使用加号（<code>+</code>）来合并字符串，举个栗子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">first_name = <span class="string">"ada"</span></span><br><span class="line">last_name = <span class="string">"lovelace"</span></span><br><span class="line">full_name = first_name + <span class="string">" "</span> + last_name</span><br><span class="line"></span><br><span class="line">print(full_name)</span><br></pre></td></tr></table></figure>
+<p>运行这段代码，结果如图3-3：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/3-3.png" alt="图3-3"></p>
+<center>图3-3</center>
+
+<p>这个示例中，我们使用 <code>+</code> 来合并 <code>first_name</code>、<code>空格</code>和 <code>last_name</code>，以得到完整的姓名。</p>
+<p>这种合并字符串的方法称为<strong>拼接</strong>。</p>
+<h4 id="删除空白"><a href="#删除空白" class="headerlink" title="删除空白"></a>删除空白</h4><p>在程序中，额外的空白可能令人迷惑。<code>&#39;python&#39;</code> 和 <code>&#39;python &#39;</code>看起来几乎没什么两样，但对程序来说，它们却是两个不同的字符串。空白很重要，因为你常常需要比较两个字符串是否相同。</p>
+<p>这里先介绍三个函数：</p>
+<ul>
+<li><code>lstrip()</code> — 删除字符串开头的空白；</li>
+<li><code>rstrip()</code> — 删除字符串末尾的空白；</li>
+<li><code>strip()</code> — 删除字符串开头和末尾的空白；</li>
+</ul>
+<p>示例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">' kelvin '</span></span><br><span class="line"></span><br><span class="line">print(name.lstrip())</span><br><span class="line">print(name.rstrip())</span><br><span class="line">print(name.strip())</span><br></pre></td></tr></table></figure>
+<p>运行结果如图4-1：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/4-1.png" alt="图4-1"></p>
+<center>图4-1</center>
+
+<p>字符串的基本知识这就介绍完了，下面开始介绍数字。</p>
+<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><p>在编程中，经常使用数字来记录游戏得分、表示可视化数据、存储Web应用信息等。</p>
+<h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><p>在 Python 中，可对整数执行加（<code>+</code>）减（<code>-</code>）乘（<code>*</code>）除（<code>/</code>）运算。</p>
+<p>为了便于查看运行结果，下面代码<strong>直接在命令窗口输入</strong>。输入及结果如图5-1。</p>
+<p><img src="https://liuwynn.github.io/images/20190422/5-1.png" alt="图5-1"></p>
+<center>图5-1</center>.<br><br>Python 使用<strong>两个乘号表示乘方</strong>运算，如图5-2：<br><br><img src="https://liuwynn.github.io/images/20190422/5-2.png" alt="图5-2"><br><br><center>图5-2</center>
+
+<p>Python 还支持运算次序，因此你可以在同一表达式中使用多种运算，你还可以<strong>使用括号来改变运算次序</strong>，让Python 按照你指定的次序执行运算，如图5-3：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/5-3.png" alt="图5-3"></p>
+<center>图5-3</center>
+
+<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p>Python将<strong>带小数点的数字都称为浮点数</strong>。</p>
+<p>因为Python是弱类型语言，没有类型声明，所以使用浮点数时都无需考虑其行为，你只需要输入要使用的数字Python 通常都会按照你期望的方式处理它们，如图6-1：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/6-1.png" alt="图6-1"></p>
+<center>图6-1</center>
+
+<p><strong>但需要注意的是，结果包含的小数位数是不确定的，如图6-2：</strong></p>
+<p><img src="https://liuwynn.github.io/images/20190422/6-2.png" alt="图6-2"></p>
+<center>图6-2</center>
+
+<p>所有语言都存在这种问题，就现在而言，暂时忽略多余的小数位数即可。至于怎么处理多余的小数位数，接下来的文章会进行讲解，不要捉鸡o(￣ε￣*)。</p>
+<h4 id="使用函数-str-避免类型错误"><a href="#使用函数-str-避免类型错误" class="headerlink" title="使用函数 str() 避免类型错误"></a>使用函数 str() 避免类型错误</h4><p>假设你要在屏幕上打印出 <em>kelvin，祝你18岁生日快乐！</em>，你会怎么做？</p>
+<p>聪明的你应该立刻联想到文章前面讲解的 <code>print()</code> 方法，在 <code>print()</code> 方法里输入这句话，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"kelvin，祝你18岁生日快乐！"</span>)</span><br></pre></td></tr></table></figure>
+<p>这确实可行，可是如果我需要你把年龄抽取出来用一个整型变量来存储呢！</p>
+<p>你可能觉得这难不倒你，<strong>字符串拼接</strong>呗！然后风风火火的改代码，你可能改成了这个样子↓：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">18</span></span><br><span class="line">print(<span class="string">"kelvin，祝你"</span> + age +<span class="string">"岁生日快乐！"</span>)</span><br></pre></td></tr></table></figure>
+<p>然后你气沉丹田，一运行，屏气凝神间，编辑器一个错误甩了出来，如图7-1：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/7-1.png" alt="图7-1"></p>
+<center>图7-1</center>
+
+<p>仔细看错误信息，在茫茫编程生涯中，必须学会看错误信息，你才能活得比别人长久，不然迟早得得心肌梗塞。定睛一瞧，呵，<strong>原来只能字符串与字符串拼接，不能字符串和整型拼接</strong>。喔！age 是整型，不能和字符串拼接，我们确实需要输出这条信息呀！那怎么办呢？</p>
+<p><strong>把整型 <code>age</code> 转化成字符串类型不就行了嘛，可以形象地理解为，把<code>18</code>转成了<code>&quot;18&quot;</code></strong></p>
+<p><strong>使用函数 <code>str()</code> 将整型转化成字符串类型</strong></p>
+<p>再一次埋头改代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age = 18</span><br><span class="line">print(&quot;kelvin，祝你&quot; + str(age) +&quot;岁生日快乐！&quot;)</span><br></pre></td></tr></table></figure>
+<p>终于输出了我们想要的结果，如图7-2：</p>
+<p><img src="https://liuwynn.github.io/images/20190422/7-2.png" alt="图7-2"></p>
+<center>图7-2</center>
+
+<p>整型基础知识end!</p>
+<h3 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h3><p>变量与简单数据类型到这就结束了，学习语言光看是没用的，关键是你要到电脑上去敲代码，一字字、一行行的敲，没有捷径可走，或者说，这就是最快的捷径。</p>
+<p>如果你在学习过程中有任何疑问，可以关注文章↓↓↓的公众号及时与我联系，我们相互讨论，共同学习。</p>
+<p>最后，祝你学有所成。</p>
+<p><img src="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg" alt="公众号-猿小先森"></p>
+<center>欢迎大家点赞、关注、收藏，我是Kelvin，我们下期再见，bye</center>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wynn
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://liuwynn.github.io/2019/04/22/03.Python变量和简单数据类型/" title="Python变量和简单数据类型">https://liuwynn.github.io/2019/04/22/03.Python变量和简单数据类型/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/19/02.配置Python环境变量/" rel="next" title="配置Python环境变量">
+                <i class="fa fa-chevron-left"></i> 配置Python环境变量
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/24/04.Python之禅/" rel="prev" title="Python之禅">
+                Python之禅 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar/avatar1.jpg" alt="Wynn">
+            
+              <p class="site-author-name" itemprop="name">Wynn</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liuwynn" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2601659975@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053170513872/home?from=page_100505&mod=TAB#place" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/man-bu-yun-duan-65/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.isign.top" title="博悦" target="_blank">博悦</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行hello-world-py时发生的情况"><span class="nav-text">运行hello_world.py时发生的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量的命名规范"><span class="nav-text">变量的命名规范</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法修改字符串的大小写"><span class="nav-text">使用方法修改字符串的大小写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并（拼接）字符串"><span class="nav-text">合并（拼接）字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除空白"><span class="nav-text">删除空白</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字"><span class="nav-text">数字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整数"><span class="nav-text">整数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点数"><span class="nav-text">浮点数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用函数-str-避免类型错误"><span class="nav-text">使用函数 str() 避免类型错误</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结尾语"><span class="nav-text">结尾语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wynn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">36.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Jn6I9DQIh69Mqx7SsTBBsAlC-gzGzoHsz", "sYdTo7iCqJ5jpnGkzPoQAXUY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

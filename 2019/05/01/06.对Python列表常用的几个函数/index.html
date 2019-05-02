@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言上一篇文章简单地介绍了什么是 Python 列表和对其增删改操作，生活中我们常常还需要对列表进行排序、反转等操作，贴心的 Python 内置了函数帮助我们实现这些操作，Great!  好了，废话不多说，开始咯~">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对Python列表常用的几个函数">
+<meta property="og:url" content="https://liuwynn.github.io/2019/05/01/06.对Python列表常用的几个函数/index.html">
+<meta property="og:site_name" content="Zerone">
+<meta property="og:description" content="前言上一篇文章简单地介绍了什么是 Python 列表和对其增删改操作，生活中我们常常还需要对列表进行排序、反转等操作，贴心的 Python 内置了函数帮助我们实现这些操作，Great!  好了，废话不多说，开始咯~">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/jingxi.jpg">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/what.jpg">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/1-1.png">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/1-2.png">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/1-3.png">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/2-1.png">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/1-2.png">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/2-3.png">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/3-1.png">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/4-1.png">
+<meta property="og:image" content="e:/Hexo-Blog/source/images/subscriber/wechat_subscriber.jpg">
+<meta property="og:updated_time" content="2019-05-02T06:01:16.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对Python列表常用的几个函数">
+<meta name="twitter:description" content="前言上一篇文章简单地介绍了什么是 Python 列表和对其增删改操作，生活中我们常常还需要对列表进行排序、反转等操作，贴心的 Python 内置了函数帮助我们实现这些操作，Great!  好了，废话不多说，开始咯~">
+<meta name="twitter:image" content="e:/Hexo-Blog/source/images/20190502/jingxi.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuwynn.github.io/2019/05/01/06.对Python列表常用的几个函数/">
+
+
+
+
+
+  <title>对Python列表常用的几个函数 | Zerone</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2c0f7ab76f839fb1872880534a1ea328";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zerone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">零与壹的世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/05/01/06.对Python列表常用的几个函数/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">对Python列表常用的几个函数</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-01T23:54:28+08:00">
+                2019-05-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-02T14:01:16+08:00">
+                2019-05-02
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/01/06.对Python列表常用的几个函数/" class="leancloud_visitors" data-flag-title="对Python列表常用的几个函数">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇文章简单地介绍了什么是 Python 列表和对其增删改操作，生活中我们常常还需要对列表进行<strong>排序、反转等操作</strong>，贴心的 Python 内置了函数帮助我们实现这些操作，Great!</p>
+<p><img src="E:\Hexo-Blog\source\images\20190502\jingxi.jpg" alt="jingxi"></p>
+<p>好了，废话不多说，开始咯~</p>
+<hr>
+<a id="more"></a>
+<h3 id="1-使用方法sort-对列表进行永久性排序"><a href="#1-使用方法sort-对列表进行永久性排序" class="headerlink" title="1. 使用方法sort()对列表进行永久性排序"></a>1. 使用方法sort()对列表进行永久性排序</h3><p>Python 方法<code>sort()</code>让你能够较为轻松地对列表进行排序。</p>
+<p><strong>sort()语法：</strong><code>list.sort(key=None, reverse=False)</code></p>
+<p><strong>参数：</strong></p>
+<ul>
+<li><em>key</em> - 用于指定含一个参数的函数，该函数用于从列表中每个元素中提取比较键。换言之，这是用来设置列表中元素间比较规则的。默认是<code>None</code>表示直接以默认规则进行排序（单词按首字母、数字按大小排序）。</li>
+<li><em>reverse</em> - 排序规则，<code>reverse = True</code> 降序， <code>reverse = False</code> 升序（默认）。</li>
+</ul>
+<p>看到参数解释后你可能会是这样的↓</p>
+<p><img src="E:\Hexo-Blog\source\images\20190502\what.jpg" alt="what"></p>
+<p>现在不理解没关系，文中会举例说明。</p>
+<p>比如，你有一个汽车列表，并要让其中的汽车按字母顺序排列。你可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line">cars.sort()</span><br><span class="line">print(cars)</span><br></pre></td></tr></table></figure>
+<p>运行这段代码，方法<code>sort()</code><strong>永久性地修改</strong>了列表元素的排列顺序。现在汽车是按字母顺序排列的，再也无法恢复到原来的排列顺序，运行结果如图1-1：</p>
+<p><img src="E:\Hexo-Blog\source\images\20190502\1-1.png" alt="1-1"></p>
+<center>图1-1</center>
+
+<p>你还可以按<strong>与字母排列顺序相反</strong>的顺序排列列表元素。只需要向<code>sort()</code>方法中传递参数<code>reverse = True</code> 即可。代码可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line">cars.sort(reverse=<span class="keyword">True</span>)</span><br><span class="line">print(cars)</span><br></pre></td></tr></table></figure>
+<p>因为传递了参数<code>reverse = True</code>，所以运行结果会和图1-1顺序相反，结果如图1-2：</p>
+<p><img src="E:\Hexo-Blog\source\images\20190502\1-2.png" alt="1-2"></p>
+<center>图1-2</center>
+
+<p>这对元素的排列改变也是<strong>永久性</strong>的。</p>
+<p>以上演示的都是 <em>reverse</em> 参数，接下来讲解 <em>key</em> 参数的使用，使用这个参数我们可以<strong>自定义排序规则</strong>。</p>
+<p>比如，你有一个汽车列表，并要让其中的汽车<strong>按最后一个字母</strong>排序。你可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># elem指列表中的每一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">last</span><span class="params">(elem)</span>:</span></span><br><span class="line">    <span class="comment"># 返回字符串最后一个字符作为排序比较键</span></span><br><span class="line">    <span class="keyword">return</span> elem[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line"><span class="comment"># key参数传入的是带有一个参数的函数名</span></span><br><span class="line">cars.sort(key=last)</span><br><span class="line">print(cars)</span><br></pre></td></tr></table></figure>
+<p>这段代码很有意思，我们自定义了一个排序规则函数<code>last</code>，当然，函数名可以随便取；有一个参数<code>elem</code>，事实上这个参数名也可以随便取，指代列表中的每一个元素。<code>last</code>函数中 <code>return elem[-1]</code>的含义是返回列表中每个元素的最后一个字母作为比较键。</p>
+<p>程序运行时，会把列表<code>cars</code>中的每一个元素当作参数传入<code>last</code>中，<code>last</code>函数返回每个元素的最后一个字母进行排序。结果如图1-3：</p>
+<p><img src="E:\Hexo-Blog\source\images\20190502\1-3.png" alt="1-3"></p>
+<center>图1-3</center>
+
+<h3 id="2-使用函数sorted-对列表进行临时排序"><a href="#2-使用函数sorted-对列表进行临时排序" class="headerlink" title="2. 使用函数sorted()对列表进行临时排序"></a>2. 使用函数sorted()对列表进行临时排序</h3><p>要保留列表元素原来的排列顺序，同时又想对列表进行排序，可以使用函数 <code>sorted()</code> 。</p>
+<p>函数 <code>sorted()</code> 让你能够按特定顺序显示列表元素，同时不影响它们在列表中的原始排列顺序。</p>
+<p><strong>sorted()语法：</strong><code>sorted(iterable, key=None, reverse=False)</code></p>
+<p> <strong>参数：</strong></p>
+<ul>
+<li><em>iterable</em> - 可迭代对象。列表属于可迭代对象。</li>
+<li><em>key</em> - 用于指定含一个参数的函数，该函数用于从列表中每个元素中提取比较键。换言之，这是用来设置列表中元素间比较规则的。默认是<code>None</code>表示直接以默认规则进行排序（单词按首字母、数字按大小排序）。</li>
+<li><em>reverse</em> - 排序规则，<code>reverse = True</code> 降序， <code>reverse = False</code> 升序（默认）。</li>
+</ul>
+<p><strong>返回值：</strong>返回一个新的排序列表</p>
+<p>还是拿汽车列表举个栗子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line"></span><br><span class="line">print(<span class="string">"原始列表："</span>)</span><br><span class="line">print(cars)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\n排序的列表："</span>)</span><br><span class="line">print(sorted(cars))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\n原始列表："</span>)</span><br><span class="line">print(cars)</span><br></pre></td></tr></table></figure>
+<p>运行这段代码，结果如图2-1：</p>
+<p><img src="E:\Hexo-Blog\source\images\20190502\2-1.png" alt="2-1"></p>
+<center>图2-1</center>
+
+<p>我们首先打印了原始顺序的列表，在按首字母顺序（升序）对列表进行排序，但这种排序是<strong>临时的</strong>，不会改变原始列表的顺序，最后我们再次打印原始列表以确认列表元素的排列顺序与以前相同。</p>
+<p>和 <code>list.sort()</code>方法很类似，你还可以按首字母<strong>降序排列</strong>列表元素，写法也非常相似：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line">print(sorted(cars, reverse=<span class="keyword">True</span>))</span><br></pre></td></tr></table></figure>
+<p>运行这段代码，你会看到结果如图2-2所示，按首字母降序排序：</p>
+<p><img src="E:\Hexo-Blog\source\images\20190502\1-2.png" alt="2-2"></p>
+<center>图2-2</center>
+
+<p>看到这里，你可能会想<code>sorted()</code>方法能不能自定义排序规则呢？</p>
+<p>答案是肯定的，而且用法和 <code>list.sort()</code>还很像。</p>
+<p>比如，你想让汽车列表中的汽车<strong>按第三个字母进行降序</strong>排列，你可以这样写代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># elem指列表中的每一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">third</span><span class="params">(elem)</span>:</span></span><br><span class="line">    <span class="comment"># 返回元素的第三个字符作为排序比较键</span></span><br><span class="line">    <span class="keyword">return</span> elem[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line"><span class="comment"># key参数传入的是带有一个参数的函数名，reverse=True表示降序排列</span></span><br><span class="line">print(sorted(cars, key=third, reverse=<span class="keyword">True</span>))</span><br></pre></td></tr></table></figure>
+<p>我们先自定义了一个排序规则函数<code>third</code>，以列表中元素的第三个字符作为排序的比较键，接下来将这个函数作为参数传给<code>sorted()</code>，因为是降序排列，所以<code>reverse</code>要设置为<code>True</code>。</p>
+<p>运行代码，结果如图2-3：</p>
+<p><img src="E:\Hexo-Blog\source\images\20190502\2-3.png" alt="2-3"></p>
+<center>图2-3</center>
+
+<p><strong><code>sort()</code>和<code>sorted()</code>的区别：</strong></p>
+<ul>
+<li><p><code>sort()</code> 是应用在 list 上的方法，<code>sorted()</code> 可以对所有可迭代的对象进行排序操作。</p>
+</li>
+<li><p>list 的 <code>sort()</code> 方法返回的是对已经存在的列表进行操作，而内建函数 <code>sorted()</code> 方法返回的是一个新的 list，而不是在原来的基础上进行的操作。</p>
+</li>
+</ul>
+<h3 id="3-反转列表"><a href="#3-反转列表" class="headerlink" title="3. 反转列表"></a>3. 反转列表</h3><p>和排序方法一样，列表反转也有两个方法：<code>list.reverse()</code>和<code>reversed()</code>。因为<code>reversed()</code>方法涉及到迭代器，现在还不适合讲解，所以本文现阶段只讲解 <code>list.reverse()</code>。</p>
+<p><strong>reverse()语法：</strong> <code>list.reverse()</code></p>
+<p>没有参数，列表可直接调用</p>
+<p>比如，你有一个汽车列表，使用reverse()方法可轻松地反向排列其中的汽车：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line">cars.reverse()</span><br><span class="line">print(cars)</span><br></pre></td></tr></table></figure>
+<p>运行结果如图3-1：</p>
+<p><img src="E:\Hexo-Blog\source\images\20190502\3-1.png" alt="3-1"></p>
+<center>图3-1</center>
+
+<p><strong>注意：</strong> <code>reverse()</code> 是反转列表元素的排列顺序，而且是永久性的。但你可以随时恢复到原来的排序顺序，只要再次调用<code>reverse()</code>即可。</p>
+<h3 id="4-确定列表的长度"><a href="#4-确定列表的长度" class="headerlink" title="4. 确定列表的长度"></a>4. 确定列表的长度</h3><p>使用函数 <code>len()</code> 可快速获悉列表的长度。</p>
+<p><strong>len()语法：</strong> <code>list.len()</code></p>
+<p><strong>返回值：</strong> 列表长度</p>
+<p>在下面的示例中，列表包含4个元素，因此其长度为4：</p>
+<p><img src="E:\Hexo-Blog\source\images\20190502\4-1.png" alt="4-1"></p>
+<p><strong>注意：</strong> Python 计算列表元素个数时从1开始计数，<strong>返回的列表长度为实际长度</strong>，不会差1。</p>
+<h3 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h3><p>本文对列表中常见的几个函数进行了简单的讲解，灵活运用Python内置函数对我们编写程序帮助很大，既省时又省力，简单实惠，何乐不为？Python中还有大量的内置函数，以后用到了我再写篇文章进行归纳。作为计算机从业者，在学习时要多想、多练、多总结，这样才能有提高。</p>
+<p>如果你在学习过程中有任何疑问，可以关注文章下方↓↓↓的公众号及时与我联系，我们相互讨论，共同学习。</p>
+<p>最后，祝你学有所成。</p>
+<p><img src="E:\Hexo-Blog\source\images\subscriber\wechat_subscriber.jpg" alt="公众号-猿天罡"></p>
+<center>欢迎大家点赞、关注、收藏，我是Kelvin，我们下期再见，(ToT)/~~~</center>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wynn
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://liuwynn.github.io/2019/05/01/06.对Python列表常用的几个函数/" title="对Python列表常用的几个函数">https://liuwynn.github.io/2019/05/01/06.对Python列表常用的几个函数/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/29/05.Python列表简介/" rel="next" title="Python列表简介">
+                <i class="fa fa-chevron-left"></i> Python列表简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar/avatar1.jpg" alt="Wynn">
+            
+              <p class="site-author-name" itemprop="name">Wynn</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liuwynn" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2601659975@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053170513872/home?from=page_100505&mod=TAB#place" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/man-bu-yun-duan-65/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.isign.top" title="博悦" target="_blank">博悦</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用方法sort-对列表进行永久性排序"><span class="nav-text">1. 使用方法sort()对列表进行永久性排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用函数sorted-对列表进行临时排序"><span class="nav-text">2. 使用函数sorted()对列表进行临时排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-反转列表"><span class="nav-text">3. 反转列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-确定列表的长度"><span class="nav-text">4. 确定列表的长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结尾语"><span class="nav-text">结尾语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wynn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">36.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Jn6I9DQIh69Mqx7SsTBBsAlC-gzGzoHsz", "sYdTo7iCqJ5jpnGkzPoQAXUY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

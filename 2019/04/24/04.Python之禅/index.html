@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言编程语言 Perl 曾在互联网领域长期占据着统治地位，早期的大多数交互式网站使用的都是 Perl 脚本。那是，“解决问题的办法有多个”被 Perl 社区奉为座右铭。这种理念一度深受大家的喜爱，因为这种语言固有的灵活性使得大多数问题都有很多不同的解决之道。在开发项目期间，这种灵活性是可以接受的，但过于强调灵活性会导致大型项目难以维护。众所周知，项目维护得通过研究代码搞清楚当时开发项目的人是怎么想">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python之禅">
+<meta property="og:url" content="https://liuwynn.github.io/2019/04/24/04.Python之禅/index.html">
+<meta property="og:site_name" content="Zerone">
+<meta property="og:description" content="前言编程语言 Perl 曾在互联网领域长期占据着统治地位，早期的大多数交互式网站使用的都是 Perl 脚本。那是，“解决问题的办法有多个”被 Perl 社区奉为座右铭。这种理念一度深受大家的喜爱，因为这种语言固有的灵活性使得大多数问题都有很多不同的解决之道。在开发项目期间，这种灵活性是可以接受的，但过于强调灵活性会导致大型项目难以维护。众所周知，项目维护得通过研究代码搞清楚当时开发项目的人是怎么想">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190424/touteng.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190424/turan.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190424/zhexue.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190424/jiandan.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190424/geigefanyi.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190424/baidufanyi.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190424/fanyiyige.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg">
+<meta property="og:updated_time" content="2019-04-24T07:31:59.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python之禅">
+<meta name="twitter:description" content="前言编程语言 Perl 曾在互联网领域长期占据着统治地位，早期的大多数交互式网站使用的都是 Perl 脚本。那是，“解决问题的办法有多个”被 Perl 社区奉为座右铭。这种理念一度深受大家的喜爱，因为这种语言固有的灵活性使得大多数问题都有很多不同的解决之道。在开发项目期间，这种灵活性是可以接受的，但过于强调灵活性会导致大型项目难以维护。众所周知，项目维护得通过研究代码搞清楚当时开发项目的人是怎么想">
+<meta name="twitter:image" content="https://liuwynn.github.io/images/20190424/touteng.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuwynn.github.io/2019/04/24/04.Python之禅/">
+
+
+
+
+
+  <title>Python之禅 | Zerone</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2c0f7ab76f839fb1872880534a1ea328";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zerone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">零与壹的世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/04/24/04.Python之禅/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Python之禅</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-24T10:14:56+08:00">
+                2019-04-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-24T15:31:59+08:00">
+                2019-04-24
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/24/04.Python之禅/" class="leancloud_visitors" data-flag-title="Python之禅">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>编程语言 Perl 曾在互联网领域长期占据着统治地位，早期的大多数交互式网站使用的都是 Perl 脚本。那是，“解决问题的办法有多个”被 Perl 社区奉为座右铭。这种理念一度深受大家的喜爱，因为这种语言固有的灵活性使得大多数问题都有很多不同的解决之道。在开发项目期间，这种灵活性是可以接受的，但<strong>过于强调灵活性会导致大型项目难以维护</strong>。众所周知，项目维护得通过研究代码搞清楚当时开发项目的人是怎么想的，这样才能对代码进行维护，但 Perl 的灵活性使得问题有不同的解决之道，在维护阶段就十分的让人头疼。</p>
+<p><img src="https://liuwynn.github.io/images/20190424/touteng.jpg" alt="头疼"></p>
+<p>你们可能会奇怪，明明说的是 Python，怎么秃然扯到 Perl 了呢？是不是标题取错了？</p>
+<p>嗯，是的，是标题取错了……</p>
+<p><img src="https://liuwynn.github.io/images/20190424/turan.jpg" alt="turan"></p>
+<p><strong>才怪！</strong></p>
+<p>说这么多，是想告诉你们，正是鉴于 Perl 语言遇到的问题，经验丰富的程序员在编写 Python 代码时就有了<strong>避繁就简</strong>的理念，最终在某一天由一个叫 Tim Peters 的人撰写了出来，即 “<strong>Python之禅</strong>”。它并非出自 Python 创始人之手，但已被官方认可为编程原则。下面就让我们一起来欣赏一哈 Python 编程原则。</p>
+<p><img src="https://liuwynn.github.io/images/20190424/zhexue.jpg" alt="zhexue"></p>
+<hr>
+<a id="more"></a>
+<h3 id="Python之禅内容"><a href="#Python之禅内容" class="headerlink" title="Python之禅内容"></a>Python之禅内容</h3><p>要获悉这些有关编写优秀 Python 代码的指导原则，有多种方法，大致分为两类：</p>
+<ul>
+<li>在编辑器中查看。新建 <code>.py</code> 文件，文件名随便取，键入 <code>import this</code>，并运行代码，会有控制台输出 “Python之禅”的内容。</li>
+<li>在解释器或命令窗口中查看。直接输入 <code>import this并回车</code>，需要注意的是命令窗口中得先输入python并回车，待看到 <code>&gt;&gt;&gt;</code> 提示符时，才可输入 <code>import this</code>。回车后，下方会直接输出 “Python之禅”的内容。</li>
+</ul>
+<p><img src="https://liuwynn.github.io/images/20190424/jiandan.jpg" alt="jiandan"></p>
+<h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><blockquote>
+<p>The Zen of Python, by Tim Peters</p>
+<p>Beautiful is better than ugly.<br>Explicit is better than implicit.<br>Simple is better than complex.<br>Complex is better than complicated.<br>Flat is better than nested.<br>Sparse is better than dense.<br>Readability counts.<br>Special cases aren’t special enough to break the rules.<br>Although practicality beats purity.<br>Errors should never pass silently.<br>Unless explicitly silenced.<br>In the face of ambiguity, refuse the temptation to guess.<br>There should be one– and preferably only one –obvious way to do it.<br>Although that way may not be obvious at first unless you’re Dutch.<br>Now is better than never.<br>Although never is often better than <em>right</em> now.<br>If the implementation is hard to explain, it’s a bad idea.<br>If the implementation is easy to explain, it may be a good idea.<br>Namespaces are one honking great idea – let’s do more of those!</p>
+</blockquote>
+<p><img src="https://liuwynn.github.io/images/20190424/geigefanyi.jpg" alt="geigefanyi"></p>
+<h5 id="1-Beautiful-is-better-than-ugly"><a href="#1-Beautiful-is-better-than-ugly" class="headerlink" title="1. Beautiful is better than ugly."></a>1. Beautiful is better than ugly.</h5><p>美胜于丑。</p>
+<h5 id="2-Explicit-is-better-than-implicit"><a href="#2-Explicit-is-better-than-implicit" class="headerlink" title="2. Explicit is better than implicit."></a>2. Explicit is better than implicit.</h5><p>显式优于隐式。</p>
+<h5 id="3-Simple-is-better-than-complex"><a href="#3-Simple-is-better-than-complex" class="headerlink" title="3. Simple is better than complex."></a>3. Simple is better than complex.</h5><p>简单胜于复杂。</p>
+<h5 id="4-Complex-is-better-than-complicated"><a href="#4-Complex-is-better-than-complicated" class="headerlink" title="4. Complex is better than complicated."></a>4. Complex is better than complicated.</h5><p>复杂总比凌乱好。</p>
+<h5 id="5-Flat-is-better-than-nested"><a href="#5-Flat-is-better-than-nested" class="headerlink" title="5. Flat is better than nested."></a>5. Flat is better than nested.</h5><p>扁平比嵌套的好。</p>
+<h5 id="6-Sparse-is-better-than-dense"><a href="#6-Sparse-is-better-than-dense" class="headerlink" title="6. Sparse is better than dense."></a>6. Sparse is better than dense.</h5><p>间隔胜于紧凑。</p>
+<h5 id="7-Readability-counts"><a href="#7-Readability-counts" class="headerlink" title="7. Readability counts."></a>7. Readability counts.</h5><p>重视可读性。</p>
+<h5 id="8-Special-cases-aren’t-special-enough-to-break-the-rules"><a href="#8-Special-cases-aren’t-special-enough-to-break-the-rules" class="headerlink" title="8. Special cases aren’t special enough to break the rules."></a>8. Special cases aren’t special enough to break the rules.</h5><h5 id="9-Although-practicality-beats-purity"><a href="#9-Although-practicality-beats-purity" class="headerlink" title="9. Although practicality beats purity."></a>9. Although practicality beats purity.</h5><p>特殊情况不足以打破规则，即使特例很实用，也不可违背这些规则。</p>
+<h5 id="10-Errors-should-never-pass-silently"><a href="#10-Errors-should-never-pass-silently" class="headerlink" title="10. Errors should never pass silently."></a>10. Errors should never pass silently.</h5><h5 id="11-Unless-explicitly-silenced"><a href="#11-Unless-explicitly-silenced" class="headerlink" title="11. Unless explicitly silenced."></a>11. Unless explicitly silenced.</h5><p>错误是很正常的，要勇于面对和改正，要是你确定不想改，也可以选择pass。</p>
+<h5 id="12-In-the-face-of-ambiguity-refuse-the-temptation-to-guess"><a href="#12-In-the-face-of-ambiguity-refuse-the-temptation-to-guess" class="headerlink" title="12. In the face of ambiguity, refuse the temptation to guess."></a>12. In the face of ambiguity, refuse the temptation to guess.</h5><h5 id="13-There-should-be-one–-and-preferably-only-one-–obvious-way-to-do-it"><a href="#13-There-should-be-one–-and-preferably-only-one-–obvious-way-to-do-it" class="headerlink" title="13. There should be one– and preferably only one –obvious way to do it."></a>13. There should be one– and preferably only one –obvious way to do it.</h5><h5 id="14-Although-that-way-may-not-be-obvious-at-first-unless-you’re-Dutch"><a href="#14-Although-that-way-may-not-be-obvious-at-first-unless-you’re-Dutch" class="headerlink" title="14. Although that way may not be obvious at first unless you’re Dutch."></a>14. Although that way may not be obvious at first unless you’re Dutch.</h5><p>面对多种可能（歧义），不要尝试去猜测，而是应该尽量找一种，最好是唯一一种明显的解决方案，不过，如果你不是Python之父的话，这种解决方案一开始可能并不明显。</p>
+<h5 id="15-Now-is-better-than-never"><a href="#15-Now-is-better-than-never" class="headerlink" title="15. Now is better than never."></a>15. Now is better than never.</h5><h5 id="16-Although-never-is-often-better-than-right-now"><a href="#16-Although-never-is-often-better-than-right-now" class="headerlink" title="16. Although never is often better than right now."></a>16. Although never is often better than <em>right</em> now.</h5><p>做也许好过不做，但动手前要细思量。</p>
+<h5 id="17-If-the-implementation-is-hard-to-explain-it’s-a-bad-idea"><a href="#17-If-the-implementation-is-hard-to-explain-it’s-a-bad-idea" class="headerlink" title="17. If the implementation is hard to explain, it’s a bad idea."></a>17. If the implementation is hard to explain, it’s a bad idea.</h5><h5 id="18-If-the-implementation-is-easy-to-explain-it-may-be-a-good-idea"><a href="#18-If-the-implementation-is-easy-to-explain-it-may-be-a-good-idea" class="headerlink" title="18. If the implementation is easy to explain, it may be a good idea."></a>18. If the implementation is easy to explain, it may be a good idea.</h5><p>如果你无法向人解释清楚你的方案，那肯定不是一个好方案；反之亦然。</p>
+<h5 id="19-Namespaces-are-one-honking-great-idea-–-let’s-do-more-of-those"><a href="#19-Namespaces-are-one-honking-great-idea-–-let’s-do-more-of-those" class="headerlink" title="19. Namespaces are one honking great idea – let’s do more of those!"></a>19. Namespaces are one honking great idea – let’s do more of those!</h5><p>命名空间是一个绝妙的理念，我们应该多加利用。</p>
+<p><img src="https://liuwynn.github.io/images/20190424/baidufanyi.jpg" alt="baidufanyi"></p>
+<p>和网上文章的参考，<strong>参考链接附在文末</strong>。</p>
+<p>我已经尽力将翻译内容整理的像那么回事了，要是你还是觉得像是机翻的……</p>
+<p><img src="https://liuwynn.github.io/images/20190424/fanyiyige.jpg" alt="fanyiyige"></p>
+<p>可以看到，Python之禅讲的不仅是编程理念，更是人生处世之哲学。</p>
+<p>原来每一个热爱代码的优秀编程者都是哲学家。</p>
+<h3 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h3><p>Python的出身没有 Java、Go那么万众瞩目，早期的Python，在Java、PHP、JS、C++等的重重包围下，尽管受众不广，但仍然得以生存，主要因为Python的设计哲学使其具备了十足的生命力。在这种设计哲学的指引下，Python 逐渐发展成为了一个特别简明友好、容易上手、功能强大的语言。</p>
+<p>如果你在学习过程中有任何疑问，可以关注文章下方的公众号及时与我联系，我们相互讨论，共同学习。</p>
+<p>最后，祝你学有所成。</p>
+<p><img src="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg" alt="公众号-猿小先森"></p>
+<center>欢迎大家点赞、关注、收藏，我是Kelvin，我们下期再见，see u</center>
+
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ol>
+<li><a href="https://blog.csdn.net/change_you_or_world/article/details/79903240" target="_blank" rel="noopener">“什么是Python之禅？”</a></li>
+<li><a href="https://www.cnblogs.com/huangbiquan/p/7881913.html" target="_blank" rel="noopener">“Python之禅及其翻译”</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wynn
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://liuwynn.github.io/2019/04/24/04.Python之禅/" title="Python之禅">https://liuwynn.github.io/2019/04/24/04.Python之禅/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/22/03.Python变量和简单数据类型/" rel="next" title="Python变量和简单数据类型">
+                <i class="fa fa-chevron-left"></i> Python变量和简单数据类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/29/05.Python列表简介/" rel="prev" title="Python列表简介">
+                Python列表简介 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar/avatar1.jpg" alt="Wynn">
+            
+              <p class="site-author-name" itemprop="name">Wynn</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liuwynn" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2601659975@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053170513872/home?from=page_100505&mod=TAB#place" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/man-bu-yun-duan-65/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.isign.top" title="博悦" target="_blank">博悦</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python之禅内容"><span class="nav-text">Python之禅内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内容"><span class="nav-text">内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Beautiful-is-better-than-ugly"><span class="nav-text">1. Beautiful is better than ugly.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Explicit-is-better-than-implicit"><span class="nav-text">2. Explicit is better than implicit.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Simple-is-better-than-complex"><span class="nav-text">3. Simple is better than complex.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Complex-is-better-than-complicated"><span class="nav-text">4. Complex is better than complicated.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-Flat-is-better-than-nested"><span class="nav-text">5. Flat is better than nested.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-Sparse-is-better-than-dense"><span class="nav-text">6. Sparse is better than dense.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-Readability-counts"><span class="nav-text">7. Readability counts.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-Special-cases-aren’t-special-enough-to-break-the-rules"><span class="nav-text">8. Special cases aren’t special enough to break the rules.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-Although-practicality-beats-purity"><span class="nav-text">9. Although practicality beats purity.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-Errors-should-never-pass-silently"><span class="nav-text">10. Errors should never pass silently.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-Unless-explicitly-silenced"><span class="nav-text">11. Unless explicitly silenced.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-In-the-face-of-ambiguity-refuse-the-temptation-to-guess"><span class="nav-text">12. In the face of ambiguity, refuse the temptation to guess.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-There-should-be-one–-and-preferably-only-one-–obvious-way-to-do-it"><span class="nav-text">13. There should be one– and preferably only one –obvious way to do it.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-Although-that-way-may-not-be-obvious-at-first-unless-you’re-Dutch"><span class="nav-text">14. Although that way may not be obvious at first unless you’re Dutch.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-Now-is-better-than-never"><span class="nav-text">15. Now is better than never.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16-Although-never-is-often-better-than-right-now"><span class="nav-text">16. Although never is often better than right now.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#17-If-the-implementation-is-hard-to-explain-it’s-a-bad-idea"><span class="nav-text">17. If the implementation is hard to explain, it’s a bad idea.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#18-If-the-implementation-is-easy-to-explain-it-may-be-a-good-idea"><span class="nav-text">18. If the implementation is easy to explain, it may be a good idea.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#19-Namespaces-are-one-honking-great-idea-–-let’s-do-more-of-those"><span class="nav-text">19. Namespaces are one honking great idea – let’s do more of those!</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结尾语"><span class="nav-text">结尾语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wynn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">36.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Jn6I9DQIh69Mqx7SsTBBsAlC-gzGzoHsz", "sYdTo7iCqJ5jpnGkzPoQAXUY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
