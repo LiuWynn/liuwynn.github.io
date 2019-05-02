@@ -131,22 +131,22 @@
 <meta property="og:site_name" content="Zerone">
 <meta property="og:description" content="前言上一篇文章简单地介绍了什么是 Python 列表和对其增删改操作，生活中我们常常还需要对列表进行排序、反转等操作，贴心的 Python 内置了函数帮助我们实现这些操作，Great!  好了，废话不多说，开始咯~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/jingxi.jpg">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/what.jpg">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/1-1.png">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/1-2.png">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/1-3.png">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/2-1.png">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/1-2.png">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/2-3.png">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/3-1.png">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/20190502/4-1.png">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/subscriber/wechat_subscriber.jpg">
-<meta property="og:updated_time" content="2019-05-02T06:01:16.619Z">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190502/jingxi.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190502/what.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190502/1-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190502/1-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190502/1-3.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190502/2-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190502/1-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190502/2-3.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190502/3-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190502/4-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg">
+<meta property="og:updated_time" content="2019-05-02T06:05:29.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对Python列表常用的几个函数">
 <meta name="twitter:description" content="前言上一篇文章简单地介绍了什么是 Python 列表和对其增删改操作，生活中我们常常还需要对列表进行排序、反转等操作，贴心的 Python 内置了函数帮助我们实现这些操作，Great!  好了，废话不多说，开始咯~">
-<meta name="twitter:image" content="e:/Hexo-Blog/source/images/20190502/jingxi.jpg">
+<meta name="twitter:image" content="https://liuwynn.github.io/images/20190502/jingxi.jpg">
 
 
 
@@ -364,7 +364,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-02T14:01:16+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-02T14:05:29+08:00">
                 2019-05-02
               </time>
             
@@ -441,7 +441,7 @@
 
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇文章简单地介绍了什么是 Python 列表和对其增删改操作，生活中我们常常还需要对列表进行<strong>排序、反转等操作</strong>，贴心的 Python 内置了函数帮助我们实现这些操作，Great!</p>
-<p><img src="E:\Hexo-Blog\source\images\20190502\jingxi.jpg" alt="jingxi"></p>
+<p><img src="https://liuwynn.github.io/images/20190502/jingxi.jpg" alt="jingxi"></p>
 <p>好了，废话不多说，开始咯~</p>
 <hr>
 <a id="more"></a>
@@ -453,18 +453,18 @@
 <li><em>reverse</em> - 排序规则，<code>reverse = True</code> 降序， <code>reverse = False</code> 升序（默认）。</li>
 </ul>
 <p>看到参数解释后你可能会是这样的↓</p>
-<p><img src="E:\Hexo-Blog\source\images\20190502\what.jpg" alt="what"></p>
+<p><img src="https://liuwynn.github.io/images/20190502/what.jpg" alt="what"></p>
 <p>现在不理解没关系，文中会举例说明。</p>
 <p>比如，你有一个汽车列表，并要让其中的汽车按字母顺序排列。你可以这样写：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line">cars.sort()</span><br><span class="line">print(cars)</span><br></pre></td></tr></table></figure>
 <p>运行这段代码，方法<code>sort()</code><strong>永久性地修改</strong>了列表元素的排列顺序。现在汽车是按字母顺序排列的，再也无法恢复到原来的排列顺序，运行结果如图1-1：</p>
-<p><img src="E:\Hexo-Blog\source\images\20190502\1-1.png" alt="1-1"></p>
+<p><img src="https://liuwynn.github.io/images/20190502/1-1.png" alt="1-1"></p>
 <center>图1-1</center>
 
 <p>你还可以按<strong>与字母排列顺序相反</strong>的顺序排列列表元素。只需要向<code>sort()</code>方法中传递参数<code>reverse = True</code> 即可。代码可以这样写：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line">cars.sort(reverse=<span class="keyword">True</span>)</span><br><span class="line">print(cars)</span><br></pre></td></tr></table></figure>
 <p>因为传递了参数<code>reverse = True</code>，所以运行结果会和图1-1顺序相反，结果如图1-2：</p>
-<p><img src="E:\Hexo-Blog\source\images\20190502\1-2.png" alt="1-2"></p>
+<p><img src="https://liuwynn.github.io/images/20190502/1-2.png" alt="1-2"></p>
 <center>图1-2</center>
 
 <p>这对元素的排列改变也是<strong>永久性</strong>的。</p>
@@ -473,7 +473,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># elem指列表中的每一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">last</span><span class="params">(elem)</span>:</span></span><br><span class="line">    <span class="comment"># 返回字符串最后一个字符作为排序比较键</span></span><br><span class="line">    <span class="keyword">return</span> elem[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line"><span class="comment"># key参数传入的是带有一个参数的函数名</span></span><br><span class="line">cars.sort(key=last)</span><br><span class="line">print(cars)</span><br></pre></td></tr></table></figure>
 <p>这段代码很有意思，我们自定义了一个排序规则函数<code>last</code>，当然，函数名可以随便取；有一个参数<code>elem</code>，事实上这个参数名也可以随便取，指代列表中的每一个元素。<code>last</code>函数中 <code>return elem[-1]</code>的含义是返回列表中每个元素的最后一个字母作为比较键。</p>
 <p>程序运行时，会把列表<code>cars</code>中的每一个元素当作参数传入<code>last</code>中，<code>last</code>函数返回每个元素的最后一个字母进行排序。结果如图1-3：</p>
-<p><img src="E:\Hexo-Blog\source\images\20190502\1-3.png" alt="1-3"></p>
+<p><img src="https://liuwynn.github.io/images/20190502/1-3.png" alt="1-3"></p>
 <center>图1-3</center>
 
 <h3 id="2-使用函数sorted-对列表进行临时排序"><a href="#2-使用函数sorted-对列表进行临时排序" class="headerlink" title="2. 使用函数sorted()对列表进行临时排序"></a>2. 使用函数sorted()对列表进行临时排序</h3><p>要保留列表元素原来的排列顺序，同时又想对列表进行排序，可以使用函数 <code>sorted()</code> 。</p>
@@ -489,14 +489,14 @@
 <p>还是拿汽车列表举个栗子：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line"></span><br><span class="line">print(<span class="string">"原始列表："</span>)</span><br><span class="line">print(cars)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\n排序的列表："</span>)</span><br><span class="line">print(sorted(cars))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\n原始列表："</span>)</span><br><span class="line">print(cars)</span><br></pre></td></tr></table></figure>
 <p>运行这段代码，结果如图2-1：</p>
-<p><img src="E:\Hexo-Blog\source\images\20190502\2-1.png" alt="2-1"></p>
+<p><img src="https://liuwynn.github.io/images/20190502/2-1.png" alt="2-1"></p>
 <center>图2-1</center>
 
 <p>我们首先打印了原始顺序的列表，在按首字母顺序（升序）对列表进行排序，但这种排序是<strong>临时的</strong>，不会改变原始列表的顺序，最后我们再次打印原始列表以确认列表元素的排列顺序与以前相同。</p>
 <p>和 <code>list.sort()</code>方法很类似，你还可以按首字母<strong>降序排列</strong>列表元素，写法也非常相似：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line">print(sorted(cars, reverse=<span class="keyword">True</span>))</span><br></pre></td></tr></table></figure>
 <p>运行这段代码，你会看到结果如图2-2所示，按首字母降序排序：</p>
-<p><img src="E:\Hexo-Blog\source\images\20190502\1-2.png" alt="2-2"></p>
+<p><img src="https://liuwynn.github.io/images/20190502/1-2.png" alt="2-2"></p>
 <center>图2-2</center>
 
 <p>看到这里，你可能会想<code>sorted()</code>方法能不能自定义排序规则呢？</p>
@@ -505,7 +505,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># elem指列表中的每一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">third</span><span class="params">(elem)</span>:</span></span><br><span class="line">    <span class="comment"># 返回元素的第三个字符作为排序比较键</span></span><br><span class="line">    <span class="keyword">return</span> elem[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line"><span class="comment"># key参数传入的是带有一个参数的函数名，reverse=True表示降序排列</span></span><br><span class="line">print(sorted(cars, key=third, reverse=<span class="keyword">True</span>))</span><br></pre></td></tr></table></figure>
 <p>我们先自定义了一个排序规则函数<code>third</code>，以列表中元素的第三个字符作为排序的比较键，接下来将这个函数作为参数传给<code>sorted()</code>，因为是降序排列，所以<code>reverse</code>要设置为<code>True</code>。</p>
 <p>运行代码，结果如图2-3：</p>
-<p><img src="E:\Hexo-Blog\source\images\20190502\2-3.png" alt="2-3"></p>
+<p><img src="https://liuwynn.github.io/images/20190502/2-3.png" alt="2-3"></p>
 <center>图2-3</center>
 
 <p><strong><code>sort()</code>和<code>sorted()</code>的区别：</strong></p>
@@ -521,7 +521,7 @@
 <p>比如，你有一个汽车列表，使用reverse()方法可轻松地反向排列其中的汽车：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>, <span class="string">'audi'</span>, <span class="string">'toyota'</span>, <span class="string">'subaru'</span>]</span><br><span class="line">cars.reverse()</span><br><span class="line">print(cars)</span><br></pre></td></tr></table></figure>
 <p>运行结果如图3-1：</p>
-<p><img src="E:\Hexo-Blog\source\images\20190502\3-1.png" alt="3-1"></p>
+<p><img src="https://liuwynn.github.io/images/20190502/3-1.png" alt="3-1"></p>
 <center>图3-1</center>
 
 <p><strong>注意：</strong> <code>reverse()</code> 是反转列表元素的排列顺序，而且是永久性的。但你可以随时恢复到原来的排序顺序，只要再次调用<code>reverse()</code>即可。</p>
@@ -529,12 +529,12 @@
 <p><strong>len()语法：</strong> <code>list.len()</code></p>
 <p><strong>返回值：</strong> 列表长度</p>
 <p>在下面的示例中，列表包含4个元素，因此其长度为4：</p>
-<p><img src="E:\Hexo-Blog\source\images\20190502\4-1.png" alt="4-1"></p>
+<p><img src="https://liuwynn.github.io/images/20190502/4-1.png" alt="4-1"></p>
 <p><strong>注意：</strong> Python 计算列表元素个数时从1开始计数，<strong>返回的列表长度为实际长度</strong>，不会差1。</p>
 <h3 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h3><p>本文对列表中常见的几个函数进行了简单的讲解，灵活运用Python内置函数对我们编写程序帮助很大，既省时又省力，简单实惠，何乐不为？Python中还有大量的内置函数，以后用到了我再写篇文章进行归纳。作为计算机从业者，在学习时要多想、多练、多总结，这样才能有提高。</p>
 <p>如果你在学习过程中有任何疑问，可以关注文章下方↓↓↓的公众号及时与我联系，我们相互讨论，共同学习。</p>
 <p>最后，祝你学有所成。</p>
-<p><img src="E:\Hexo-Blog\source\images\subscriber\wechat_subscriber.jpg" alt="公众号-猿天罡"></p>
+<p><img src="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg" alt="公众号-猿天罡"></p>
 <center>欢迎大家点赞、关注、收藏，我是Kelvin，我们下期再见，(ToT)/~~~</center>
       
     </div>
