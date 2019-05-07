@@ -126,15 +126,23 @@
 <meta name="description" content="前言上篇文章我们讲了怎么遍历列表，很多同学之前可能学过C/C++或者Java，对代码格式可能不太重视。需要注意的是，C/C++或Java是通过 { } 确定循环体，所以无论你写的代码格式怎么不好看，你只要是把代码写在大括号 ｛ ｝里面，一般都没有问题。 然而，我们的 Python 是没有 ｛ ｝ 的，所以对格式要求非常严格以确定代码块（如，循环体、函数体等），so，你写 Python 代码时可不能">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="08-Python避免缩进错误">
+<meta property="og:title" content="Python避免缩进错误">
 <meta property="og:url" content="https://liuwynn.github.io/2019/05/07/08-Python避免缩进错误/index.html">
 <meta property="og:site_name" content="Zerone">
 <meta property="og:description" content="前言上篇文章我们讲了怎么遍历列表，很多同学之前可能学过C/C++或者Java，对代码格式可能不太重视。需要注意的是，C/C++或Java是通过 { } 确定循环体，所以无论你写的代码格式怎么不好看，你只要是把代码写在大括号 ｛ ｝里面，一般都没有问题。 然而，我们的 Python 是没有 ｛ ｝ 的，所以对格式要求非常严格以确定代码块（如，循环体、函数体等），so，你写 Python 代码时可不能">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-07T08:45:46.329Z">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190507/1-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190507/zhunbeihaolema.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190507/2-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190507/3-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190507/4-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190507/5-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg">
+<meta property="og:updated_time" content="2019-05-07T11:37:36.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="08-Python避免缩进错误">
+<meta name="twitter:title" content="Python避免缩进错误">
 <meta name="twitter:description" content="前言上篇文章我们讲了怎么遍历列表，很多同学之前可能学过C/C++或者Java，对代码格式可能不太重视。需要注意的是，C/C++或Java是通过 { } 确定循环体，所以无论你写的代码格式怎么不好看，你只要是把代码写在大括号 ｛ ｝里面，一般都没有问题。 然而，我们的 Python 是没有 ｛ ｝ 的，所以对格式要求非常严格以确定代码块（如，循环体、函数体等），so，你写 Python 代码时可不能">
+<meta name="twitter:image" content="https://liuwynn.github.io/images/20190507/1-1.png">
 
 
 
@@ -170,7 +178,7 @@
 
 
 
-  <title>08-Python避免缩进错误 | Zerone</title>
+  <title>Python避免缩进错误 | Zerone</title>
   
 
 
@@ -324,7 +332,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">08-Python避免缩进错误</h2>
+          <h2 class="post-title" itemprop="name headline">Python避免缩进错误</h2>
         
 
         <div class="post-meta">
@@ -352,7 +360,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-07T16:45:46+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-07T19:37:36+08:00">
                 2019-05-07
               </time>
             
@@ -366,7 +374,7 @@
 
           
           
-             <span id="/2019/05/07/08-Python避免缩进错误/" class="leancloud_visitors" data-flag-title="08-Python避免缩进错误">
+             <span id="/2019/05/07/08-Python避免缩进错误/" class="leancloud_visitors" data-flag-title="Python避免缩进错误">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -391,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  196
+                  1.6k
                 </span>
               
 
@@ -407,7 +415,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -428,12 +436,68 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上篇文章我们讲了怎么遍历列表，很多同学之前可能学过C/C++或者Java，对代码格式可能不太重视。需要注意的是，C/C++或Java是通过 <code>{ }</code> 确定循环体，所以无论你写的代码格式怎么不好看，你只要是把代码写在大括号 <code>｛ ｝</code>里面，一般都没有问题。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><a href="https://liuwynn.github.io/2019/05/06/07-操作Python列表/">上篇文章</a>我们讲了怎么遍历列表，很多同学之前可能学过C/C++或者Java，对代码格式可能不太重视。需要注意的是，C/C++或Java是通过 <code>{ }</code> 确定循环体，所以无论你写的代码格式怎么不好看，你只要是把代码写在大括号 <code>｛ ｝</code>里面，一般都没有问题。</p>
 <p>然而，我们的 Python 是没有 <code>｛ ｝</code> 的，所以对格式要求非常严格以确定代码块（如，循环体、函数体等），so，你写 Python 代码时可不能那么简单粗暴了，要像对待女朋友一样，温柔地敲代码还得注意代码整洁。</p>
 <p>本文就以遍历列表为例，讲讲 Python 代码格式需要注意些什么。</p>
 <hr>
 <a id="more"></a>
+<h3 id="1-缩进"><a href="#1-缩进" class="headerlink" title="1. 缩进"></a>1. 缩进</h3><p>Python 根据缩进（一个tab）来判断当前代码行与前一个代码行的关系。</p>
+<p>举个栗子：有个魔术师列表，向列表中每位魔术师表达他们的表演非常好并且期待他们下次表演，最后向全体魔术师表达感谢。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">magicians = [<span class="string">'Kelvin'</span>, <span class="string">'Vicky'</span>, <span class="string">'Howord'</span>]</span><br><span class="line"><span class="keyword">for</span> magician <span class="keyword">in</span> magicians:</span><br><span class="line">    print(magician.title() + <span class="string">", your trick is amazing!"</span>)</span><br><span class="line">    print(<span class="string">"I can't wait to see u next trick, "</span> + magician.title() + <span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Thank u, everyone, That was a great magic show!"</span>)</span><br></pre></td></tr></table></figure>
+<p>运行结果如图1-1：</p>
+<p><img src="https://liuwynn.github.io/images/20190507/1-1.png" alt="1-1"></p>
+<center>图1-1</center>
 
+<p>第三行和第四行代码相对于 <code>for</code> 语句缩进了，所以这两句 <code>print</code>属于循环体，而第六行代码的 <code>print</code> 语句和 <code>for</code> 语句没有缩进关系，所以它不属于循环体，因此只执行一次。</p>
+<p>Python 通过使用缩进让代码更易读；简单地说，它要求你使用缩进让代码整洁和结构清晰。</p>
+<p>当你开始编写 Python 代码时，需要注意一些常见的 <em>缩进错误</em>。例如，有时候会将不需要缩进的代码块缩进，而对于必须缩进的代码块却忘了缩进。</p>
+<p>接下来会讲一些比较常见的 <em>缩进错误</em>。</p>
+<p><img src="https://liuwynn.github.io/images/20190507/zhunbeihaolema.jpg" alt="zhunbeihaolema"></p>
+<h3 id="2-忘记缩进"><a href="#2-忘记缩进" class="headerlink" title="2. 忘记缩进"></a>2. 忘记缩进</h3><p>对于位于 <code>for</code> 语句后面且属于循环组成部分的代码行，一定要缩进。</p>
+<p>还记得我们 <a href="https://liuwynn.github.io/2019/05/06/07-操作Python列表/">操作Python列表</a> 文章里举的打印列表中每位魔术师名字的栗子嘛，现在我们故意不缩进看会发生什么：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">magicians = [<span class="string">'Kelvin'</span>, <span class="string">'Vicky'</span>, <span class="string">'Howord'</span>]</span><br><span class="line"><span class="keyword">for</span> magician <span class="keyword">in</span> magicians:</span><br><span class="line">print(magician)</span><br></pre></td></tr></table></figure>
+<p>运行这段代码，哇哦，报错了，结果如图2-1：</p>
+<p><img src="https://liuwynn.github.io/images/20190507/2-1.png" alt="2-1"></p>
+<center>图2-1</center>
+
+<p>Python 没有找到期望的缩进代码块时会报 <code>IndentationError: expected an indented block</code>错误，通过查看这种错误提示，有助于你以后避开它们，以及在它们出现在程序中时进行修复。</p>
+<h3 id="3-忘记缩进额外的代码行"><a href="#3-忘记缩进额外的代码行" class="headerlink" title="3. 忘记缩进额外的代码行"></a>3. 忘记缩进额外的代码行</h3><p>有时候，循环能运行而不会报错，但结果可能会出乎意料。</p>
+<p>试图在循环中执行多项任务，却忘记缩进其中的一些代码行时，就会出现这种情况。</p>
+<p>例如，如果循环体中的第二行代码（它告诉每位魔术师，我们期待他的下次表演）没有缩进，代码就会写成这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">magicians = [<span class="string">'Kelvin'</span>, <span class="string">'Vicky'</span>, <span class="string">'Howord'</span>]</span><br><span class="line"><span class="keyword">for</span> magician <span class="keyword">in</span> magicians:</span><br><span class="line">    print(magician.title() + <span class="string">", your trick is amazing!"</span>)</span><br><span class="line">print(<span class="string">"I can't wait to see u next trick, "</span> + magician.title() + <span class="string">"\n"</span>)</span><br></pre></td></tr></table></figure>
+<p>就会出现如图3-1所示的结果：</p>
+<p><img src="https://liuwynn.github.io/images/20190507/3-1.png" alt="3-1"></p>
+<center>图3-1</center>
+
+<p>第二个 <code>print</code> 语句原本是需要缩进的，但 Python 发现 <code>for</code> 语句后有一个语句是缩进的，因此这段代码语法上没有问题，Python 解释器没有报错。但与我们想要的结果不一样。</p>
+<p>我们想要的是，要告诉每一位魔术师，我们期待他的下次表演，而不是仅仅只告诉 <code>Howord</code>。</p>
+<p>至于为什么最后会是 <code>Howord</code>呢？</p>
+<p>因为第二个 <code>print</code> 语句没有缩进，因此它只在循环结束后执行一次。由于循环结束后 <code>magician</code> 的最后值为 <code>Howord</code>，因此只有他收到了消息 <em>I can’t wait to see u next trick, Howord</em>。</p>
+<h3 id="4-不必要的缩进"><a href="#4-不必要的缩进" class="headerlink" title="4. 不必要的缩进"></a>4. 不必要的缩进</h3><p>如果你不小心缩进了不需要缩进的代码，Python会检查出这一点并且报错。</p>
+<p>比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">message = <span class="string">"Hello World!"</span></span><br><span class="line">    print(message)</span><br></pre></td></tr></table></figure>
+<p><code>print</code> 语句不属于上一行代码，因此它不需要缩进，如果你不小心对其进行了缩进，Python 会聪明地指出你的错误，如图4-1：</p>
+<p><img src="https://liuwynn.github.io/images/20190507/4-1.png" alt="4-1"></p>
+<center>图4-1</center>
+
+<p>还是我们熟悉的 <code>IndentationError</code>错误。</p>
+<p>为了避免意外缩进错误，请只缩进需要缩进的代码。</p>
+<h3 id="5-循环后不必要的缩进"><a href="#5-循环后不必要的缩进" class="headerlink" title="5. 循环后不必要的缩进"></a>5. 循环后不必要的缩进</h3><p>如果你不小心缩进了应在循环结束后执行的代码，这些代码将针对每个列表元素重复执行。</p>
+<p>这会导致程序逻辑错误。</p>
+<p>例如，循环体结束后的代码是要感谢全体魔术师精彩的演出，如果你把它缩进到了循环体中，代码会变成这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">magicians = [<span class="string">'Kelvin'</span>, <span class="string">'Vicky'</span>, <span class="string">'Howord'</span>]</span><br><span class="line"><span class="keyword">for</span> magician <span class="keyword">in</span> magicians:</span><br><span class="line">    print(magician.title() + <span class="string">", your trick is amazing!"</span>)</span><br><span class="line">    print(<span class="string">"I can't wait to see u next trick, "</span> + magician.title() + <span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"Thank u, everyone, That was a great magic show!"</span>)</span><br></pre></td></tr></table></figure>
+<p>由于第六行代码被缩进了，它将针对每一位魔术师执行一次，结果如图5-1：</p>
+<p><img src="https://liuwynn.github.io/images/20190507/5-1.png" alt="5-1"></p>
+<center>图5-1</center>
+
+<p>这是一个逻辑错误，Python不知道你的本意，这段代码符合语法，所以程序没有报错，但结果却不如人意。</p>
+<p>如果原本只应执行一次的操作执行了多次，请确定你是否不小心缩进了执行该操作的代码。</p>
+<h3 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h3><p>很多人都认为格式不重要，在平常写代码的时候也不会在意，这会造成一个非常令人头疼的问题：别人很难看的懂你的代码并且一些细节的错误很难被发现。Python 这种强制规定代码格式的做法刚开始确定会让新手头疼，不习惯。但却从一开始帮助新手确立了良好的代码规范，这非常的棒！</p>
+<p>不管你以后会不会从事 Python 开发，从今天起重视代码格式吧。</p>
+<p>如果你在学习过程中有任何疑问，可以关注文章下方↓↓↓的公众号及时与我联系，我们相互讨论，共同学习。</p>
+<p>最后，祝你学有所成。</p>
+<p><img src="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg" alt="公众号-猿天罡"></p>
+<center>欢迎大家点赞、关注、收藏，我是Kelvin，我们下期再见，(ToT)/~~~</center>
       
     </div>
     
@@ -453,7 +517,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://liuwynn.github.io/2019/05/07/08-Python避免缩进错误/" title="08-Python避免缩进错误">https://liuwynn.github.io/2019/05/07/08-Python避免缩进错误/</a>
+    <a href="https://liuwynn.github.io/2019/05/07/08-Python避免缩进错误/" title="Python避免缩进错误">https://liuwynn.github.io/2019/05/07/08-Python避免缩进错误/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -656,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-缩进"><span class="nav-text">1. 缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-忘记缩进"><span class="nav-text">2. 忘记缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-忘记缩进额外的代码行"><span class="nav-text">3. 忘记缩进额外的代码行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-不必要的缩进"><span class="nav-text">4. 不必要的缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-循环后不必要的缩进"><span class="nav-text">5. 循环后不必要的缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结尾语"><span class="nav-text">结尾语</span></a></li></ol></div>
             
 
           </div>
@@ -690,7 +754,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">38.3k</span>
+    <span title="Site words total count">39.7k</span>
   
 </div>
 
