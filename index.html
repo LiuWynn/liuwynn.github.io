@@ -325,7 +325,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/24/09-操作Python列表2/" itemprop="url">操作Python列表2</a></h2>
+                <a class="post-title-link" href="/2019/07/24/09-操作Python列表2/" itemprop="url">操作Python列表Ⅱ</a></h2>
         
 
         <div class="post-meta">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-24T22:55:14+08:00">
-                2019-07-24
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-25T13:31:24+08:00">
+                2019-07-25
               </time>
             
           </span>
@@ -367,7 +367,7 @@
 
           
           
-             <span id="/2019/07/24/09-操作Python列表2/" class="leancloud_visitors" data-flag-title="操作Python列表2">
+             <span id="/2019/07/24/09-操作Python列表2/" class="leancloud_visitors" data-flag-title="操作Python列表Ⅱ">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -430,128 +430,14 @@
 
       
         
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前面有几篇文章讲解了怎么创建和使用列表，以及在列表中数据量过大的时候如何循环操作列表。今天我们来学习一下，如何快速的创建数值列表以及如何对列表进行切片。</p>
-<h3 id="1-创建数值列表"><a href="#1-创建数值列表" class="headerlink" title="1. 创建数值列表"></a>1. 创建数值列表</h3><p>需要存储一组数字的原因有很多，例如，在数据可视化中，处理的几乎都是数字（温度、距离、人口等）组成的集合。</p>
-<p>列表非常适合用于存储数字集合，Python 也提供了很多工具，帮助我们高效地处理数字列表。</p>
-<h4 id="1-1-使用函数-range"><a href="#1-1-使用函数-range" class="headerlink" title="1.1 使用函数 range()"></a>1.1 使用函数 <code>range()</code></h4><p>Python 函数 <code>range()</code> 让我们能轻松地生成一系列数字。例如，像下面这样打印一组数字：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
-<p>运行上述代码，会打印数字1~5(不包含5)。</p>
-<p>我们尝试在编译器运行一下这段代码，结果如题1-1:</p>
-<p><img src="https://liuwynn.github.io/images/20190724/1-1.png" alt="11"></p>
-<center><br><small>图1-1</small><br></center>
-
-<p>通过上面简单地演示可以看出来，<code>range(a,b)</code> 函数会输出 [a,b)的数字。</p>
-<p>所以，使用 <code>range()</code>时，如果输出不符合预期，请尝试将指定的值加1或减1。</p>
-<p><strong>让我们更深入地认识一下 range() 函数</strong></p>
-<p><code>range(stop)</code></p>
-<ul>
-<li>stop: 计数到 stop 结束，但不包括 stop。默认从 0 开始，例如 range(5) 等价于 range(0, 5)</li>
-</ul>
-<p><code>range(start,  stop[,  step])</code></p>
-<ul>
-<li><p>start: 计数从 start 开始，包括 start。</p>
-</li>
-<li><p>stop: 计数到 stop 结束，但不包括 stop。</p>
-</li>
-<li><p>step: 步长。默认为1，例如 range(0, 5) 等价于 range(0, 5, 1)</p>
-</li>
-</ul>
-<p><strong>关于步长</strong></p>
-<p>或许第一次接触编程的同学会对步长的含义有些迷糊，这里解释一下。</p>
-<p>先看上面的代码，range(1,5)，因为第三个参数没传，所以步长默认为1，输出的结果为 <code>1 2 3 4</code>，每个数之间相差1。</p>
-<p>所以如果我们想输出 <code>1 3 5 7</code>，每个数之间相差2的一系列数，需要将 step 设置为2，代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>):</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
-<h4 id="1-2-使用-range-创建数字列表"><a href="#1-2-使用-range-创建数字列表" class="headerlink" title="1.2 使用 range() 创建数字列表"></a>1.2 使用 <code>range()</code> 创建数字列表</h4><p>大体上有 3 种使用 range() 创建数字列表的方法。下面让我们来一一讲解。</p>
-<h5 id="1-2-1-使用-list-函数创建列表"><a href="#1-2-1-使用-list-函数创建列表" class="headerlink" title="1.2.1 使用 list() 函数创建列表"></a>1.2.1 使用 <code>list()</code> 函数创建列表</h5><p>要创建数字列表，可以使用函数 <code>list()</code> 将 <code>range()</code> 的结果直接转换成列表。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numbers = list(range(<span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line">print(numbers)</span><br></pre></td></tr></table></figure>
-<p>结果如图1-2：</p>
-<p><img src="https://liuwynn.github.io/images/20190724/1-2.png" alt="12"></p>
-<center><br><small>图1-2</small><br></center>
-
-<p>使用函数 <code>range()</code> 还可指定步长。例如，下面代码打印1~10内的奇数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">odd_numbers = list(range(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>))</span><br><span class="line">print(odd_numbers)</span><br></pre></td></tr></table></figure>
-<p>在这个示例中，函数 <code>range()</code> 从 1 开始，然后不断地加2，直到达到或超过终值(10)，结果输出如下图1-3：</p>
-<p><img src="https://liuwynn.github.io/images/20190724/1-3.png" alt="13"></p>
-<center><br><small>图1-3</small><br></center>
-
-<h5 id="1-2-2-for-循环创建列表"><a href="#1-2-2-for-循环创建列表" class="headerlink" title="1.2.2 for 循环创建列表"></a>1.2.2 <code>for</code> 循环创建列表</h5><p><code>list()</code> 创建列表非常地方便，然而它并不能满足我们的所有创建数字列表的需求，比如，我需要一个数字列表，这个列表包含前10个整数（1~10）的平方。</p>
-<p>这种列表就没法用 <code>list()</code> 函数来创建啦，不怕，我们有新方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">squares = []</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">    square = value**<span class="number">2</span></span><br><span class="line">    squares.append(square)</span><br><span class="line">print(squares)</span><br></pre></td></tr></table></figure>
-<p>首先，我们创建了一个空列表；</p>
-<p>接下来，使用 <code>range()</code> 函数让 Python 遍历 1~10 的值；</p>
-<p>然后，在循环中计算当前值的平方，并将结果存储到变量 square 中；</p>
-<p>接着，将新计算得到的平方值附加到列表 squares 中；</p>
-<p>最后，循环结束，打印列表 squares。</p>
-<p>运行这段代码，结果如图1-4：</p>
-<p><img src="https://liuwynn.github.io/images/20190724/1-4.png" alt="14"></p>
-<center><br><small>图1-4</small><br></center>
-
-<h5 id="1-2-3-列表解析"><a href="#1-2-3-列表解析" class="headerlink" title="1.2.3 列表解析"></a>1.2.3 列表解析</h5><p>前面介绍的生成列表 squares 的方式包含四五行代码，而列表解析让你只需编写一行代码就能生成这样的列表。列表解析将 <code>for</code> 循环和创建元素的代码合并成一行，并自动地附加新元素。</p>
-<p>下面使用 列表解析 来创建前面看到的平方数列表：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">squares = [value**<span class="number">2</span> <span class="keyword">for</span> value <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)]</span><br><span class="line">print(squares)</span><br></pre></td></tr></table></figure>
-<p>可以看到，我们在声明的列表 <code>[]</code> 中定义了一个表达式，用于生成我们要储存到列表中的值。</p>
-<p>在这个示例中，表达式为 <code>value**2</code>，它计算平方值，其后的 <code>for</code> 循环将值1~10提供给表达式 <code>value**2</code>。</p>
-<p><strong>请注意，这里的 for 语句末尾没有冒号</strong></p>
-<p>如果你不能理解，可以先背下来，这在以后会被多次的用到，运用的多了就能理解了。</p>
-<p>结果与我们前面写的平方数列表相同，如图1-5：</p>
-<p><img src="https://liuwynn.github.io/images/20190724/1-4.png" alt="15"></p>
-<center><br><small>图1-5</small><br></center>
-
-<p>以上的三种方法都可以用来生成数字列表，选择适合的方法就行。</p>
-<h3 id="2-切片"><a href="#2-切片" class="headerlink" title="2. 切片"></a>2. 切片</h3><p>之前的几篇文章，我们学习了如何访问单个列表元素，也学习了如何处理列表中的所有元素。其实我们还可以处理列表的部分元素，这部分元素 Python 称之为切片。</p>
-<h4 id="2-1-切片的基本用法"><a href="#2-1-切片的基本用法" class="headerlink" title="2.1 切片的基本用法"></a>2.1 切片的基本用法</h4><p>要创建切片，需要指定要使用的第一个元素和最后一个元素的索引。</p>
-<p>语法规则如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设 lst 是一个列表</span></span><br><span class="line">lst[a:b] <span class="comment"># 截取 lst 列表下标范围[a,b)的元素并作为新列表返回</span></span><br></pre></td></tr></table></figure>
-<p>下面的示例处理的是一个运动队成员列表：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">players = [<span class="string">'刘恒'</span>, <span class="string">'张括'</span>, <span class="string">'马龙'</span>, <span class="string">'张怡宁'</span>, <span class="string">'郭焱'</span>, <span class="string">'王亚楠'</span>, <span class="string">'丁宁'</span>]</span><br><span class="line">print(players[<span class="number">0</span>:<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
-<p>运行这段代码，结果如图2-1:</p>
-<p><img src="https://liuwynn.github.io/images/20190724/2-1.png" alt="21"></p>
-<center><br><small>图2-1</small><br></center>
-
-<p>可以看到，输出的是一个列表，包含前三名队员，对应的下标分别是：0、1和2。</p>
-<p>你可以生成列表的任何子集，例如，如果你要提取列表的第2~4个元素，可将起始索引指定为1，并将终止索引设置为4：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">players = [<span class="string">'刘恒'</span>, <span class="string">'张括'</span>, <span class="string">'马龙'</span>, <span class="string">'张怡宁'</span>, <span class="string">'郭焱'</span>, <span class="string">'王亚楠'</span>, <span class="string">'丁宁'</span>]</span><br><span class="line">print(players[<span class="number">1</span>:<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
-<p>这一次，切片始于“张括”，终于“张怡宁”，如图2-2：</p>
-<p><img src="https://liuwynn.github.io/images/20190724/2-2.png" alt="22"></p>
-<center><br><small>图2-2</small><br></center>
-
-<p>如果没有指定第一个索引，Python 将自动从 0 开始：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">players = [<span class="string">'刘恒'</span>, <span class="string">'张括'</span>, <span class="string">'马龙'</span>, <span class="string">'张怡宁'</span>, <span class="string">'郭焱'</span>, <span class="string">'王亚楠'</span>, <span class="string">'丁宁'</span>]</span><br><span class="line">print(players[:<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
-<p>由于没有指定起始索引，Python 从列表开头开始提取，结果如图2-3：</p>
-<p><img src="https://liuwynn.github.io/images/20190724/2-3.png" alt="23"></p>
-<center><br><small>图2-3</small><br></center>
-
-<p>要让切片终止于列表末尾，也可使用类似的语法。例如，要提取从第4个元素到列表末尾的所有元素，可以将起始索引指定为3，并省略终止索引：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">players = [<span class="string">'刘恒'</span>, <span class="string">'张括'</span>, <span class="string">'马龙'</span>, <span class="string">'张怡宁'</span>, <span class="string">'郭焱'</span>, <span class="string">'王亚楠'</span>, <span class="string">'丁宁'</span>]</span><br><span class="line">print(players[<span class="number">3</span>:])</span><br></pre></td></tr></table></figure>
-<p>Python 将返回从第4个元素到列表末尾的所有元素，如图2-4：</p>
-<p><img src="https://liuwynn.github.io/images/20190724/2-4.png" alt="24"></p>
-<center><br><small>图2-4</small><br></center>
-
-<p>无论列表多长，这种语法都能让你输出从特定位置到列表末尾的所有元素。</p>
-<p><strong>负数索引返回里列表末尾相应距离的元素，因此我们可以输出列表末尾的任何切片</strong></p>
-<p>例如，我们需要我们输出最后三名队员，我们可以：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">players = [<span class="string">'刘恒'</span>, <span class="string">'张括'</span>, <span class="string">'马龙'</span>, <span class="string">'张怡宁'</span>, <span class="string">'郭焱'</span>, <span class="string">'王亚楠'</span>, <span class="string">'丁宁'</span>]</span><br><span class="line">print(players[<span class="number">-3</span>:])</span><br></pre></td></tr></table></figure>
-<p>运行这段代码，结果如图2-5：</p>
-<p><img src="https://liuwynn.github.io/images/20190724/2-5.png" alt="25"></p>
-<center><br><small>图2-5</small><br></center>
-
-<p>上述代码打印出了最后三名队员的名字，即使队员名单的长度发生变化，也依然如此。</p>
-<h4 id="2-2-遍历切片"><a href="#2-2-遍历切片" class="headerlink" title="2.2 遍历切片"></a>2.2 遍历切片</h4><p>如果要遍历列表的部分元素，可在 <code>for</code> 循环中使用切片。</p>
-<p>在下面的示例，我们遍历前三名队员，并打印他们的名字：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">players = [<span class="string">'刘恒'</span>, <span class="string">'张括'</span>, <span class="string">'马龙'</span>, <span class="string">'张怡宁'</span>, <span class="string">'郭焱'</span>, <span class="string">'王亚楠'</span>, <span class="string">'丁宁'</span>]</span><br><span class="line">print(<span class="string">"前三名运动员："</span>)</span><br><span class="line"><span class="keyword">for</span> player <span class="keyword">in</span> players[:<span class="number">3</span>]:</span><br><span class="line">    print(player)</span><br></pre></td></tr></table></figure>
-<p>这次 <code>for</code> 循环只遍历了列表的前三名队员，结果如图2-6：</p>
-<p><img src="https://liuwynn.github.io/images/20190724/2-6.png" alt="26"></p>
-<center><br><small>图2-6</small><br></center>
-
-<h3 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h3><p>本篇文章简单地介绍了怎么样创建数字列表和如何使用列表切片。</p>
-<p>虽然文章中给的例子都很简单，但我还是希望有心学好 Python 的初学者能亲手敲一下这些代码。</p>
-<p>如果你在学习过程中有任何疑问，可以关注文章下方↓↓↓的公众号及时与我联系，我们相互讨论，共同学习。</p>
-<p>最后，祝你学有所成。</p>
-<p><img src="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg" alt="公众号猿天罡"></p>
-<center><br><small>欢迎大家点赞、关注、收藏，我是Kelvin，我们下期再见，bye</small><br></center>
-
-          
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前面有几篇文章讲解了怎么创建和使用列表，以及在列表中数据量过大的时候如何循环操作列表。今天我们来学习一下，如何快速的创建数值列表以及如何对列表进行切片。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/24/09-操作Python列表2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1155,7 +1041,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/06/07-操作Python列表/" itemprop="url">操作Python列表</a></h2>
+                <a class="post-title-link" href="/2019/05/06/07-操作Python列表/" itemprop="url">操作Python列表Ⅰ</a></h2>
         
 
         <div class="post-meta">
@@ -1183,8 +1069,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-24T16:27:32+08:00">
-                2019-07-24
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-25T13:30:51+08:00">
+                2019-07-25
               </time>
             
           </span>
@@ -1197,7 +1083,7 @@
 
           
           
-             <span id="/2019/05/06/07-操作Python列表/" class="leancloud_visitors" data-flag-title="操作Python列表">
+             <span id="/2019/05/06/07-操作Python列表/" class="leancloud_visitors" data-flag-title="操作Python列表Ⅰ">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
