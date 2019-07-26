@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言回顾前面的几篇文章，我给大家讲了 Python 中简单的数据类型、列表的操作等等，今天给大家介绍一个新的数据存储结构——元组。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10.Python元组">
+<meta property="og:url" content="https://liuwynn.github.io/2019/07/26/10-Python元组/index.html">
+<meta property="og:site_name" content="Zerone">
+<meta property="og:description" content="前言回顾前面的几篇文章，我给大家讲了 Python 中简单的数据类型、列表的操作等等，今天给大家介绍一个新的数据存储结构——元组。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/1-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/1-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/1-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/3-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/3-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg">
+<meta property="og:updated_time" content="2019-07-26T07:36:39.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="10.Python元组">
+<meta name="twitter:description" content="前言回顾前面的几篇文章，我给大家讲了 Python 中简单的数据类型、列表的操作等等，今天给大家介绍一个新的数据存储结构——元组。">
+<meta name="twitter:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/1-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuwynn.github.io/2019/07/26/10-Python元组/">
+
+
+
+
+
+  <title>10.Python元组 | Zerone</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2c0f7ab76f839fb1872880534a1ea328";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zerone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">零与壹的世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/07/26/10-Python元组/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">10.Python元组</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-26T14:11:16+08:00">
+                2019-07-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-26T15:36:39+08:00">
+                2019-07-26
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/26/10-Python元组/" class="leancloud_visitors" data-flag-title="10.Python元组">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>回顾前面的几篇文章，我给大家讲了 Python 中简单的数据类型、列表的操作等等，今天给大家介绍一个新的数据存储结构——<strong>元组</strong>。</p>
+<a id="more"></a>
+<h3 id="1-元组的定义"><a href="#1-元组的定义" class="headerlink" title="1. 元组的定义"></a>1. 元组的定义</h3><p>元组看起来和列表很像，但使用圆括号 <code>()</code> 而不是方括号 <code>[]</code> 来标识。定义元组后，就可以使用索引来访问其元素，就像访问列表一样。</p>
+<p>举例说明，如果我们要存储一个矩形的长和宽，使用元组来存储的话，可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rectangle = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line">print(rectangle[<span class="number">0</span>])</span><br><span class="line">print(rectangle[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>我们首先定义了一个元素 <code>rectangle</code>，接下来，我们分别打印该元组的各元素，访问元组中元素的语法与访问列表元素的语法相同。</p>
+<p>运行这段代码，结果如图1-1：</p>
+<p><img src="..\images\20190726\1-1.png" alt="11"></p>
+<center><br><small>图1-1</small><br></center>
+
+<p>看到这，聪明的你应该会产生这样一个疑惑：既然 Python 已经提供了列表如此好用的存储结构了，为了什么还要提供元组？</p>
+<p>没错，元组和列表定义有细微的区别（一个用<code>()</code>，一个用<code>[]</code>），访问方式更是一模一样，咋看一下确实可以相互替代。</p>
+<p>在这里我要重点强调下：<strong>列表中元素是可修改的，而元组中元素是不可修改的</strong>。</p>
+<p>下面我们来尝试修改下元组中的元素，看看结果如何：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rectangle = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line">rectangle[<span class="number">0</span>] = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<p>我们只是想把矩形的长修改成 100，这在列表中很正常的操作，在元组中却报了错，报错内容如图1-2：</p>
+<p><img src="..\images\20190726\1-2.png" alt="12"></p>
+<center><br><small>图1-2</small><br></center>
+
+<p>有些英文基础的同学应该能看懂：<code>TypeError: &#39;tuple&#39; object does not support item assignment</code>，意思是：元组不支持这种操作。</p>
+<p>由此，我们应该能直观感受到了列表和元组的区别：列表非常适合用于存储在程序运行期间可能变化的数据集，因为<strong>列表是可以修改</strong>的。然而，有时你需要创建一系列<strong>不可修改的元素</strong>，这个时候<strong>元组可以满足需求</strong>。</p>
+<h3 id="2-遍历元组"><a href="#2-遍历元组" class="headerlink" title="2. 遍历元组"></a>2. 遍历元组</h3><p>想列表一样，也可以使用<code>for</code> 循环来遍历元组中的所有值： </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rectangle = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> rectangle:</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
+<p>运行这段代码，结果如图2-1:</p>
+<p><img src="..\images\20190726\1-1.png" alt="21"></p>
+<center><br><small>图2-1</small><br></center>
+
+<p>就像遍历列表一样，Python返回了元组中的所有值。</p>
+<h3 id="3-修改元组变量"><a href="#3-修改元组变量" class="headerlink" title="3. 修改元组变量"></a>3. 修改元组变量</h3><p>看到这里，就算是聪明的你可能也有点懵，明明前面我花了大力气又是举例又是总结的就是想告诉你们<strong>元组中元素</strong>不可修改，怎么到这节的大标题这么明目张胆地打脸。</p>
+<p>虽然笔者是微胖界的翘楚，但自觉脸够大了，怎么可能做出前后自相矛盾的事情呢。</p>
+<p>且看我怎么自圆其说！</p>
+<p>前面我说的是<strong>元组中元素</strong>不可修改，这里说的是<strong>修改元组变量</strong>。</p>
+<p>也就是说，一旦一个变量中确定存储了某个元组，那么这个元组结构中存放的元素是无法被修改的，但是我可以扔掉整个元组，换上另一个元组啊。</p>
+<p>打个形象的比方，桌上有个鸡蛋篮子，你跟我说，篮子里的鸡蛋不能碰，好嘞，我不碰，但我可以把鸡蛋篮子换成水果篮子吧，这样我也没有碰鸡蛋篮子里的鸡蛋对不对。</p>
+<p>那为什么会这样呢？元组中元素不可变，但保存元素的变量却可以改变。</p>
+<p>请看图3-1：</p>
+<p><img src="..\images\20190726\3-1.png" alt="22"></p>
+<center><br><small>图3-1</small><br></center>
+
+<p><code>rectangle</code> 变量原本存储着 <code>(200,50)</code> 的地址，相当于有个指针，将 变量<code>rectangle</code> 指向数据 <code>(200,50)</code>，但我们把鸡蛋篮子换成水果篮子的做法相等于改变了指针的指向，现在 <code>rectangle</code> 指向了数据 <code>(300,100)</code>。</p>
+<p>落实到代码上，实现就很简单了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">rectangle = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line">print(<span class="string">"原矩形："</span>)</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> rectangle:</span><br><span class="line">    print(value)</span><br><span class="line"></span><br><span class="line">rectangle = (<span class="number">300</span>, <span class="number">100</span>)</span><br><span class="line">print(<span class="string">"现矩形："</span>)</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> rectangle:</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
+<p>我们首先定义了一个元组，将其存储的矩形长宽打印了出来；</p>
+<p>接下来，将一个新的元组存储到变量中；</p>
+<p>然后，打印新的矩形长宽。</p>
+<p>这次 Python 没有报错，因为给元组变量赋值是合法的。</p>
+<p>运行结果如图3-2：</p>
+<p><img src="..\images\20190726\3-2.png" alt="32"></p>
+<center><br><small>图3-2</small><br></center>
+
+<p>相比于列表，元组是更简单的数据结构。如果想存储一组值在程序的整个生命周期内都不变，可使用元组。</p>
+<h3 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h3><p>如果你在学习过程中有任何疑问，可以关注文章下方↓↓↓的公众号及时与我联系，我们相互讨论，共同学习。</p>
+<p>最后，祝你学有所成。</p>
+<p><img src="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg" alt="公众号猿天罡"></p>
+<center><br><small>欢迎大家点赞、关注、收藏，我是Kelvin，我们下期再见，bye</small><br></center>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wynn
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://liuwynn.github.io/2019/07/26/10-Python元组/" title="10.Python元组">https://liuwynn.github.io/2019/07/26/10-Python元组/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/24/09-操作Python列表2/" rel="next" title="操作Python列表Ⅱ">
+                <i class="fa fa-chevron-left"></i> 操作Python列表Ⅱ
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar/avatar1.jpg" alt="Wynn">
+            
+              <p class="site-author-name" itemprop="name">Wynn</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liuwynn" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2601659975@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053170513872/home?from=page_100505&mod=TAB#place" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/man-bu-yun-duan-65/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.isign.top" title="博悦" target="_blank">博悦</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-元组的定义"><span class="nav-text">1. 元组的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-遍历元组"><span class="nav-text">2. 遍历元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-修改元组变量"><span class="nav-text">3. 修改元组变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结尾语"><span class="nav-text">结尾语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wynn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">45k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Jn6I9DQIh69Mqx7SsTBBsAlC-gzGzoHsz", "sYdTo7iCqJ5jpnGkzPoQAXUY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
