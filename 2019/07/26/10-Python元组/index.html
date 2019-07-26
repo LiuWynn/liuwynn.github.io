@@ -126,22 +126,22 @@
 <meta name="description" content="前言回顾前面的几篇文章，我给大家讲了 Python 中简单的数据类型、列表的操作等等，今天给大家介绍一个新的数据存储结构——元组。">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="10.Python元组">
+<meta property="og:title" content="Python元组">
 <meta property="og:url" content="https://liuwynn.github.io/2019/07/26/10-Python元组/index.html">
 <meta property="og:site_name" content="Zerone">
 <meta property="og:description" content="前言回顾前面的几篇文章，我给大家讲了 Python 中简单的数据类型、列表的操作等等，今天给大家介绍一个新的数据存储结构——元组。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/1-1.png">
-<meta property="og:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/1-2.png">
-<meta property="og:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/1-1.png">
-<meta property="og:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/3-1.png">
-<meta property="og:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/3-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190726/1-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190726/1-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190726/1-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190726/3-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190726/3-2.png">
 <meta property="og:image" content="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg">
-<meta property="og:updated_time" content="2019-07-26T07:36:39.944Z">
+<meta property="og:updated_time" content="2019-07-26T07:44:22.873Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="10.Python元组">
+<meta name="twitter:title" content="Python元组">
 <meta name="twitter:description" content="前言回顾前面的几篇文章，我给大家讲了 Python 中简单的数据类型、列表的操作等等，今天给大家介绍一个新的数据存储结构——元组。">
-<meta name="twitter:image" content="https://liuwynn.github.io/2019/07/26/images/20190726/1-1.png">
+<meta name="twitter:image" content="https://liuwynn.github.io/images/20190726/1-1.png">
 
 
 
@@ -177,7 +177,7 @@
 
 
 
-  <title>10.Python元组 | Zerone</title>
+  <title>Python元组 | Zerone</title>
   
 
 
@@ -331,7 +331,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">10.Python元组</h2>
+          <h2 class="post-title" itemprop="name headline">Python元组</h2>
         
 
         <div class="post-meta">
@@ -359,7 +359,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-26T15:36:39+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-26T15:44:22+08:00">
                 2019-07-26
               </time>
             
@@ -373,7 +373,7 @@
 
           
           
-             <span id="/2019/07/26/10-Python元组/" class="leancloud_visitors" data-flag-title="10.Python元组">
+             <span id="/2019/07/26/10-Python元组/" class="leancloud_visitors" data-flag-title="Python元组">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -442,7 +442,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rectangle = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line">print(rectangle[<span class="number">0</span>])</span><br><span class="line">print(rectangle[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 <p>我们首先定义了一个元素 <code>rectangle</code>，接下来，我们分别打印该元组的各元素，访问元组中元素的语法与访问列表元素的语法相同。</p>
 <p>运行这段代码，结果如图1-1：</p>
-<p><img src="..\images\20190726\1-1.png" alt="11"></p>
+<p><img src="https://liuwynn.github.io/images/20190726/1-1.png" alt="1-1"></p>
 <center><br><small>图1-1</small><br></center>
 
 <p>看到这，聪明的你应该会产生这样一个疑惑：既然 Python 已经提供了列表如此好用的存储结构了，为了什么还要提供元组？</p>
@@ -451,7 +451,7 @@
 <p>下面我们来尝试修改下元组中的元素，看看结果如何：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rectangle = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line">rectangle[<span class="number">0</span>] = <span class="number">100</span></span><br></pre></td></tr></table></figure>
 <p>我们只是想把矩形的长修改成 100，这在列表中很正常的操作，在元组中却报了错，报错内容如图1-2：</p>
-<p><img src="..\images\20190726\1-2.png" alt="12"></p>
+<p><img src="https://liuwynn.github.io/images/20190726/1-2.png" alt="1-2"></p>
 <center><br><small>图1-2</small><br></center>
 
 <p>有些英文基础的同学应该能看懂：<code>TypeError: &#39;tuple&#39; object does not support item assignment</code>，意思是：元组不支持这种操作。</p>
@@ -459,7 +459,7 @@
 <h3 id="2-遍历元组"><a href="#2-遍历元组" class="headerlink" title="2. 遍历元组"></a>2. 遍历元组</h3><p>想列表一样，也可以使用<code>for</code> 循环来遍历元组中的所有值： </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rectangle = (<span class="number">200</span>, <span class="number">50</span>)</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> rectangle:</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
 <p>运行这段代码，结果如图2-1:</p>
-<p><img src="..\images\20190726\1-1.png" alt="21"></p>
+<p><img src="https://liuwynn.github.io/images/20190726/1-1.png" alt="2-1"></p>
 <center><br><small>图2-1</small><br></center>
 
 <p>就像遍历列表一样，Python返回了元组中的所有值。</p>
@@ -471,7 +471,7 @@
 <p>打个形象的比方，桌上有个鸡蛋篮子，你跟我说，篮子里的鸡蛋不能碰，好嘞，我不碰，但我可以把鸡蛋篮子换成水果篮子吧，这样我也没有碰鸡蛋篮子里的鸡蛋对不对。</p>
 <p>那为什么会这样呢？元组中元素不可变，但保存元素的变量却可以改变。</p>
 <p>请看图3-1：</p>
-<p><img src="..\images\20190726\3-1.png" alt="22"></p>
+<p><img src="https://liuwynn.github.io/images/20190726/3-1.png" alt="3-1"></p>
 <center><br><small>图3-1</small><br></center>
 
 <p><code>rectangle</code> 变量原本存储着 <code>(200,50)</code> 的地址，相当于有个指针，将 变量<code>rectangle</code> 指向数据 <code>(200,50)</code>，但我们把鸡蛋篮子换成水果篮子的做法相等于改变了指针的指向，现在 <code>rectangle</code> 指向了数据 <code>(300,100)</code>。</p>
@@ -482,7 +482,7 @@
 <p>然后，打印新的矩形长宽。</p>
 <p>这次 Python 没有报错，因为给元组变量赋值是合法的。</p>
 <p>运行结果如图3-2：</p>
-<p><img src="..\images\20190726\3-2.png" alt="32"></p>
+<p><img src="https://liuwynn.github.io/images/20190726/3-2.png" alt="3-2"></p>
 <center><br><small>图3-2</small><br></center>
 
 <p>相比于列表，元组是更简单的数据结构。如果想存储一组值在程序的整个生命周期内都不变，可使用元组。</p>
@@ -510,7 +510,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://liuwynn.github.io/2019/07/26/10-Python元组/" title="10.Python元组">https://liuwynn.github.io/2019/07/26/10-Python元组/</a>
+    <a href="https://liuwynn.github.io/2019/07/26/10-Python元组/" title="Python元组">https://liuwynn.github.io/2019/07/26/10-Python元组/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
