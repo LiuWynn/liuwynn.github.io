@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言程序有三大结构：顺序、循环和选择。貌似有数学家给出了证明，任何一件复杂的事都是由这三种结构组成的。 拿我们的人生举例，每个人都要经历从出生到死亡的顺序结构，在短暂的生命里总是会重复（循环）做同一件事，上学、工作等等，同时我们也面临着许多选择，每一个选择或多或少决定着人生的走向。 从这点来说的话，程序甚至可以模拟人生。 言归正传，今天给大家介绍一下新的结构——选择结构。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python if语句">
+<meta property="og:url" content="https://liuwynn.github.io/2019/07/27/11-Python-if语句/index.html">
+<meta property="og:site_name" content="Zerone">
+<meta property="og:description" content="前言程序有三大结构：顺序、循环和选择。貌似有数学家给出了证明，任何一件复杂的事都是由这三种结构组成的。 拿我们的人生举例，每个人都要经历从出生到死亡的顺序结构，在短暂的生命里总是会重复（循环）做同一件事，上学、工作等等，同时我们也面临着许多选择，每一个选择或多或少决定着人生的走向。 从这点来说的话，程序甚至可以模拟人生。 言归正传，今天给大家介绍一下新的结构——选择结构。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/27/images/20190727/xuanzeyuanliang.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/27/images/20190727/1-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/27/images/20190727/xiayihuanjie.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/27/images/20190727/2-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/27/images/20190727/3-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/27/images/20190727/3-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/27/images/20190727/3-3.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/27/images/20190727/3-4.png">
+<meta property="og:image" content="https://liuwynn.github.io/2019/07/27/images/20190727/3-5.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg">
+<meta property="og:updated_time" content="2019-07-27T15:32:46.658Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python if语句">
+<meta name="twitter:description" content="前言程序有三大结构：顺序、循环和选择。貌似有数学家给出了证明，任何一件复杂的事都是由这三种结构组成的。 拿我们的人生举例，每个人都要经历从出生到死亡的顺序结构，在短暂的生命里总是会重复（循环）做同一件事，上学、工作等等，同时我们也面临着许多选择，每一个选择或多或少决定着人生的走向。 从这点来说的话，程序甚至可以模拟人生。 言归正传，今天给大家介绍一下新的结构——选择结构。">
+<meta name="twitter:image" content="https://liuwynn.github.io/2019/07/27/images/20190727/xuanzeyuanliang.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuwynn.github.io/2019/07/27/11-Python-if语句/">
+
+
+
+
+
+  <title>Python if语句 | Zerone</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2c0f7ab76f839fb1872880534a1ea328";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zerone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">零与壹的世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/07/27/11-Python-if语句/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Python if语句</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-27T10:50:26+08:00">
+                2019-07-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-27T23:32:46+08:00">
+                2019-07-27
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/27/11-Python-if语句/" class="leancloud_visitors" data-flag-title="Python if语句">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>程序有三大结构：顺序、循环和选择。貌似有数学家给出了证明，任何一件复杂的事都是由这三种结构组成的。</p>
+<p>拿我们的人生举例，每个人都要经历从出生到死亡的顺序结构，在短暂的生命里总是会重复（循环）做同一件事，上学、工作等等，同时我们也面临着许多选择，每一个选择或多或少决定着人生的走向。</p>
+<p>从这点来说的话，程序甚至可以模拟人生。</p>
+<p>言归正传，今天给大家介绍一下新的结构——选择结构。</p>
+<p><img src="..\images\20190727\xuanzeyuanliang.png" alt="图源来自网络，侵删"></p>
+<a id="more"></a>
+<h3 id="1-简单示例"><a href="#1-简单示例" class="headerlink" title="1. 简单示例"></a>1. 简单示例</h3><p>首先呢，我们来一起见识一下 Python 中选择结构大体是怎么肥事。</p>
+<p>下面是一个简单的示例，演示了如何使用 <code>if</code> 语句来正确地处理特殊情况。</p>
+<p>假设你班 <strong>韩雷雷</strong> 同学因为生病导致班主任点名的时候没有喊’到’。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">students = [<span class="string">'李春梅'</span>, <span class="string">'张翠花'</span>, <span class="string">'李狗蛋'</span>, <span class="string">'韩雷雷'</span>, <span class="string">'孔小乙'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> student <span class="keyword">in</span> students:</span><br><span class="line">    <span class="keyword">if</span> student == <span class="string">'韩雷雷'</span>:</span><br><span class="line">        print(<span class="string">'班主任：'</span>, <span class="string">'韩雷雷'</span>, <span class="string">'无人回应'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'班主任：'</span>, student + <span class="string">'；'</span>, student + <span class="string">'：'</span>, <span class="string">'到'</span>)</span><br></pre></td></tr></table></figure>
+<p>这个示例中的循环首先检查当前学生是不是 <strong>韩雷雷</strong>。如果是，就打印 <strong>无人回应</strong>；否则就打印 <strong>到</strong>。</p>
+<p>结果如图1-1：</p>
+<p><img src="..\images\20190727\1-1.png" alt="11"></p>
+<center><br><small>图1-1</small><br></center>
+
+<p>下面正式进入今天的主题。</p>
+<h3 id="2-布尔表达式"><a href="#2-布尔表达式" class="headerlink" title="2. 布尔表达式"></a>2. 布尔表达式</h3><p>要想看懂并学会 <code>if</code> 语句，不会布尔表达式可不行。</p>
+<h4 id="2-1-什么是布尔表达式？"><a href="#2-1-什么是布尔表达式？" class="headerlink" title="2.1 什么是布尔表达式？"></a>2.1 什么是布尔表达式？</h4><blockquote>
+<p>布尔表达式（Boolean expression）是一段代码声明，它最终只有true（真）和false（假）两个取值。最简单的布尔表达式是等式（equality），这种布尔表达式用来测试一个值是否与另一个值相同。—— 百度百科</p>
+</blockquote>
+<p>想想还是引用下正式的解释比较高大上。</p>
+<p><strong>解释环节：</strong></p>
+<p>布尔表达式是一段代码声明，有人可能对 <em>一段代码声明</em> 有点犯晕，简单地理解成一段代码就行。</p>
+<p>不管布尔表达式或长或短或简单或复杂，运行结果只有 <code>true(真)</code> 和 <code>false(假)</code> 两个取值。</p>
+<p>为什么说布尔表达式对 <code>if</code> 条件选择语句这么重要呢？因为上面我们举的点名例子中 <code>if</code> 语句后面跟着的 <code>student == &#39;韩雷雷&#39;</code> 就是布尔表达式，很巧地是这个表达式也是百度百科定义中提到地最简单的布尔表达式——等式。</p>
+<p><img src="..\images\20190727\xiayihuanjie.png" alt="图源来自网络，侵删"></p>
+<h4 id="2-2-检查是否相等"><a href="#2-2-检查是否相等" class="headerlink" title="2.2 检查是否相等"></a>2.2 检查是否相等</h4><p>我们从最简单的布尔表达式开始，前面提到，最简单的布尔表达式是<strong>等式</strong>，因为 <code>=(等号)</code> 已经被用来作赋值运算符，所以判断是否相等的等式运算符我们用 <code>==（两个等号）</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>name = <span class="string">'Kelvin'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name == <span class="string">'Kelvin'</span></span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>我们首先使用一个等号将 <code>name</code> 的值设置为 ‘Kelvin’，这种做法你应该见过很多次了。</p>
+<p>接下来，使用两个等号检查 <code>name</code> 的值是否为 ‘Kelvin’。这个相等运算符在它左右两边的值相等时返回 <code>True</code>，否则返回 <code>False</code>, 顺便提一句， Python 里真假分别是 <code>True/False</code>，在其他语言里有的用的是全小写，这个要注意。</p>
+<p>在这个示例中，<code>==</code> 两边的值相等，因此 Python 返回 <code>True</code>。</p>
+<p>如果变量 <code>name</code> 的值不是 ‘Kelvin’， 上述测试将返回 <code>False</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>name = <span class="string">'Vicky'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name == <span class="string">'Kelvin'</span></span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>一个等号是陈述，对于第一行代码，可解读为 <strong>将变量 name 的值设置为 ‘Vicky’</strong>。</p>
+<p>两个等号是发问，对于第二行代码，可解读为 <strong>变量 name 的值是 ‘Kelvin’ 吗？</strong>。</p>
+<h4 id="2-3-检查是否不相等"><a href="#2-3-检查是否不相等" class="headerlink" title="2.3 检查是否不相等"></a>2.3 检查是否不相等</h4><p>要判断两个值是否不相等，可结合使用惊叹号和等号(<code>!=</code>)，其中的惊叹号表示 <strong>非</strong>，在很多编程语言中都是如此。</p>
+<p>假设韩雷雷身体康复回到了班级，下课时间，班上同学哈哈啊哈的聊天，只有 <strong>孔小乙</strong> 同学在认真学习。也就是说，除了 <strong>孔小乙</strong> 同学，别的同学都在哈哈哈。</p>
+<p>我们用代码记录了这一刻：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">students = [<span class="string">'李春梅'</span>, <span class="string">'张翠花'</span>, <span class="string">'李狗蛋'</span>, <span class="string">'韩雷雷'</span>, <span class="string">'孔小乙'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> student <span class="keyword">in</span> students:</span><br><span class="line">    <span class="keyword">if</span> student != <span class="string">'孔小乙'</span>:</span><br><span class="line">        print(student + <span class="string">': '</span>, <span class="string">'哈哈啊哈'</span>)</span><br></pre></td></tr></table></figure>
+<p>循环班级同学的名字，如果不是 <strong>孔小乙</strong> 就 <strong>哈哈啊哈</strong>。</p>
+<p>运行这段代码，结果如图2-1：</p>
+<p><img src="..\images\20190727\2-1.png" alt="21"></p>
+<center><br><small>图2-1</small><br></center>
+
+<p>可以看到课间就只有 <strong>孔小乙</strong> 同学仍在好好学习天天向上。</p>
+<h4 id="2-4-比较数字"><a href="#2-4-比较数字" class="headerlink" title="2.4 比较数字"></a>2.4 比较数字</h4><p>检查数值非常简单，例如，检查 <strong>李狗蛋</strong> 同学的数学成绩：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>grade = <span class="number">60</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>grade == <span class="number">60</span></span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p><strong>李狗蛋</strong> 同学的成绩刚好60分，所以返回 <code>True</code>。</p>
+<p>除此之外还能进行不相等的检查，例如判断 <strong>李狗蛋</strong> 的成绩不等于90分：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>grade = <span class="number">60</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>grade != <span class="number">90</span></span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>因为 <strong>狗蛋</strong> 的成绩确实不等于90分，所以返回的还是 <code>True</code>，非常符合逻辑。</p>
+<p>学数学的时候我们除了可以比较两个数字等于或不等，还可以判断是不是大于、小于、大于等于和小于等于。Python 肥肠贴心地给我们提供了这些判断符号。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>grade = <span class="number">60</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>grade &lt; <span class="number">60</span></span><br><span class="line"><span class="keyword">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>grade &lt;= <span class="number">60</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>grade &gt; <span class="number">60</span></span><br><span class="line"><span class="keyword">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>grade &gt;= <span class="number">60</span></span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>这些比较符的运用和我们数学上的含义是一样的。</p>
+<h4 id="2-5-检查多个条件"><a href="#2-5-检查多个条件" class="headerlink" title="2.5 检查多个条件"></a>2.5 检查多个条件</h4><p>你可能想同时检查多个条件，例如，有时候你需要在两个条件都为 <code>True</code> 时才执行相应的操作，而有时候你只要求一个条件为 <code>True</code> 时就执行相应的操作。</p>
+<p>由此引入了关键字 <code>and</code> 和 <code>or</code>。</p>
+<h5 id="2-5-1-关键字-and"><a href="#2-5-1-关键字-and" class="headerlink" title="2.5.1 关键字 and"></a>2.5.1 关键字 and</h5><p>如果你熟悉逻辑运算的概念，那么 <code>and</code> 指的是逻辑与运算。</p>
+<p>不熟悉也没有关系，以两个条件为例，我粗略地做了张表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">p</th>
+<th style="text-align:center">q</th>
+<th style="text-align:center">p and q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">True</td>
+<td style="text-align:center">True</td>
+<td style="text-align:center">True</td>
+</tr>
+<tr>
+<td style="text-align:center">True</td>
+<td style="text-align:center">False</td>
+<td style="text-align:center">False</td>
+</tr>
+<tr>
+<td style="text-align:center">False</td>
+<td style="text-align:center">True</td>
+<td style="text-align:center">False</td>
+</tr>
+<tr>
+<td style="text-align:center">False</td>
+<td style="text-align:center">False</td>
+<td style="text-align:center">False</td>
+</tr>
+</tbody>
+</table>
+<p><strong>and 关键字的特点是：只有左右两边条件都为 True 时，结果才为 True，否则都是 False。</strong></p>
+<p>例如，要检查两个同学的年龄是否都不小于 16 岁，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>age_0 = <span class="number">18</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age_1 = <span class="number">14</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age_0 &gt;= <span class="number">16</span> <span class="keyword">and</span> age_1 &gt;= <span class="number">16</span></span><br><span class="line"><span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age_1 = <span class="number">20</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age_0 &gt;= <span class="number">16</span> <span class="keyword">and</span> age_1 &gt;= <span class="number">16</span></span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>我们先定义了两个变量 <code>age_0</code> 和 <code>age_1</code> 来存储年龄。</p>
+<p><code>age_0 &gt;= 16 and age_1 &gt;= 16</code> 这种写法其实和 <code>(age_0 &gt;= 16) and (age_1 &gt;= 16)</code> 等价的。先判断 <code>age_0 &gt;= 16</code>，因为 <code>age_0</code> 的值是18，所以满足条件，返回的是<code>True</code>，然后判断<code>age_1 &gt;= 16</code>，因为<code>age_1</code> 的值是14，所以不满足条件，返回的是 <code>False</code>，最后<code>and</code> 运算符左边的是 <code>True</code>，右边的是 <code>False</code>，类似这样 <code>True and False</code>，根据<code>and</code> 关系表格可知，结果是 <code>False</code>。</p>
+<p>然后我们修改了第二个学生的年龄：<code>age_1 = 20</code>，再次进行 <code>and</code> 运算时，由于<code>age_1</code> 的值现在是20，所以满足条件，返回的也是 <code>True</code>，类似这样 <code>True and True</code>，根据 <code>and</code> 关系表格可知，结果是 <code>True</code>。</p>
+<p>因此 <code>and</code> 运算也可以总结为：<strong>只要有一个条件不满足，整个布尔表达式就为 False</strong>。</p>
+<h5 id="2-5-2-关键字-or"><a href="#2-5-2-关键字-or" class="headerlink" title="2.5.2 关键字 or"></a>2.5.2 关键字 or</h5><p>如果你熟悉逻辑运算概念，那么 <code>or</code> 指的是逻辑或运算。</p>
+<p>同样地，不熟悉也没关系，以两个条件为例，我粗略地做了张表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">p</th>
+<th style="text-align:center">q</th>
+<th style="text-align:center">p or q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">True</td>
+<td style="text-align:center">True</td>
+<td style="text-align:center">True</td>
+</tr>
+<tr>
+<td style="text-align:center">True</td>
+<td style="text-align:center">False</td>
+<td style="text-align:center">True</td>
+</tr>
+<tr>
+<td style="text-align:center">False</td>
+<td style="text-align:center">True</td>
+<td style="text-align:center">True</td>
+</tr>
+<tr>
+<td style="text-align:center">False</td>
+<td style="text-align:center">False</td>
+<td style="text-align:center">False</td>
+</tr>
+</tbody>
+</table>
+<p><strong>or 关键字的特点是：只有左右两个条件都为 False时，结果才为 False，否则都是 True</strong></p>
+<p>下面再次检查两位同学的年龄，条件是至少有一个人的年龄不小于16岁，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>age_0 = <span class="number">18</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age_1 = <span class="number">14</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age_0 &gt;= <span class="number">16</span> <span class="keyword">or</span> age_1 &gt;= <span class="number">16</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age_0 = <span class="number">15</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age_0 &gt;= <span class="number">16</span> <span class="keyword">or</span> age_1 &gt;= <span class="number">16</span></span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>我们先定义了两个变量 <code>age_0</code> 和 <code>age_1</code> 来存储年龄。</p>
+<p><code>age_0 &gt;= 16 or age_1 &gt;= 16</code> 这种写法其实和 <code>(age_0 &gt;= 16) or (age_1 &gt;= 16)</code> 等价的。先判断 <code>age_0 &gt;= 16</code>，因为 <code>age_0</code> 的值是18，所以满足条件，返回的是<code>True</code>，然后判断<code>age_1 &gt;= 16</code>，因为<code>age_1</code> 的值是14，所以不满足条件，返回的是 <code>False</code>，最后<code>and</code> 运算符左边的是 <code>True</code>，右边的是 <code>False</code>，类似这样 <code>True or False</code>，根据<code>or</code> 关系表格可知，结果是 <code>True</code>。</p>
+<p>然后我们修改了第一个学生的年龄：<code>age_0 = 15</code>，再次进行 <code>or</code> 运算时，由于<code>age_0</code> 的值现在是15，所以不满足条件，返回的也是 <code>False</code>，类似这样 <code>False or False</code>，根据 <code>or</code> 关系表格可知，结果是 <code>False</code>。</p>
+<p>因此 <code>or</code> 运算也可以总结为：<strong>只要有一个条件满足，整个布尔表达式就为 True</strong>。</p>
+<h4 id="2-6-检查特定值是否包含在列表中"><a href="#2-6-检查特定值是否包含在列表中" class="headerlink" title="2.6 检查特定值是否包含在列表中"></a>2.6 检查特定值是否包含在列表中</h4><p>有时候，执行操作前必须检查列表是否包含特定的值。</p>
+<p>要判断特定的值是否已包含在列表中，可使用关键字 <code>in</code>。</p>
+<p>下面代码，将检查 <strong>马冬梅</strong> 和 <strong>韩雷雷</strong> 是否包含在学生列表中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>students = [<span class="string">'李春梅'</span>, <span class="string">'张翠花'</span>, <span class="string">'李狗蛋'</span>, <span class="string">'韩雷雷'</span>, <span class="string">'孔小乙'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'马冬梅'</span> <span class="keyword">in</span> students</span><br><span class="line"><span class="keyword">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'韩雷雷'</span> <span class="keyword">in</span> students</span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>这个关键字很有用，可以轻松地检查列表中是否包含特定的值。</p>
+<h4 id="2-7-检查特定值是否不包含在列表中"><a href="#2-7-检查特定值是否不包含在列表中" class="headerlink" title="2.7 检查特定值是否不包含在列表中"></a>2.7 检查特定值是否不包含在列表中</h4><p>还有的时候，需要确定特定的值未包含在列表中。</p>
+<p>在这种情况下，可使用关键字 <code>not in</code>。</p>
+<p>下面代码，将检查 <strong>马冬梅</strong> 和 <strong>韩雷雷</strong> 是否不包含在学生列表中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>students = [<span class="string">'李春梅'</span>, <span class="string">'张翠花'</span>, <span class="string">'李狗蛋'</span>, <span class="string">'韩雷雷'</span>, <span class="string">'孔小乙'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'马冬梅'</span> <span class="keyword">not</span> <span class="keyword">in</span> students</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'韩雷雷'</span> <span class="keyword">not</span> <span class="keyword">in</span> students</span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，<strong>马冬梅</strong> 确实不包含在学生列表中，所以返回的是 <code>True</code>，而 <strong>韩雷雷</strong> 包含在学生列表中，我们判断条件是不包含，所以返回的是 <code>False</code>。</p>
+<p>能坚持看到这里说明你对学习 Python 具有了起码的意志力，这些符号或许刚开始会让你眼花缭乱，更甚至你连逻辑运算也没有听说过。当你有这种感觉时，听我一句，实打实地在电脑上敲下这些代码，看看运行之后的效果，有些东西，你就不知不觉地掌握了。</p>
+<h3 id="3-if-语句"><a href="#3-if-语句" class="headerlink" title="3. if 语句"></a>3. if 语句</h3><p>理解布尔表达式以后，就可以开始编写 <code>if</code> 语句了。</p>
+<p><code>if</code> 语句有很多种，选择使用哪种取决于要测试的条件数。</p>
+<h4 id="3-1-简单的-if-语句"><a href="#3-1-简单的-if-语句" class="headerlink" title="3.1 简单的 if 语句"></a>3.1 简单的 if 语句</h4><p>本来想在这小节标题上加个<del>最简单</del>，后来想想，话说太满容易被杠就划掉了。</p>
+<p><del>最</del>简单的 <code>if</code> 语句只有一个简单的布尔表达式和一个操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if conditional_test:</span><br><span class="line">    do something</span><br></pre></td></tr></table></figure>
+<p>如果<code>conditional_test</code> 的结果为<code>True</code>，Python 就会执行紧跟在 <code>if</code> 语句后面的代码；否则 Python 将忽略这些代码。</p>
+<p>假设知道了某人的年龄，需要你判断这个人是否有选举投票权：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">19</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">"你已经有资格参与选举投票啦！"</span>)</span><br></pre></td></tr></table></figure>
+<p><code>age &gt;= 18</code> 是个布尔表达式，判断 <code>age</code> 是否不小于18岁，<code>age</code> 的值是19，矮摆满足条件，因此 Python 执行缩进的 <code>print</code> 语句。</p>
+<p>运行这段代码，结果如3-1：</p>
+<p><img src="..\images\20190727\3-1.png" alt="31"></p>
+<center><br><small>图3-1</small><br></center>
+
+<p>在 <code>if</code> 语句中，缩进的作用与<code>for</code>循环中相同。如果测试通过了，将执行 <code>if</code> 语句后面所有缩进的代码，否则将忽略它们。</p>
+<p>在紧跟 <code>if</code> 语句后面的代码块中，可根据需要包含任意数量的代码行。</p>
+<p>就拿刚刚判断某人年龄达不达到选举资格的例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">19</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">"你已经有资格参与选举投票啦！"</span>)</span><br><span class="line">    print(<span class="string">"啦啦啦~你是祖国的小红花~"</span>)</span><br></pre></td></tr></table></figure>
+<p><code>if</code> 后面的布尔表达式为真，并且两条 <code>print</code> 语句都缩进了，因此他们都被执行了，效果如图3-2：</p>
+<p><img src="..\images\20190727\3-2.png" alt="32"></p>
+<center><br><small>图3-2</small><br></center>
+
+<p>如果 <code>age</code> 的值小于18，这个程序将不会有任何输出。</p>
+<h4 id="3-2-if-else-语句"><a href="#3-2-if-else-语句" class="headerlink" title="3.2 if-else 语句"></a>3.2 if-else 语句</h4><p>经常需要在布尔表达式为真时执行一系列操作，并在表达式为假时执行另一系列操作。</p>
+<p>在这种情况下，可使用 Python 提供的 <code>if-else</code> 语句。</p>
+<p><code>if-else</code> 语句块类似于简单的 <code>if</code> 语句，但其中的 <code>else</code> 语句让你能够在表达式为假时执行一些操作。</p>
+<p>假如，已知某人年龄，在其满足投票年龄时打印一些信息，若其不够投票年龄，也显示一条信息：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">17</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">"你已经有资格参与选举投票啦！"</span>)</span><br><span class="line">    print(<span class="string">"啦啦啦~你是祖国的小红花~"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"对不起，您太年轻了还不能参与投票"</span>)</span><br><span class="line">    print(<span class="string">"未满18还是一枝花~"</span>)</span><br></pre></td></tr></table></figure>
+<p>如果 <code>age &gt;= 18</code> 返回的是 <code>True</code>，就执行第一个缩进的代码块；如果返回的是 <code>False</code>，就执行 <code>else</code> 代码块。</p>
+<p>这次 <code>age</code> 的值是17，布尔表达式返回是 <code>False</code>，因此执行 <code>else</code> 代码块中的代码。</p>
+<p>结果如图3-3：</p>
+<p><img src="..\images\20190727\3-3.png" alt="33"></p>
+<center><br><small>图3-3</small><br></center>
+
+<p>上述代码之所以可行，是因为只存在两种情形：要么够投票年龄，要么不够。</p>
+<p><code>if-else</code> 非常适合用于要让 Python 执行两种操作之一的情形。</p>
+<p>因为非此即彼，总是会执行两个操作中的一个。</p>
+<p>辣么，如果存在三种及以上的选择情况咋办？下面介绍最复杂的 <code>if</code> 语句结构。</p>
+<h4 id="3-3-if-elif-else-语句"><a href="#3-3-if-elif-else-语句" class="headerlink" title="3.3 if-elif-else 语句"></a>3.3 if-elif-else 语句</h4><p>Python 只执行 <code>if-elif-else</code> 结构中的一个代码块，<strong>它依次检查每个表达式，直到遇到返回值为真的表达式，然后 Python 将执行紧跟在它后面的代码，并跳过余下的代码块</strong>。</p>
+<p>例如，来看个景点收费的标准：</p>
+<ul>
+<li><p>4岁以下免费；</p>
+</li>
+<li><p>4~18岁收费30元；</p>
+</li>
+<li><p>18岁（含）以上收费60元。</p>
+</li>
+</ul>
+<p>如果只使用一条 <code>if</code> 语句，我们貌似也可以确定景点票价：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">12</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &lt; <span class="number">4</span>:</span><br><span class="line">    print(<span class="string">"您可以免费进入景点"</span>)</span><br><span class="line"><span class="keyword">if</span> (age &gt;= <span class="number">4</span>) <span class="keyword">and</span> (age &lt; <span class="number">18</span>):</span><br><span class="line">    print(<span class="string">"您的票价是 30 元"</span>)</span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">"您的票价是 60 元"</span>)</span><br></pre></td></tr></table></figure>
+<p>我们先给 <code>age</code> 赋值为12；</p>
+<p>然后 <code>age</code> 先和4进行比较，发现不满足条件，所以不执行 <code>if age &lt; 4</code> 后面的代码块；</p>
+<p>接着 <code>age</code> 和4、18比较，发现恰好同时满足大于等于4、小于18，因此执行 <code>if (age &gt;= 4) and (age &lt; 18)</code> 后面的代码块；</p>
+<p>最后 <code>age</code> 和18进行比较，发现不满足条件，所以不执行 <code>if age &gt;= 18</code> 后面的代码块。</p>
+<p>所以，运行结果如图3-4：</p>
+<p><img src="..\images\20190727\3-4.png" alt="34"></p>
+<center><br><small>图3-4</small><br></center>
+
+<p>果然如我们分析的那样，执行了第二个 <code>if</code> 语句后面的代码块。</p>
+<p>不知道你们发现没有，像上面这种写法，<strong>不管游客年龄如何，都需要比较3次</strong>。</p>
+<p>下面我们来看看使用 <code>if-elif-else</code> 结构是如何写的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &lt; <span class="number">4</span>:</span><br><span class="line">    print(<span class="string">"您可以免费进入景点"</span>)</span><br><span class="line"><span class="keyword">elif</span> age &lt; <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">"您的票价是 30 元"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"您的票价是 60 元"</span>)</span><br></pre></td></tr></table></figure>
+<p>我们先给 <code>age</code> 赋值为2；</p>
+<p>然后 <code>age</code> 先和4进行比较，发现满足条件，所以执行了 <code>if age &lt; 4</code> 后面的代码块；</p>
+<p>最后，跳过余下的代码块。</p>
+<p>看出区别了没：<strong>采用 if-elif-else 写法就比较了1次，代码执行效率上有了很大的提升</strong>。</p>
+<p>当然也不是每次都只执行一次，就上述代码而言，一般在1~3次之间，所以效率上对比采用 <code>if</code> 语句写出的程序而言是很高的。</p>
+<p>为了让代码优雅而不失简洁，可不在 <code>if-elif-else</code> 代码块中打印出门票价格，而只在其中设置门票价格，并在它后面添加一条简单的 <code>print</code> 语句：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &lt; <span class="number">4</span>:</span><br><span class="line">    price = <span class="number">0</span></span><br><span class="line"><span class="keyword">elif</span> age &lt; <span class="number">18</span>:</span><br><span class="line">    price = <span class="number">30</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    price = <span class="number">60</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"您的门票价格是："</span> + str(price) + <span class="string">" 元"</span>)</span><br></pre></td></tr></table></figure>
+<p>在 <code>if-elif-else</code> 代码块中设置门票价格，最后在一条未缩进的 <code>print</code> 语句中根据设置的门票价格打印出一条消息。</p>
+<p>这些代码的输出和前一个示例相同，但 <code>if-elif-else</code> 结构的作用更小，它只确定门票价格，而不是在确定门票价格的同时打印一条消息。除效率更高外，这些修订后的代码还更容易修改：要调整输出消息的内容，只需要修改一条而不是三条<code>print</code> 语句。</p>
+<h4 id="3-4-使用多个-elif-代码块"><a href="#3-4-使用多个-elif-代码块" class="headerlink" title="3.4 使用多个 elif 代码块"></a>3.4 使用多个 elif 代码块</h4><p>可根据需要使用任意数量的 <code>elif</code> 代码块。</p>
+<p>例如，前述景点要给老年人打折，可再添加一个判断条件，判断游客是否符合打折条件。假设对于65岁（含）以上的老人，可以半价（即 30 元）购买门票：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">75</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &lt; <span class="number">4</span>:</span><br><span class="line">    price = <span class="number">0</span></span><br><span class="line"><span class="keyword">elif</span> age &lt; <span class="number">18</span>:</span><br><span class="line">    price = <span class="number">30</span></span><br><span class="line"><span class="keyword">elif</span> age &lt; <span class="number">65</span>:</span><br><span class="line">    price = <span class="number">60</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    price = <span class="number">30</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"您的门票价格是："</span> + str(price) + <span class="string">" 元"</span>)</span><br></pre></td></tr></table></figure>
+<p>代码大体没变。第二个 <code>elif</code> 代码块通过检查确定年龄不到65岁后，才将票价设为最高票价（60 元）。当我们将年龄设为75时，程序会进入到 <code>else</code> 代码块并执行其中的代码。</p>
+<p>结果你们也猜到了，猜不到的看图3-5：</p>
+<p><img src="..\images\20190727\3-5.png" alt="35"></p>
+<center><br><small>图3-5</small><br></center>
+
+<h4 id="3-5-省略-else-代码块"><a href="#3-5-省略-else-代码块" class="headerlink" title="3.5 省略 else 代码块"></a>3.5 省略 else 代码块</h4><p>Python 并不要求 <code>if-elif</code> 结构后面一定要有 <code>else</code> 代码块。</p>
+<p>在有些情况下，<code>else</code> 代码块很有用；而有些情况，去掉 <code>else</code> 语句意思表达的或许更清晰。</p>
+<p>继续拿景点门票举例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">75</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &lt; <span class="number">4</span>:</span><br><span class="line">    price = <span class="number">0</span></span><br><span class="line"><span class="keyword">elif</span> age &lt; <span class="number">18</span>:</span><br><span class="line">    price = <span class="number">30</span></span><br><span class="line"><span class="keyword">elif</span> age &lt; <span class="number">65</span>:</span><br><span class="line">    price = <span class="number">60</span></span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">65</span>:</span><br><span class="line">    price = <span class="number">30</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"您的门票价格是："</span> + str(price) + <span class="string">" 元"</span>)</span><br></pre></td></tr></table></figure>
+<p>最后一个 <code>elif</code> 代码块在游客年龄超过65（含）时，将价格设置为30元，这比我们使用 <code>else</code> 代码块更清晰些。</p>
+<p><code>else</code> 是一条神奇的语句，只要不满足任何 <code>if</code> 或 <code>elif</code> 中的布尔表达式，<code>else</code> 代码块中的代码就会执行。</p>
+<h3 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h3><p>关于 <code>if</code> 语句还有些需要注意点，比如，变量为 <code>None</code> 怎么判断，<code>if</code> 语句的书写格式等等。但这些展开说的话篇幅就太长了，且不是重点，所以就省略啦（主要是怕你们看睡着）。</p>
+<p>如果有谁精力旺盛想看的话，可以关注下面↓↓↓的微信公众号给我留言，或者有啥问题我们也可以相互讨论学习、共同进步。</p>
+<p>最后，祝你学有所成。</p>
+<p><img src="https://liuwynn.github.io/images/subscriber/wechat_subscriber.jpg" alt="公众号猿天罡"></p>
+<center><br><b>欢迎点赞、转发、收藏哦，我是Kelvin，我们下期再见，bye</b><br></center>
+
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wynn
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://liuwynn.github.io/2019/07/27/11-Python-if语句/" title="Python if语句">https://liuwynn.github.io/2019/07/27/11-Python-if语句/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/26/10-Python元组/" rel="next" title="Python元组">
+                <i class="fa fa-chevron-left"></i> Python元组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar/avatar1.jpg" alt="Wynn">
+            
+              <p class="site-author-name" itemprop="name">Wynn</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liuwynn" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2601659975@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053170513872/home?from=page_100505&mod=TAB#place" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/man-bu-yun-duan-65/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.isign.top" title="博悦" target="_blank">博悦</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-简单示例"><span class="nav-text">1. 简单示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-布尔表达式"><span class="nav-text">2. 布尔表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-什么是布尔表达式？"><span class="nav-text">2.1 什么是布尔表达式？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-检查是否相等"><span class="nav-text">2.2 检查是否相等</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-检查是否不相等"><span class="nav-text">2.3 检查是否不相等</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-比较数字"><span class="nav-text">2.4 比较数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-检查多个条件"><span class="nav-text">2.5 检查多个条件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-1-关键字-and"><span class="nav-text">2.5.1 关键字 and</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-2-关键字-or"><span class="nav-text">2.5.2 关键字 or</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-检查特定值是否包含在列表中"><span class="nav-text">2.6 检查特定值是否包含在列表中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-检查特定值是否不包含在列表中"><span class="nav-text">2.7 检查特定值是否不包含在列表中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-if-语句"><span class="nav-text">3. if 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-简单的-if-语句"><span class="nav-text">3.1 简单的 if 语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-if-else-语句"><span class="nav-text">3.2 if-else 语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-if-elif-else-语句"><span class="nav-text">3.3 if-elif-else 语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-使用多个-elif-代码块"><span class="nav-text">3.4 使用多个 elif 代码块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-省略-else-代码块"><span class="nav-text">3.5 省略 else 代码块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结尾语"><span class="nav-text">结尾语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wynn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">49.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Jn6I9DQIh69Mqx7SsTBBsAlC-gzGzoHsz", "sYdTo7iCqJ5jpnGkzPoQAXUY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
