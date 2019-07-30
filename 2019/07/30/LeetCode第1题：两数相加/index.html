@@ -131,12 +131,12 @@
 <meta property="og:site_name" content="Zerone">
 <meta property="og:description" content="本文首发于公众号「猿天罡」 个人网站：https://liuwynn.github.io  题目来源于 LeetCode，第一题。 1. 题目描述给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。 示例: 1234给定 nums = [2, 7">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="e:/Hexo-Blog/source/images/leetcode/20190730/两数之和.gif">
-<meta property="og:updated_time" content="2019-07-30T14:41:00.440Z">
+<meta property="og:image" content="https://liuwynn.github.io/images/leetcode/20190730/两数之和.gif">
+<meta property="og:updated_time" content="2019-07-30T14:42:59.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode第1题：两数相加">
 <meta name="twitter:description" content="本文首发于公众号「猿天罡」 个人网站：https://liuwynn.github.io  题目来源于 LeetCode，第一题。 1. 题目描述给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。 示例: 1234给定 nums = [2, 7">
-<meta name="twitter:image" content="e:/Hexo-Blog/source/images/leetcode/20190730/两数之和.gif">
+<meta name="twitter:image" content="https://liuwynn.github.io/images/leetcode/20190730/两数之和.gif">
 
 
 
@@ -354,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-30T22:41:00+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-30T22:42:59+08:00">
                 2019-07-30
               </time>
             
@@ -455,7 +455,7 @@
 <h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><p>个人精力有限，目前只有 Java 代码的算法实现，后续可能会考虑增加其他语言的实现，敬请期待哦~</p>
 <h3 id="3-1-Java-实现"><a href="#3-1-Java-实现" class="headerlink" title="3.1 Java 实现"></a>3.1 Java 实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line"></span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="comment">// 如果nums[i]在map中，则返回nums[i]对应的值和i</span></span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(nums[i])) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;map.get(nums[i]), i&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果nums[i]不在map中，则在map中插入 (target-nums[i],i)</span></span><br><span class="line">            map.put(target-nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="4-算法动画"><a href="#4-算法动画" class="headerlink" title="4. 算法动画"></a>4. 算法动画</h2><p>假设给定数组 <code>nums</code> 为 <code>[2, 7, 11, 15]</code>，目标值 <code>target</code> 等于9，依照上面给出的算法，运行过程如下图：</p>
-<p><img src="E:\Hexo-Blog\source\images\leetcode\20190730\两数之和.gif" alt="两数之和算法动图"></p>
+<p><img src="https://liuwynn.github.io/images/leetcode/20190730/两数之和.gif" alt="两数之和算法动图"></p>
 
       
     </div>
