@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://liuwynn.github.io/2019/08/06/12-Python%E5%AD%97%E5%85%B8%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2019-08-06T06:51:00.421Z</lastmod>
+  </url>  <url>
     <loc>https://liuwynn.github.io/2019/07/30/LeetCode%E7%AC%AC1%E9%A2%98%EF%BC%9A%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</loc>
-    <lastmod>2019-08-02T10:57:56.456Z</lastmod>
+    <lastmod>2019-08-02T11:00:09.384Z</lastmod>
   </url>  <url>
     <loc>https://liuwynn.github.io/2019/07/31/LeetCode%E7%AC%AC7%E9%A2%98%EF%BC%9A%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</loc>
     <lastmod>2019-08-02T10:56:47.298Z</lastmod>

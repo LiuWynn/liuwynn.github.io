@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文首发于公众号「猿天罡」，转载请注明出处，谢谢。  前言相比于列表，字典是更为灵活的一种数据结构。它能将相关信息关联起来，本文中我们一起来学习Python字典的基本用法，即如何添加、访问、修改和删除字典中的信息。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python字典的基本使用">
+<meta property="og:url" content="https://liuwynn.github.io/2019/08/06/12-Python字典的基本使用/index.html">
+<meta property="og:site_name" content="Zerone">
+<meta property="og:description" content="本文首发于公众号「猿天罡」，转载请注明出处，谢谢。  前言相比于列表，字典是更为灵活的一种数据结构。它能将相关信息关联起来，本文中我们一起来学习Python字典的基本用法，即如何添加、访问、修改和删除字典中的信息。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806/wdzdmysjzyxx.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806/re.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806/ahhhh.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806/tsdwx.jpg">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806/图2-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806/图2-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806/图2-3.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806/图2-4.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806/图2-5.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/subscriber/wechat_subscriber.png">
+<meta property="og:updated_time" content="2019-08-06T06:51:00.421Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python字典的基本使用">
+<meta name="twitter:description" content="本文首发于公众号「猿天罡」，转载请注明出处，谢谢。  前言相比于列表，字典是更为灵活的一种数据结构。它能将相关信息关联起来，本文中我们一起来学习Python字典的基本用法，即如何添加、访问、修改和删除字典中的信息。">
+<meta name="twitter:image" content="https://liuwynn.github.io/images/20190806/wdzdmysjzyxx.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuwynn.github.io/2019/08/06/12-Python字典的基本使用/">
+
+
+
+
+
+  <title>Python字典的基本使用 | Zerone</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2c0f7ab76f839fb1872880534a1ea328";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zerone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">零与壹的世界</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/08/06/12-Python字典的基本使用/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Python字典的基本使用</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-06T14:50:41+08:00">
+                2019-08-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-06T14:51:00+08:00">
+                2019-08-06
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/06/12-Python字典的基本使用/" class="leancloud_visitors" data-flag-title="Python字典的基本使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文首发于公众号「猿天罡」，转载请注明出处，谢谢。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>相比于列表，字典是更为灵活的一种数据结构。它能将相关信息关联起来，本文中我们一起来学习<strong>Python字典</strong>的基本用法，即如何添加、访问、修改和删除字典中的信息。</p>
+<a id="more"></a>
+<p><img src="https://liuwynn.github.io/images/20190806/wdzdmysjzyxx.jpg" alt=""></p>
+<h2 id="1-最简单的字典"><a href="#1-最简单的字典" class="headerlink" title="1.最简单的字典"></a>1.<del>最</del>简单的字典</h2><p>在学习Python字典之前，我们一起来看一下字典到底是个什么玩意儿，这样有助于对其建立大体的印象，把抽象的概念具体化。</p>
+<p>举个例子，假如你正在帮助学校开发学生管理系统，需要保存单个学生的详细信息（学号、姓名、性别、年龄等），你会怎么做？</p>
+<p>这种问题随着我们学习 Python 的逐步深入，解决方法也多种多样。</p>
+<p>如果是个初学者，只学了基本数据类型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="string">'123456'</span> <span class="comment"># 学号</span></span><br><span class="line"></span><br><span class="line">name = <span class="string">'kelvin'</span> <span class="comment"># 姓名</span></span><br><span class="line"></span><br><span class="line">age = <span class="number">18</span> <span class="comment"># 年龄</span></span><br><span class="line"></span><br><span class="line">gender = <span class="string">'male'</span> <span class="comment"># 性别</span></span><br></pre></td></tr></table></figure>
+<p>这样做数据是保存了，但是在实际开发中，往往需要保存多个学生的信息。</p>
+<p>初学者往往会这样解决问题：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="string">'123456'</span></span><br><span class="line"></span><br><span class="line">name1 = <span class="string">'kelvin'</span></span><br><span class="line"></span><br><span class="line">age1 = <span class="number">18</span></span><br><span class="line"></span><br><span class="line">gender1 = <span class="string">'male'</span></span><br><span class="line"></span><br><span class="line">num2 = <span class="string">'654321'</span></span><br><span class="line"></span><br><span class="line">name2 = <span class="string">'vicky'</span></span><br><span class="line"></span><br><span class="line">age2 = <span class="number">20</span></span><br><span class="line"></span><br><span class="line">gender2 = <span class="string">'female'</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>看似解决了保存多个学生的问题，但还是有些问题：</p>
+<ol>
+<li><p>没有清晰的结构，我们在逻辑上可以知道num1,name1,age1,gender1是属于学生1的信息，但是代码里却没有某种结构表示这种从属关系。</p>
+</li>
+<li><p>命名难度太大，一个学生有4个属性（学号、姓名、性别、年龄），两个学生就得写8个不重名变量，如果一个班有40个学生（不算多吧）就得写160个不重名变量。有人会觉得在变量名后面加数字的方法不错，却不利于记忆。</p>
+</li>
+</ol>
+<p>随着我们的深入的学习，知道了列表结构，觉得列表应该能解决这些问题，于是我们这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">student1 = [<span class="string">'123456'</span>, <span class="string">'kelvin'</span>, <span class="number">18</span>, <span class="string">'male'</span>]</span><br><span class="line">student2 = [<span class="string">'654321'</span>, <span class="string">'vicky'</span>, <span class="number">20</span>, <span class="string">'female'</span>]</span><br></pre></td></tr></table></figure>
+<p>这样子给人的感觉确实是整洁了不少，而且数据之间有了明显的从属关系，第一个方括号(<code>[]</code>)里面的数据都是学生1的，第二个方括号(<code>[]</code>)里的数据都是学生2的。</p>
+<p>而且命名难度大大降低，一个班如果有40个同学的话，也只需要有40个不重名变量即可。</p>
+<p><img src="https://liuwynn.github.io/images/20190806/re.jpg" alt=""></p>
+<p>列表的使用又会导致新的问题：列表内部存储数据混乱，比如我们想取学生的姓名，必须记得学生姓名的下标对应的是1，存储学生信息的时候要按顺序(学号-姓名-年龄-性别)存取，这个记忆成本就很高，一不小心就会犯错。</p>
+<p>但是今天学了 Python字典，这些问题统统不复存在：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">student1 = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>, <span class="string">'age'</span>: <span class="number">18</span>, <span class="string">'gender'</span>: <span class="string">'male'</span>&#125;</span><br><span class="line">student2 = &#123;<span class="string">'num'</span>: <span class="string">'654321'</span>, <span class="string">'name'</span>: <span class="string">'vicky'</span>, <span class="string">'age'</span>: <span class="number">20</span>, <span class="string">'gender'</span>: <span class="string">'female'</span>&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://liuwynn.github.io/images/20190806/ahhhh.jpg" alt=""></p>
+<p>虽然可能看不懂这些代码的含义，但应该可以看出来，第一个花括号(<code>{}</code>)里面的数据是从属于学生1的，第二个花括号(<code>{}</code>)里的数据是从属于学生2的。并且花括号(<code>{}</code>)内部数据结构清晰，用键值对的形式，表示出了各个数据代表的含义。</p>
+<p>比如我想取出学生1的姓名，可以这样写 <code>student1[&#39;name&#39;]</code>。</p>
+<p>相信现在大家对字典的作用有了起码的认识，下面我们来具体谈谈字典怎么使用。</p>
+<p><img src="https://liuwynn.github.io/images/20190806/tsdwx.jpg" alt=""></p>
+<h2 id="2-字典的使用"><a href="#2-字典的使用" class="headerlink" title="2.字典的使用"></a>2.字典的使用</h2><p>在Python中，字典是<strong>一系列键值对</strong>，每个键都与一个值相关联，你<strong>可以使用键来访问与之相关联的值</strong>。</p>
+<p><strong>与键相关联的的值可以是数字、字符串、列表乃至字典</strong>。事实上，你<strong>可以将任何Python对象用作字典中的值</strong>。</p>
+<p>在 Python 中，字典用放在花括号{}中的一系列键值对表示，如前面的示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">student1 = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>, <span class="string">'age'</span>: <span class="number">18</span>, <span class="string">'gender'</span>: <span class="string">'male'</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>键值对是两个相关联的值。指定键时，Python将返回与之相关联的值。<strong>键和值之间用冒号分隔，而键值对之间用逗号分隔</strong>。</p>
+<p>在字典中，只要你电脑性能足够，你想存多少键值对都可以。</p>
+<h3 id="2-1访问字典中的值"><a href="#2-1访问字典中的值" class="headerlink" title="2.1访问字典中的值"></a>2.1访问字典中的值</h3><p>访问字典中的值比较简单，如果我们有个student字典，我想访问学生的学号和姓名，可以如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">student = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>&#125;</span><br><span class="line">print(student[<span class="string">'num'</span>])</span><br><span class="line">print(student[<span class="string">'name'</span>])</span><br></pre></td></tr></table></figure>
+<p>上述代码将输出字典 student 中与<code>num</code>和<code>name</code>相关联的值。</p>
+<p>运行结果如图2-1：</p>
+<p><img src="https://liuwynn.github.io/images/20190806/图2-1.png" alt="图2-1"></p>
+<center><br><small>图2-1</small><br></center>
+
+<h3 id="2-2往字典中添加键值对"><a href="#2-2往字典中添加键值对" class="headerlink" title="2.2往字典中添加键值对"></a>2.2往字典中添加键值对</h3><p>字典是一种动态结构，可随时在其中添加键值对。</p>
+<p>要添加键值对，可依次指定字典名、用方括号[]括起来的键和相关联的值。</p>
+<h4 id="2-2-1向已有字典中添加键值对"><a href="#2-2-1向已有字典中添加键值对" class="headerlink" title="2.2.1向已有字典中添加键值对"></a>2.2.1向已有字典中添加键值对</h4><p>下面在字典student中添加两项信息：年龄和性别。如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">student = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>&#125;</span><br><span class="line">print(student)</span><br><span class="line"></span><br><span class="line">student[<span class="string">'age'</span>] = <span class="number">18</span></span><br><span class="line">student[<span class="string">'gender'</span>] = <span class="string">'male'</span></span><br><span class="line">print(student)</span><br></pre></td></tr></table></figure>
+<p>我们首先定义了前面一直在使用的字典student，然后打印了这个字典，显示其未添加键值对时的信息。</p>
+<p>然后我们在这个新字典中新增了两个键值对（<code>age</code>和<code>gender</code>）。</p>
+<p>运行结果如图2-2：</p>
+<p><img src="https://liuwynn.github.io/images/20190806/图2-2.png" alt="图2-2"></p>
+<center><br><small>图2-2</small><br></center>
+
+<p>可以看到，以age和gender为键的键值对已经添加进student字典中了。</p>
+<h4 id="2-2-2创建空字典然后添加键值对"><a href="#2-2-2创建空字典然后添加键值对" class="headerlink" title="2.2.2创建空字典然后添加键值对"></a>2.2.2创建空字典然后添加键值对</h4><p>有的时候我们需要先创建一个空字典，然后往里面添加键值对。</p>
+<p>可以先使用一对花括号{}定义一个字典，然后再添加各个键值对。</p>
+<p>我们用这种方式创建学生student字典：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">student = &#123;&#125;</span><br><span class="line"></span><br><span class="line">student[<span class="string">'num'</span>] = <span class="string">'123456'</span></span><br><span class="line">student[<span class="string">'name'</span>] = <span class="string">'kevin'</span></span><br><span class="line">print(student)</span><br></pre></td></tr></table></figure>
+<p>这里先用花括号创建了一个空字典student，然后往空字典中添加了学生学号和姓名，代码运行结果如图2-3：</p>
+<p><img src="https://liuwynn.github.io/images/20190806/图2-3.png" alt="图2-3"></p>
+<center><br><small>图2-3</small><br></center>
+
+<h3 id="2-3修改字典中的值"><a href="#2-3修改字典中的值" class="headerlink" title="2.3修改字典中的值"></a>2.3修改字典中的值</h3><p>要修改字典中的值，可依次指定字典名、用方括号[]括起来的键以及与该键相关联的新值。</p>
+<p>是不是很熟悉？没错，<strong>修改字典的语法和添加键值对的语法是一样的</strong>。</p>
+<p>区别在于，添加键值对时，键不存在于字典中，而修改值时，键存在于字典中。</p>
+<p>例如，我们修改student字典中学生的姓名：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">student = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>&#125;</span><br><span class="line">print(student)</span><br><span class="line"></span><br><span class="line">student[<span class="string">'name'</span>] = <span class="string">'vicky'</span></span><br><span class="line">print(student)</span><br></pre></td></tr></table></figure>
+<p>我们把student字典中的学生姓名从 kelvin 改为了 vicky。</p>
+<p>运行结果如图2-4：</p>
+<p><img src="https://liuwynn.github.io/images/20190806/图2-4.png" alt="图2-4"></p>
+<center><br><small>图2-4</small><br></center>
+
+<h3 id="2-4删除字典中的键值对"><a href="#2-4删除字典中的键值对" class="headerlink" title="2.4删除字典中的键值对"></a>2.4删除字典中的键值对</h3><p>对于字典中不再需要的信息，可使用<code>del</code>语句将相应的键值对彻底删除。</p>
+<p>使用<code>del</code>语句时，必须指明字典名和要删除的键。</p>
+<p>例如，我要从字典student中，删除学生的年龄：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">student = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>, <span class="string">'age'</span>: <span class="number">18</span>&#125;</span><br><span class="line">print(student)</span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> student[<span class="string">'age'</span>]</span><br><span class="line">print(student)</span><br></pre></td></tr></table></figure>
+<p>上述代码中<code>del</code>语句让 Python将键<code>age</code>从字典student中删除，同时删除与这个键相关联的值。</p>
+<p>运行结果如图2-5：</p>
+<p><img src="https://liuwynn.github.io/images/20190806/图2-5.png" alt="图2-5"></p>
+<center><br><small>图2-5</small><br></center>
+
+<p>键<code>age</code>和与其相关联的值已经从字典中删除，其余键值对未受影响。</p>
+<h2 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h2><p>好啦，Python字典的简单使用就先写到这里，学完本文，你应当学习到怎么创建、访问、存储、修改、删除字典中的键值对。</p>
+<p>学习过程中有任何疑惑，可扫描下方二维码及时与我联系。</p>
+<p>另外，文中如有不正确之处，请见谅。</p>
+<p><img src="https://liuwynn.github.io/images/subscriber/wechat_subscriber.png" alt="猿天罡"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wynn
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://liuwynn.github.io/2019/08/06/12-Python字典的基本使用/" title="Python字典的基本使用">https://liuwynn.github.io/2019/08/06/12-Python字典的基本使用/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/02/LeetCode第9题：回文数/" rel="next" title="LeetCode第9题：回文数">
+                <i class="fa fa-chevron-left"></i> LeetCode第9题：回文数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar/avatar1.jpg" alt="Wynn">
+            
+              <p class="site-author-name" itemprop="name">Wynn</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liuwynn" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2601659975@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/p/1005053170513872/home?from=page_100505&mod=TAB#place" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/man-bu-yun-duan-65/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.isign.top" title="博悦" target="_blank">博悦</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-最简单的字典"><span class="nav-text">1.最简单的字典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-字典的使用"><span class="nav-text">2.字典的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1访问字典中的值"><span class="nav-text">2.1访问字典中的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2往字典中添加键值对"><span class="nav-text">2.2往字典中添加键值对</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1向已有字典中添加键值对"><span class="nav-text">2.2.1向已有字典中添加键值对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2创建空字典然后添加键值对"><span class="nav-text">2.2.2创建空字典然后添加键值对</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3修改字典中的值"><span class="nav-text">2.3修改字典中的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4删除字典中的键值对"><span class="nav-text">2.4删除字典中的键值对</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾语"><span class="nav-text">结尾语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wynn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">54.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Jn6I9DQIh69Mqx7SsTBBsAlC-gzGzoHsz", "sYdTo7iCqJ5jpnGkzPoQAXUY");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
