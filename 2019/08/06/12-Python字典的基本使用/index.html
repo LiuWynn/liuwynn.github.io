@@ -141,7 +141,7 @@
 <meta property="og:image" content="https://liuwynn.github.io/images/20190806/图2-4.png">
 <meta property="og:image" content="https://liuwynn.github.io/images/20190806/图2-5.png">
 <meta property="og:image" content="https://liuwynn.github.io/images/subscriber/wechat_subscriber.png">
-<meta property="og:updated_time" content="2019-08-06T06:51:00.421Z">
+<meta property="og:updated_time" content="2019-08-06T06:55:46.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python字典的基本使用">
 <meta name="twitter:description" content="本文首发于公众号「猿天罡」，转载请注明出处，谢谢。  前言相比于列表，字典是更为灵活的一种数据结构。它能将相关信息关联起来，本文中我们一起来学习Python字典的基本用法，即如何添加、访问、修改和删除字典中的信息。">
@@ -363,7 +363,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-06T14:51:00+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-06T14:55:46+08:00">
                 2019-08-06
               </time>
             
@@ -449,10 +449,10 @@
 <p>举个例子，假如你正在帮助学校开发学生管理系统，需要保存单个学生的详细信息（学号、姓名、性别、年龄等），你会怎么做？</p>
 <p>这种问题随着我们学习 Python 的逐步深入，解决方法也多种多样。</p>
 <p>如果是个初学者，只学了基本数据类型：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="string">'123456'</span> <span class="comment"># 学号</span></span><br><span class="line"></span><br><span class="line">name = <span class="string">'kelvin'</span> <span class="comment"># 姓名</span></span><br><span class="line"></span><br><span class="line">age = <span class="number">18</span> <span class="comment"># 年龄</span></span><br><span class="line"></span><br><span class="line">gender = <span class="string">'male'</span> <span class="comment"># 性别</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="string">'123456'</span> <span class="comment"># 学号</span></span><br><span class="line">name = <span class="string">'kelvin'</span> <span class="comment"># 姓名</span></span><br><span class="line">age = <span class="number">18</span> <span class="comment"># 年龄</span></span><br><span class="line">gender = <span class="string">'male'</span> <span class="comment"># 性别</span></span><br></pre></td></tr></table></figure>
 <p>这样做数据是保存了，但是在实际开发中，往往需要保存多个学生的信息。</p>
 <p>初学者往往会这样解决问题：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="string">'123456'</span></span><br><span class="line"></span><br><span class="line">name1 = <span class="string">'kelvin'</span></span><br><span class="line"></span><br><span class="line">age1 = <span class="number">18</span></span><br><span class="line"></span><br><span class="line">gender1 = <span class="string">'male'</span></span><br><span class="line"></span><br><span class="line">num2 = <span class="string">'654321'</span></span><br><span class="line"></span><br><span class="line">name2 = <span class="string">'vicky'</span></span><br><span class="line"></span><br><span class="line">age2 = <span class="number">20</span></span><br><span class="line"></span><br><span class="line">gender2 = <span class="string">'female'</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="string">'123456'</span></span><br><span class="line">name1 = <span class="string">'kelvin'</span></span><br><span class="line">age1 = <span class="number">18</span></span><br><span class="line">gender1 = <span class="string">'male'</span></span><br><span class="line"></span><br><span class="line">num2 = <span class="string">'654321'</span></span><br><span class="line">name2 = <span class="string">'vicky'</span></span><br><span class="line">age2 = <span class="number">20</span></span><br><span class="line">gender2 = <span class="string">'female'</span></span><br><span class="line"></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 <p>看似解决了保存多个学生的问题，但还是有些问题：</p>
 <ol>
 <li><p>没有清晰的结构，我们在逻辑上可以知道num1,name1,age1,gender1是属于学生1的信息，但是代码里却没有某种结构表示这种从属关系。</p>
