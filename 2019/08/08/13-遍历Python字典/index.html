@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="操作系统,P、V操作,">
+  <meta name="keywords" content="python,">
 
 
 
@@ -123,18 +123,25 @@
 
 
 
-<meta name="description" content="前言也叫缓存绑定问题（bounded- buffer），是一个经典的、多进程同步问题。  生产者、消费者问题1. 问题描述​    有n个生产者和m个消费者，连接在一个有k个单位缓冲区的有界缓冲上。其中，生产者进程Producer_i和消费者进程Consumer_j都是并发进程，只要缓冲区未满，生产者Producer_i生产的产品就可投入缓冲区；只要缓冲区不空，消费者进程Consumer_j就可从">
-<meta name="keywords" content="操作系统,P、V操作">
+<meta name="description" content="前言一个Python字典短则包含一个键值对，长则可能数以百万计。所以我们不会遍历字典可不行。因为Python字典是由一系列键值对组成的，所以我们可以遍历字典的所有键值对、键或值。">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="生产者-消费者问题">
-<meta property="og:url" content="https://liuwynn.github.io/2018/11/28/生产者-消费者问题/index.html">
+<meta property="og:title" content="13.遍历Python字典">
+<meta property="og:url" content="https://liuwynn.github.io/2019/08/08/13-遍历Python字典/index.html">
 <meta property="og:site_name" content="Zerone">
-<meta property="og:description" content="前言也叫缓存绑定问题（bounded- buffer），是一个经典的、多进程同步问题。  生产者、消费者问题1. 问题描述​    有n个生产者和m个消费者，连接在一个有k个单位缓冲区的有界缓冲上。其中，生产者进程Producer_i和消费者进程Consumer_j都是并发进程，只要缓冲区未满，生产者Producer_i生产的产品就可投入缓冲区；只要缓冲区不空，消费者进程Consumer_j就可从">
+<meta property="og:description" content="前言一个Python字典短则包含一个键值对，长则可能数以百万计。所以我们不会遍历字典可不行。因为Python字典是由一系列键值对组成的，所以我们可以遍历字典的所有键值对、键或值。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-28T07:07:44.137Z">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806-2/图1-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806-2/图2-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806-2/图2-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806-2/图3-1.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/20190806-2/图3-2.png">
+<meta property="og:image" content="https://liuwynn.github.io/images/subscriber/wechat_subscriber.png">
+<meta property="og:updated_time" content="2019-08-08T08:15:48.233Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="生产者-消费者问题">
-<meta name="twitter:description" content="前言也叫缓存绑定问题（bounded- buffer），是一个经典的、多进程同步问题。  生产者、消费者问题1. 问题描述​    有n个生产者和m个消费者，连接在一个有k个单位缓冲区的有界缓冲上。其中，生产者进程Producer_i和消费者进程Consumer_j都是并发进程，只要缓冲区未满，生产者Producer_i生产的产品就可投入缓冲区；只要缓冲区不空，消费者进程Consumer_j就可从">
+<meta name="twitter:title" content="13.遍历Python字典">
+<meta name="twitter:description" content="前言一个Python字典短则包含一个键值对，长则可能数以百万计。所以我们不会遍历字典可不行。因为Python字典是由一系列键值对组成的，所以我们可以遍历字典的所有键值对、键或值。">
+<meta name="twitter:image" content="https://liuwynn.github.io/images/20190806-2/图1-1.png">
 
 
 
@@ -164,13 +171,13 @@
 
 
 
-  <link rel="canonical" href="https://liuwynn.github.io/2018/11/28/生产者-消费者问题/">
+  <link rel="canonical" href="https://liuwynn.github.io/2019/08/08/13-遍历Python字典/">
 
 
 
 
 
-  <title>生产者-消费者问题 | Zerone</title>
+  <title>13.遍历Python字典 | Zerone</title>
   
 
 
@@ -307,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2018/11/28/生产者-消费者问题/">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/08/08/13-遍历Python字典/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wynn">
@@ -324,7 +331,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">生产者-消费者问题</h2>
+          <h2 class="post-title" itemprop="name headline">13.遍历Python字典</h2>
         
 
         <div class="post-meta">
@@ -336,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T15:05:20+08:00">
-                2018-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T16:14:19+08:00">
+                2019-08-08
               </time>
             
 
@@ -352,8 +359,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-28T15:07:44+08:00">
-                2018-11-28
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-08T16:15:48+08:00">
+                2019-08-08
               </time>
             
           </span>
@@ -366,7 +373,7 @@
 
           
           
-             <span id="/2018/11/28/生产者-消费者问题/" class="leancloud_visitors" data-flag-title="生产者-消费者问题">
+             <span id="/2019/08/08/13-遍历Python字典/" class="leancloud_visitors" data-flag-title="13.遍历Python字典">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -391,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  677
+                  975
                 </span>
               
 
@@ -407,7 +414,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -428,22 +435,47 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>也叫<strong>缓存绑定问题</strong>（bounded- buffer），是一个经典的、多进程同步问题。</p>
-<hr>
-<h3 id="生产者、消费者问题"><a href="#生产者、消费者问题" class="headerlink" title="生产者、消费者问题"></a>生产者、消费者问题</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4><p>​    有n个生产者和m个消费者，连接在一个有k个单位缓冲区的有界缓冲上。其中，生产者进程Producer_i和消费者进程Consumer_j都是并发进程，只要缓冲区未满，生产者Producer_i生产的产品就可投入缓冲区；只要缓冲区不空，消费者进程Consumer_j就可从缓冲区取走并消耗产品。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个Python字典短则包含一个键值对，长则可能数以百万计。所以我们不会遍历字典可不行。因为Python字典是由一系列键值对组成的，所以我们可以遍历字典的所有键值对、键或值。</p>
 <a id="more"></a>
-<h4 id="2-可能情形"><a href="#2-可能情形" class="headerlink" title="2. 可能情形"></a>2. 可能情形</h4><ul>
-<li>n=1, m=1, k=1</li>
-<li>n=1, m=1, k&gt;1</li>
-<li>n&gt;1, m&gt;1, k&gt;1</li>
-</ul>
-<h4 id="3-问题分析"><a href="#3-问题分析" class="headerlink" title="3. 问题分析"></a>3. 问题分析</h4><p>​    生产者和消费者是同步关系，生产者先生产，消费者才能消费，一般这种情况会设置2个同步信号量，而它们之间对缓冲区的使用是互斥关系，同一时刻，仅能有一个进程能对缓冲区进行操作，所以还需要设置一个互斥信号量（仅对多生产者、多消费者情形而已）。</p>
-<h4 id="4-单生产者、单消费者、单缓冲区"><a href="#4-单生产者、单消费者、单缓冲区" class="headerlink" title="4. 单生产者、单消费者、单缓冲区"></a>4. 单生产者、单消费者、单缓冲区</h4><p><strong>P、V操作如下</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> B; <span class="comment">// 缓冲区</span></span><br><span class="line">semaphore empty = <span class="number">1</span>; <span class="comment">// 可以使用的空缓冲区数</span></span><br><span class="line">semaphore full = <span class="number">0</span>;  <span class="comment">// 缓冲区内可以使用的产品数</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">producer</span><span class="params">()</span> </span>&#123; <span class="comment">// 生产者</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        produce();</span><br><span class="line">        P(empty);</span><br><span class="line">        append() to B;</span><br><span class="line">        V(full);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">consumer</span><span class="params">()</span> </span>&#123; <span class="comment">// 消费者</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(full);</span><br><span class="line">        take() from B;</span><br><span class="line">        V(empty);</span><br><span class="line">        consume();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
-<p><strong>PS：同步信号量的P、V操作是散在不同进程里的</strong></p>
-<h4 id="5-单生产者、单消费者、多缓冲区"><a href="#5-单生产者、单消费者、多缓冲区" class="headerlink" title="5. 单生产者、单消费者、多缓冲区"></a>5. 单生产者、单消费者、多缓冲区</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> B[k]; <span class="comment">// K个缓冲区</span></span><br><span class="line">semaphore empty = k; <span class="comment">// 可以使用的空缓冲区数</span></span><br><span class="line">semaphore full = <span class="number">0</span>;  <span class="comment">// 缓冲区可使用的产品数</span></span><br><span class="line"><span class="keyword">int</span> in = <span class="number">0</span>; <span class="comment">// 放入缓冲区的指针</span></span><br><span class="line"><span class="keyword">int</span> out = <span class="number">0</span>; <span class="comment">// 取出缓冲区的指针</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">producer</span><span class="params">()</span> </span>&#123; <span class="comment">// 生产者</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        produce();</span><br><span class="line">        P(empty);</span><br><span class="line">        append() to B[in];</span><br><span class="line">        in = (in+<span class="number">1</span>) % k;</span><br><span class="line">        V(full);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">consumer</span><span class="params">()</span> </span>&#123; <span class="comment">// 消费者</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(full);</span><br><span class="line">        take() from B[out];</span><br><span class="line">        out = (out+<span class="number">1</span>) % k;</span><br><span class="line">        V(empty);</span><br><span class="line">        consume();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
-<h4 id="6-多生产者、多消费者、多缓冲区"><a href="#6-多生产者、多消费者、多缓冲区" class="headerlink" title="6. 多生产者、多消费者、多缓冲区"></a>6. 多生产者、多消费者、多缓冲区</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> B[k]; <span class="comment">// k个缓冲区</span></span><br><span class="line">semaphore empty = k; <span class="comment">// 可以使用的空缓冲区数</span></span><br><span class="line">semaphore full = <span class="number">0</span>;  <span class="comment">// 缓冲区可使用的产品数</span></span><br><span class="line"><span class="keyword">int</span> in = <span class="number">0</span>; <span class="comment">// 放入缓冲区的指针</span></span><br><span class="line"><span class="keyword">int</span> out = <span class="number">0</span>; <span class="comment">// 取出缓冲区的指针</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>; <span class="comment">// 互斥信号量，互斥使用in,out</span></span><br><span class="line"></span><br><span class="line">cobegin</span><br><span class="line"><span class="function">process <span class="title">producer_i</span><span class="params">()</span> </span>&#123; <span class="comment">// 生产者</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        produce();</span><br><span class="line">        P(empty);</span><br><span class="line">        P(mutex);  <span class="comment">// 多个生产者使用in游标要互斥</span></span><br><span class="line">     		append() to B[in];</span><br><span class="line">     		in = (in+<span class="number">1</span>) % k;</span><br><span class="line">        V(mutex);</span><br><span class="line">        V(full);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">consumer_j</span><span class="params">()</span> </span>&#123; <span class="comment">// 消费者</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        P(full);</span><br><span class="line">        P(mutex);  <span class="comment">// 多个消费者使用out游标要互斥</span></span><br><span class="line">        	take() from B[out];</span><br><span class="line">        	out = (out+<span class="number">1</span>) % k;</span><br><span class="line">        V(mutex);</span><br><span class="line">        V(empty);</span><br><span class="line">        consume();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">coend</span><br></pre></td></tr></table></figure>
-<p><strong>PS: 大体上同步，局部互斥</strong></p>
+<h2 id="1-遍历字典中所有的键值对"><a href="#1-遍历字典中所有的键值对" class="headerlink" title="1.遍历字典中所有的键值对"></a>1.遍历字典中所有的键值对</h2><p>我们还是从一个学生字典开始：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">student = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>, <span class="string">'age'</span>: <span class="number">18</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>前面文章中我们知道怎么访问student字典中任何一项的信息，但如果要想访问字典中的所有信息该怎么办呢？</p>
+<p>我们可以使用一个 <code>for</code> 循环来遍历这个字典：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">student = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>, <span class="string">'age'</span>: <span class="number">18</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> student.items():</span><br><span class="line">    print(<span class="string">"\nKey: "</span> + key)</span><br><span class="line">    print(<span class="string">"Value: "</span> + str(value)) <span class="comment"># 因为age对应的是数字类型，所以用str()方法将其转化成字符串</span></span><br></pre></td></tr></table></figure>
+<p>从代码可以看到，我们声明了两个变量 <code>key</code> 和 <code>value</code> 去存储键值对中的键和值。<strong>它们可以任意取名</strong>。</p>
+<p>你甚至可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> a, b <span class="keyword">in</span> student.items():</span><br></pre></td></tr></table></figure>
+<p>这样写是没有关系的，不过为了见名知义，我还是建议叫 <code>key</code> 和 <code>value</code>。</p>
+<p>眼尖的小伙伴可能注意到 <code>in</code> 后面跟着的不是字典本身，而是 <code>student.items()</code>，它返回的是一个键值对列表，事实上如果你 <code>print(student.items())</code>的话，输出结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dict_items([(&apos;num&apos;, &apos;123456&apos;), (&apos;name&apos;, &apos;kelvin&apos;), (&apos;age&apos;, 18)])</span><br></pre></td></tr></table></figure>
+<p>可见确实是键值对组成的元组列表。</p>
+<p>接下来，<code>for</code> 循环依次将每一个键值对元组存储到指定的两个变量中（<code>key</code>和<code>value</code>）。</p>
+<p>运行上述遍历student字典的代码：</p>
+<p><img src="https://liuwynn.github.io/images/20190806-2/图1-1.png" alt="图1-1"></p>
+<p><em>注意：遍历字典时，键值对的返回顺序可能会与存储顺序不同。事实上，这点对我们编写程序并无影响。</em></p>
+<h2 id="2-遍历字典的所有键"><a href="#2-遍历字典的所有键" class="headerlink" title="2.遍历字典的所有键"></a>2.遍历字典的所有键</h2><p>有的时候，我们可能并不关心值是多少，可以使用方法 <code>keys()</code>，<code>keys()</code> 方法会返回一个键列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">student = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>, <span class="string">'age'</span>: <span class="number">18</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> student.keys():</span><br><span class="line">    print(key)</span><br></pre></td></tr></table></figure>
+<p>上述代码会打印出字典中所有的键：</p>
+<p><img src="https://liuwynn.github.io/images/20190806-2/图2-1.png" alt="图2-1"></p>
+<p>与遍历所有键值对代码进行比较，会发现 <code>for</code> 后面仅跟着一个变量，而且 <code>in</code> 关键字后面遍历的对象是 <code>student.keys()</code>，我们试着 <code>print(student.keys())</code> 可以看到 <code>keys()</code> 方法返回的是一个<strong>键列表</strong>。</p>
+<p><img src="https://liuwynn.github.io/images/20190806-2/图2-2.png" alt="图2-2"></p>
+<p>我们甚至可以把 <code>keys()</code> 方法省略，因为遍历字典的时候，如果你在 <code>for</code> 后面仅声明一个变量，Python会默认遍历所有的键并依次将键赋值给这个变量。</p>
+<p>因此，我们代码也可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">student = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>, <span class="string">'age'</span>: <span class="number">18</span>&#125;</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> student:</span><br><span class="line"> print(key)</span><br></pre></td></tr></table></figure>
+<p>输出结果和上面是一样的。</p>
+<p>Python提供了非常灵活的语法，你可以自由地选择自己喜欢的写法。</p>
+<h2 id="3-遍历字典中的所有值"><a href="#3-遍历字典中的所有值" class="headerlink" title="3.遍历字典中的所有值"></a>3.遍历字典中的所有值</h2><p>有时候我们仅需要遍历字典中的所有值而不关心键到底是什么，可以使用方法 <code>values()</code>，<code>values()</code> 方法会返回一个值列表。</p>
+<p>如果我们想打印出学生字典中所有的值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">student = &#123;<span class="string">'num'</span>: <span class="string">'123456'</span>, <span class="string">'name'</span>: <span class="string">'kelvin'</span>, <span class="string">'age'</span>: <span class="number">18</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> student.values():</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
+<p>运行这段代码，效果如下：</p>
+<p><img src="https://liuwynn.github.io/images/20190806-2/图3-1.png" alt="图3-1"></p>
+<p>确实打印出了student字典里所有的值。</p>
+<p>能够打印出所有值的关键在于 <code>student.values()</code> 方法返回了一个值列表。</p>
+<p><img src="https://liuwynn.github.io/images/20190806-2/图3-2.png" alt="图3-2"></p>
+<p>Python遍历这个值列表并依次将值赋给 <code>value</code> 变量，然后打印输出。</p>
+<h2 id="结尾语"><a href="#结尾语" class="headerlink" title="结尾语"></a>结尾语</h2><p>本文主要讲解了Python遍历字典的三种方式，应该还是比较简单的。</p>
+<p>笔者一直力求将复杂艰涩的概念讲得浅显易懂，但因为个人能力或许考虑的并不周全。如果您对文中讲的内容有任何疑惑，欢迎私信和我交流。</p>
+<p><img src="https://liuwynn.github.io/images/subscriber/wechat_subscriber.png" alt="猿天罡"></p>
 
       
     </div>
@@ -464,7 +496,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://liuwynn.github.io/2018/11/28/生产者-消费者问题/" title="生产者-消费者问题">https://liuwynn.github.io/2018/11/28/生产者-消费者问题/</a>
+    <a href="https://liuwynn.github.io/2019/08/08/13-遍历Python字典/" title="13.遍历Python字典">https://liuwynn.github.io/2019/08/08/13-遍历Python字典/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -479,9 +511,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
-          
-            <a href="/tags/P、V操作/" rel="tag"># P、V操作</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
       
@@ -494,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/28/哲学家就餐问题/" rel="next" title="哲学家就餐问题">
-                <i class="fa fa-chevron-left"></i> 哲学家就餐问题
+              <a href="/2019/08/07/Python爬虫遇到Request-Payload怎么办？/" rel="next" title="Python爬虫遇到Request Payload怎么办？">
+                <i class="fa fa-chevron-left"></i> Python爬虫遇到Request Payload怎么办？
               </a>
             
           </div>
@@ -503,10 +533,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/28/读者-写者问题/" rel="prev" title="读者-写者问题">
-                读者-写者问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -673,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生产者、消费者问题"><span class="nav-text">生产者、消费者问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题描述"><span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-可能情形"><span class="nav-text">2. 可能情形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-问题分析"><span class="nav-text">3. 问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-单生产者、单消费者、单缓冲区"><span class="nav-text">4. 单生产者、单消费者、单缓冲区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-单生产者、单消费者、多缓冲区"><span class="nav-text">5. 单生产者、单消费者、多缓冲区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-多生产者、多消费者、多缓冲区"><span class="nav-text">6. 多生产者、多消费者、多缓冲区</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-遍历字典中所有的键值对"><span class="nav-text">1.遍历字典中所有的键值对</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-遍历字典的所有键"><span class="nav-text">2.遍历字典的所有键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-遍历字典中的所有值"><span class="nav-text">3.遍历字典中的所有值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾语"><span class="nav-text">结尾语</span></a></li></ol></div>
             
 
           </div>
