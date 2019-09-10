@@ -140,7 +140,7 @@
 <meta property="og:image" content="https://liuwynn.github.io/images/20190818/图3-1.png">
 <meta property="og:image" content="https://liuwynn.github.io/images/20190818/图3-2.png">
 <meta property="og:image" content="https://liuwynn.github.io/images/subscriber/ytg.png">
-<meta property="og:updated_time" content="2019-08-19T07:19:53.099Z">
+<meta property="og:updated_time" content="2019-08-19T07:29:13.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python如何获取用户输入">
 <meta name="twitter:description" content="文 | 天罡君   本文首发于公众号「猿天罡」，转载请注明出处，谢谢！  有时候，我们编写的程序需要从用户那儿“拿到”一些数据才能继续执行下去，比如，判断某人是否到了法定投票年龄，需要用户自己输入名字和年龄才行。">
@@ -362,7 +362,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-19T15:19:53+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-19T15:29:13+08:00">
                 2019-08-19
               </time>
             
@@ -479,7 +479,7 @@
 <p>从图中可以看到，真的转化成功了。</p>
 <p><strong>总结：</strong>str类型转int类型，使用<code>int()</code>函数，被转化的字符串必须形式上是整数但类型是str。</p>
 <p>现在万事俱备，一起来实现投票程序吧：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">name = input(<span class="string">"请输入你的姓名："</span>)</span><br><span class="line">age = input(<span class="string">"请输入你的年龄："</span>)</span><br><span class="line">age = int(age)</span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line"></span><br><span class="line">    print(name + <span class="string">"，你已达到法定投票年龄！"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(name + <span class="string">"，很遗憾，你暂时无法参与投票！"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">name = input(<span class="string">"请输入你的姓名："</span>)</span><br><span class="line">age = input(<span class="string">"请输入你的年龄："</span>)</span><br><span class="line">age = int(age)</span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(name + <span class="string">"，你已达到法定投票年龄！"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(name + <span class="string">"，很遗憾，你暂时无法参与投票！"</span>)</span><br></pre></td></tr></table></figure>
 <p>首先定义了两个变量<code>name</code>和<code>age</code>来接收用户输入的姓名和年龄。需要注意的是，这两个变量此时都是str类型。</p>
 <p>然后需要把用户输入的年龄与法定投票年龄（18）进行比较，所以要求用户输入的年龄得是整数类型，所以使用了函数<code>int()</code>。关于函数的概念之后文章会讲到，如果你没有相关概念，就将其理解成一个黑箱，不必深究，只需要知道函数<code>int()</code>经过某些处理，可以把str类型转化成int类型就行了。</p>
 <p>最后与18进行比较，大于等于18的可以投票，否则无法投票。</p>
@@ -570,6 +570,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/09/10/16-Python中while循环的基本用法/" rel="prev" title="Python中while循环的基本用法">
+                Python中while循环的基本用法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -647,7 +651,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -769,7 +773,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">60.7k</span>
+    <span title="Site words total count">63.1k</span>
   
 </div>
 

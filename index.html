@@ -306,6 +306,259 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/09/10/16-Python中while循环的基本用法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/10/16-Python中while循环的基本用法/" itemprop="url">Python中while循环的基本用法</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-10T23:07:37+08:00">
+                2019-09-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-10T23:07:37+08:00">
+                2019-09-10
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/09/10/16-Python中while循环的基本用法/" class="leancloud_visitors" data-flag-title="Python中while循环的基本用法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="https://liuwynn.github.io/images/20190829/循环.gif" alt=""></p>
+<center><br><small>文 | 天罡君<small><br></small></small></center>
+
+<p><code>while</code>和<code>for</code>都可以使程序重复执行某一段代码（又称作循环体），区别是<code>for</code>循环用于针对集合中的每一个元素都一个代码块，而<code>while</code>循环在表达式为<code>True</code>的情况下会不断地执行，直到指定条件不满足为止。</p>
+<p>今天我们一起来学习下<code>while</code>关键字的使用。</p>
+<h2 id="1-while循环简介"><a href="#1-while循环简介" class="headerlink" title="1.while循环简介"></a>1.while循环简介</h2><p>while在英语中的解释是：当……时候。</p>
+<p>在Python中的语法是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> 表达式:</span><br><span class="line">    循环体</span><br></pre></td></tr></table></figure>
+<p>意味着，当<strong>表达式为True</strong>的时候，程序会一直执行循环体代码，<strong>直至表达式为False</strong>。</p>
+<h3 id="1-1使用while循环"><a href="#1-1使用while循环" class="headerlink" title="1.1使用while循环"></a>1.1使用while循环</h3><p><del>最</del>简单的while循环当属<strong>数数</strong>了。例如，下面的<code>while</code>循环从1数到5：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> num &lt;= <span class="number">5</span>:</span><br><span class="line">    print(num)</span><br><span class="line">    num += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>首先定义了变量<code>num</code>并给其初始值1。接下来的<code>while</code>循环被设置成这样：只要<code>num</code>小于或等于5，就接着运行循环体代码。</p>
+<p>循环体中的代码打印变量<code>num</code>的值，再使用代码<code>num+=1</code>（代码num=num+1的简写）将其值加1。</p>
+<p>只要满足条件<code>num&lt;=5</code>，python就接着运行这个循环。由于1小于5，因此Python打印1，并将<code>num</code>加1，使其为2；由于2小于5，因此Python打印2，并将<code>num</code>加1，使其为3，以此类推。一旦<code>num</code>大于5，循环将停止，整个程序也将结束运行。</p>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<p>有人可能看到这会有点懵：已经有<code>for</code>循环了，为啥又搞出个<code>while</code>循环？</p>
+<p><img src="https://liuwynn.github.io/images/20190829/图1-1.jpg" alt="图1-1"></p>
+<center><br><small>注：表情包中不是python代码</small><br></center>
+
+<p>可以简单的这样理解：<code>for</code>循环主要用于那些我们知道循环次数的循环，如，遍历整个列表，我们知道循环次数就是列表中元素的个数。而<code>while</code>循环主要用于那些我们不知道具体循环多少次的循环，人们常说人生就像一个程序，写成代码的话，我们人生中发生的所有事情都在<code>while 活着:</code>循环的循环体中，我们是不知道一个人到底能活多长时间的，只能用<code>while</code>。</p>
+<p>当然，有些循环用<code>for</code>和<code>while</code>都可以实现。</p>
+<p>其实，你每天使用的程序很可能就包含着<code>while</code>循环。例如，游戏程序就在一个大的<code>while</code>循环中，在玩家退出时停止运行。用<code>while</code>循环能让程序在用户没有让它停止之前一直运行，这点是<code>for</code>循环做不到的。</p>
+<p><img src="https://liuwynn.github.io/images/20190829/fengexian.jpg" alt=""></p>
+<h3 id="1-2让用户选择何时退出"><a href="#1-2让用户选择何时退出" class="headerlink" title="1.2让用户选择何时退出"></a>1.2让用户选择何时退出</h3><p>可使用<code>while</code>循环让程序在用户愿意时不断地运行，当用户想退出时就可以随时退出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">prompt = <span class="string">"\n输入一些内容，系统将原样返回给你："</span></span><br><span class="line">prompt += <span class="string">"\n键入 'quit' 结束此程序运行。"</span></span><br><span class="line">message = <span class="string">''</span></span><br><span class="line"><span class="keyword">while</span> message != <span class="string">'quit'</span>:</span><br><span class="line">    message = input(prompt)</span><br><span class="line">    print(message)</span><br></pre></td></tr></table></figure>
+<p>我们定义了一条信息提示，告诉用户他有两个选择：要么输入一条消息，要么输入’quit’退出程序。</p>
+<p>接下来我们创建了变量<code>message</code>来接收用户输入的内容。Python执行<code>while</code>语句时，需要将<code>message</code>的值与’quit’进行比较。如果用户输入的不是’quit’，程序将打印出用户输入，否则将终止程序运行。</p>
+<p><img src="https://liuwynn.github.io/images/20190829/图1-2.png" alt="图1-2"></p>
+<p>我们向控制台输入的任何信息（除’quit’）都能得到一模一样的返回信息。</p>
+<p>当我们键入’quit’时，可以终止程序运行：</p>
+<p><img src="https://liuwynn.github.io/images/20190829/图1-3.png" alt="图1-3"></p>
+<p>输入’quit’以后确实终止了程序，但它将’quit’也打印了出来。这其实无关痛痒，然而精益求精的我们是不能忍受的，怎么能让它在输入’quit’时直接退出，输入其他信息时原样返回呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">prompt = <span class="string">"\n输入一些内容，系统将原样返回给你："</span></span><br><span class="line">prompt += <span class="string">"\n键入 'quit' 结束此程序运行。"</span></span><br><span class="line">message = <span class="string">''</span></span><br><span class="line"><span class="keyword">while</span> message != <span class="string">'quit'</span>:</span><br><span class="line">    message = input(prompt)</span><br><span class="line">    <span class="keyword">if</span> message != <span class="string">'quit'</span>:</span><br><span class="line">        print(message)</span><br></pre></td></tr></table></figure>
+<p>我们只要让程序在打印信息前做个简单的检查，仅在消息不是’quit’时才打印它：</p>
+<p><img src="https://liuwynn.github.io/images/20190829/图1-4.png" alt="图1-4"></p>
+<p>可以清楚地看到，这回输入’quit’之后程序没有返回’quit’给我们（可不是天罡君截图的时候故意没截下面噢）。</p>
+<h3 id="1-3更优雅的退出方式"><a href="#1-3更优雅的退出方式" class="headerlink" title="1.3更优雅的退出方式"></a>1.3更优雅的退出方式</h3><p>前一个示例中，我们采用判断<code>message!=&#39;quit&#39;</code>是否为True的方式来决定程序是否继续循环执行。可有时影响程序是否继续执行的条件不止一个，如用户输入’quit’或’退出’中的任意一个都可以终止程序运行。</p>
+<p>聪明的小伙伴会说那还不简单，我把判断条件换成：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">message != <span class="string">'quit'</span> <span class="keyword">or</span> message != <span class="string">'退出'</span></span><br></pre></td></tr></table></figure>
+<p>这样做到底可不可以呢？答案是可以的，但不是最好的或者说是不优雅的，我们写程序的偶尔可以追求下代码的品质嘛。</p>
+<p><img src="https://liuwynn.github.io/images/20190829/mingxue.jpg" alt="mingxue"></p>
+<p>更优雅的方式是<strong>使用标志</strong>。可能有小伙伴对这个名词感触不深，我们直接上新鲜滚烫的代码来感受一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">prompt = <span class="string">"\n输入一些内容，系统将原样返回给你："</span></span><br><span class="line">prompt += <span class="string">"\n键入 'quit' 结束此程序运行。"</span></span><br><span class="line">active = <span class="keyword">True</span></span><br><span class="line"><span class="keyword">while</span> active:</span><br><span class="line">    message = input(prompt)</span><br><span class="line">    <span class="keyword">if</span> message == <span class="string">'quit'</span>:</span><br><span class="line">        active = <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">elif</span> message == <span class="string">'退出'</span>:</span><br><span class="line">        active = <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(message)</span><br></pre></td></tr></table></figure>
+<p>我们把<code>active</code>作为标志位，并且初始值给它True，这里肯定得是True，不然程序无法进入循环，就更别提执行循环体代码了。</p>
+<p>然后使用两条<code>if</code>语句来检查变量<code>message</code>的值。如果用户输入的是’quit’，我们就把变量<code>active</code>设置成<code>False</code>，如果用户输入的是’退出’，我们也把变量<code>active</code>设置成<code>False</code>。</p>
+<p>至于为什么不把两个<code>if</code>判断条件写在一起？</p>
+<p>其一，这样就和把<code>message != &#39;quit&#39; or message != &#39;退出&#39;</code>直接写在<code>while</code>后面没啥区别了；</p>
+<p>其二，是想让小伙伴们认识到，在真实的项目中，只要有一个条件不满足，就可以直接把<code>active</code>置为<code>False</code>，程序会直接停止运行，因为不同的条件下逻辑可能会不一样，代码块自然也会不同，所以无法把两个<code>if</code>判断条件写在一起。</p>
+<p>如果用户输入的既不是’quit’又不是’退出’，则程序会将用户输入信息原样输出。</p>
+<p><img src="https://liuwynn.github.io/images/20190829/图1-5.png" alt="图1-5"></p>
+<h3 id="1-4使用break退出循环"><a href="#1-4使用break退出循环" class="headerlink" title="1.4使用break退出循环"></a>1.4使用break退出循环</h3><p>如果你要立即退出<code>while</code>循环，不在运行循环体中余下的代码，也不管<code>while</code>后面跟的表达式是真是假，可以使用<code>break</code>语句。</p>
+<p>例如，我们写个点菜程序，让用户输入TA想吃的菜。在这个程序中，我们可以在用户输入’quit’后使用break语句立即退出<code>while</code>循环：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">prompt = <span class="string">"\n请输入您想吃的菜名："</span></span><br><span class="line">prompt += <span class="string">"\n键入'quit'以退出程序。"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    food = input(prompt)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> food == <span class="string">'quit'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"我想吃"</span>, food)</span><br></pre></td></tr></table></figure>
+<p>我们将<code>True</code>作为<code>while</code>的循环判断条件，因此这程序理论上会不断运行下去（在没有<code>break</code>语句的情况下）。</p>
+<p><img src="https://liuwynn.github.io/images/20190829/图1-6.png" alt="图1-6"></p>
+<p>这个程序不断让用户输入想吃的菜名，直到用户输入’quit’，程序执行<code>break</code>语句，退出循环。</p>
+<p>需要注意，<code>break</code>语句的作用就是跳出循环（一层循环），这在<code>for</code>循环体中也是适用的哦。</p>
+<h3 id="1-5在循环体中使用continue"><a href="#1-5在循环体中使用continue" class="headerlink" title="1.5在循环体中使用continue"></a>1.5在循环体中使用continue</h3><p>continue的意思是继续。</p>
+<p>Python中使用<code>continue</code>语句跳过当前循环体中的剩余语句，然后<strong>继续</strong>进行下一轮循环。</p>
+<p><strong>注意：</strong><code>continue</code>和<code>break</code>的区别在于，前者跳出当前（本次）循环，而后者跳出整个循环。二者既可用于<code>while</code>也可用于<code>for</code>。</p>
+<p>举个栗子，我们来打印从1~10中的奇数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">current_number = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> current_number &lt; <span class="number">10</span>:</span><br><span class="line">    current_number += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> current_number % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(current_number)</span><br></pre></td></tr></table></figure>
+<p>小伙伴们肯定有别的打印奇数的方法，这里主要是想用循环和<code>continue</code>来实现。</p>
+<p><img src="https://liuwynn.github.io/images/20190829/图1-7.png" alt="图1-7"></p>
+<p>先定义变量<code>current_number</code>并赋初值0，由于它小于10，Python进入<code>while</code>循环。</p>
+<p>进入循环后，变量<code>current_number</code>在原数字上加1。</p>
+<p>接下来，<code>if</code>语句检查<code>current_number</code>与2的求模运算结果（之前文章说过，结果为0说明是偶数，不为0说明是奇数）。</p>
+<p>如果结果为0（偶数），就执行<code>continue</code>语句，<strong>Python会忽略余下的代码，并返回到循环的开头</strong>。如果结果不为0（奇数），就执行循环体中剩余的代码，Python将会把这个数字打印出来。</p>
+<h3 id="1-6无限循环"><a href="#1-6无限循环" class="headerlink" title="1.6无限循环"></a>1.6无限循环</h3><p>初学者经常会把循环语句写成无限循环。</p>
+<p>比如1~5数数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> x &lt;= <span class="number">5</span>:</span><br><span class="line">    print(x)</span><br><span class="line">    x += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>程序的循环终止条件是<code>x&lt;=5</code>，在循环体中每次<code>x+=1</code>，循环体执行5次以后必然不满足循环条件，程序肯定是会正常终止的。</p>
+<p>但我们初学者特别容易遗漏掉代码行<code>x+=1</code>，导致程序进入死循环，没完没了的运行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个循环将不会终止</span></span><br><span class="line">x = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> x &lt;= <span class="number">5</span>:</span><br><span class="line">    print(x)</span><br></pre></td></tr></table></figure>
+<p>上面代码<code>x</code>初始值是1，但根本不会变，所以<code>while</code>后面的循环条件永远成立，导致程序会一直打印1。</p>
+<p><strong>友情提示：</strong>如果你不小心写了个无限循环程序（没人可以保证自己不会犯错），可以按<code>Ctrl+C</code>，也可关闭显示程序输出的终端来终止程序。</p>
+<h2 id="2-结语"><a href="#2-结语" class="headerlink" title="2.结语"></a>2.结语</h2><p>这段时间忙着报道，没什么时间更新，请大家见谅啦。</p>
+<p>上面只是介绍了<code>while</code>的基本用法，没有涉及到对列表或字典的处理，要是大家喜欢看的话，可以扫码关注或私信给我留言，我们下期再见bye。</p>
+<p><img src="..\images\subscriber\ytg.png" alt="猿天罡"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/08/19/15-Python如何获取用户输入/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -353,7 +606,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-19T15:19:53+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-19T15:29:13+08:00">
                 2019-08-19
               </time>
             
@@ -1032,189 +1285,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuwynn.github.io/2019/08/07/Python爬虫遇到Request-Payload怎么办？/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wynn">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/07/Python爬虫遇到Request-Payload怎么办？/" itemprop="url">Python爬虫遇到Request Payload怎么办？</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T18:52:43+08:00">
-                2019-08-07
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-07T18:52:43+08:00">
-                2019-08-07
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/08/07/Python爬虫遇到Request-Payload怎么办？/" class="leancloud_visitors" data-flag-title="Python爬虫遇到Request Payload怎么办？">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  991
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近想用 Python 自动地爬取某个站点里的图片，没想到其请求数据是以<code>request payload</code>格式传输给后端进行处理的。博主还是第一次遇到这种情况，写下这篇文章记录一下解决过程。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/07/Python爬虫遇到Request-Payload怎么办？/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1262,7 +1337,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1368,7 +1443,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">60.7k</span>
+    <span title="Site words total count">63.1k</span>
   
 </div>
 
